@@ -1,0 +1,304 @@
+<title>Pattern Course Tracker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one narrow column — progress summary on top, then the 14 patterns in learning order, each a row of four mastery steps. */
+:root {
+  --bg: #f3f5f2;
+  --surface: #ffffff;
+  --ink: #18201b;
+  --muted: #5d6b62;
+  --line: #d9e0db;
+  --accent: #2f7a4f;
+  --accent-soft: #e2f0e7;
+  --warn: #a35a00;
+  --warn-soft: #fbeedb;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111613; --surface: #19201b; --ink: #e6ece8; --muted: #9aa89f; --line: #2c3730;
+    --accent: #6cc493; --accent-soft: #1f3528; --warn: #f0b062; --warn-soft: #3a2b16; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111613; --surface: #19201b; --ink: #e6ece8; --muted: #9aa89f; --line: #2c3730;
+  --accent: #6cc493; --accent-soft: #1f3528; --warn: #f0b062; --warn-soft: #3a2b16; color-scheme: dark;
+}
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 40px 64px; display: grid; gap: 28px; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(30px, 6vw, 44px); line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+.lede { color: var(--muted); margin: 8px 0 0; max-width: 62ch; }
+.summary { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) { .summary { grid-template-columns: 1fr; } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: grid; gap: 10px; min-width: 0; }
+.label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.big { font-family: var(--display); font-weight: 800; font-size: 34px; line-height: 1; font-variant-numeric: tabular-nums; }
+.big small { font-size: 16px; color: var(--muted); font-weight: 600; }
+.meter { display: grid; grid-template-columns: repeat(14, 1fr); gap: 4px; }
+.meter span { height: 10px; border-radius: 3px; background: var(--line); }
+.meter span.part { background: var(--accent-soft); outline: 1px solid var(--accent); outline-offset: -1px; }
+.meter span.full { background: var(--accent); }
+.next-name { font-family: var(--display); font-weight: 600; font-size: 20px; line-height: 1.2; }
+.review { background: var(--warn-soft); color: var(--warn); border-radius: 8px; padding: 8px 12px; font-size: 14px; }
+.rules { display: grid; gap: 6px; margin: 0; padding-left: 20px; color: var(--muted); }
+.rules strong { color: var(--ink); font-weight: 600; }
+.list { display: grid; gap: 12px; }
+.pattern { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; display: grid; gap: 12px; min-width: 0; }
+.pattern.is-next { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.head { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+.num { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.name { font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.25; flex: 1 1 260px; min-width: 0; }
+.pill { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--bg); color: var(--muted); border: 1px solid var(--line); white-space: nowrap; }
+.pill.done { background: var(--accent); color: var(--surface); border-color: var(--accent); }
+.pill.going { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+.pill.due { background: var(--warn-soft); color: var(--warn); border-color: var(--warn); }
+.spot { margin: 0; color: var(--muted); }
+.spot b { color: var(--ink); font-weight: 600; }
+.tools { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.cmd { font-family: var(--mono); font-size: 13px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; cursor: pointer; color: var(--ink); }
+.cmd:hover { border-color: var(--accent); }
+.tools a { font-size: 13px; color: var(--accent); }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 640px) { .steps { grid-template-columns: 1fr 1fr; } }
+.step { display: flex; gap: 8px; align-items: flex-start; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; cursor: pointer; font-size: 13px; line-height: 1.35; background: var(--surface); }
+.step:hover { border-color: var(--accent); }
+.step input { accent-color: var(--accent); margin: 2px 0 0; width: 16px; height: 16px; flex: none; }
+.step.checked { background: var(--accent-soft); border-color: var(--accent); }
+.step .when { display: block; color: var(--muted); font-size: 11px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.note { font-size: 13px; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { .step, .cmd { transition: border-color .15s, background .15s; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Pattern Course Tracker</h1>
+    <p class="lede">Fourteen algorithm patterns, in the order to learn them. Finish the first three steps of a pattern before moving to the next one. The fourth step is a review a week later.</p>
+  </header>
+
+  <section class="summary" aria-label="Progress summary">
+    <div class="panel">
+      <span class="label">Mastered</span>
+      <div class="big" id="masteredCount">0 <small>of 14</small></div>
+      <div class="meter" id="meter" aria-hidden="true"></div>
+      <span class="note" id="saveNote">Loading your progress…</span>
+    </div>
+    <div class="panel">
+      <span class="label">Work on next</span>
+      <div class="next-name" id="nextName">Pattern 01: Dict lookup</div>
+      <button class="cmd" id="nextCmd" type="button" title="Copy command">python practice.py 1</button>
+      <div id="reviewBox"></div>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="How to use">
+    <span class="label">The four steps for every pattern</span>
+    <ol class="rules">
+      <li><strong>Read the lesson.</strong> Open <code>lesson.md</code> in the pattern's folder and type in the worked example.</li>
+      <li><strong>All tests pass.</strong> Solve problems 2 and 3 in <code>practice.py</code> until the command shows every test passing.</li>
+      <li><strong>Rewrite from memory the next day.</strong> Run <code>python practice.py N --reset</code> to blank your answers, then write them again without looking.</li>
+      <li><strong>Rewrite again a week later.</strong> If you can still do it, you own the pattern.</li>
+    </ol>
+    <p class="note">Watch a pattern's video before its lesson. Each problem has its own video in the pattern's <code>videos.md</code>: have a real go for 20 to 30 minutes first, then watch it. New to practising like this? Start with <a href="https://www.youtube.com/watch?v=aHZW7TuY_yo" target="_blank" rel="noopener">How I would learn Leetcode if I could start over</a> (NeetCode).</p>
+  </section>
+
+  <section class="list" id="list" aria-label="Patterns"></section>
+</div>
+
+<script>
+const PATTERNS = [
+  ["01", "Dict lookup", "you need to match items between two lists, or the code has a loop inside a loop searching for something.", [["Video: Introduction to Hash Tables and Dictionaries", "https://www.youtube.com/watch?v=sfWyugl4JWA"]]],
+  ["02", "Counting with a dict", "the question asks how many times, the most common, the top k, or whether anything appears twice.", [["Video: Valid Anagram - Leetcode 242 - Python", "https://www.youtube.com/watch?v=9UtInBqnCgA"]]],
+  ["03", "Two pointers", "the list is sorted and you need a pair, or you compare from both ends at once.", [["Video: Two Pointers Was Hard Until I Learned These Patterns", "https://www.youtube.com/watch?v=rQhNcycbf8w"]]],
+  ["04", "Sliding window", "you want the best or longest run of things next to each other: days in a row, minutes in a row.", [["Video: Introduction to Sliding Window and 2 Pointers", "https://www.youtube.com/watch?v=9kdHxplyl5I"]]],
+  ["05", "Sort, then walk through once", "there are start and end times that overlap, and you need how many at once or which ones clash.", [["Video: Merge Interval Algorithm In 4 Minutes", "https://www.youtube.com/watch?v=hG9QDwiE28w"]]],
+  ["06", "Stack", "brackets, undo, the most recent item first, or the next bigger value for each item.", [["Video: Stacks in 3 minutes", "https://www.youtube.com/watch?v=KcT3aVgrrpU"]]],
+  ["07", "Binary search", "the data is sorted and you need a position fast, or the smallest number that makes something work.", [["Video: Binary search in 4 minutes", "https://www.youtube.com/watch?v=fDKIpRe8GW4"]]],
+  ["08", "Heap", "you keep needing the next smallest or soonest item, again and again, or the top k.", [["Video: Heaps in 3 minutes — Intro", "https://www.youtube.com/watch?v=0wPlzMU-k00"], ["Video: Heaps & Priority Queues - Heapify, Heap Sort, Heapq Library", "https://www.youtube.com/watch?v=E2v9hBgG6gE"]]],
+  ["09", "BFS", "fewest steps on a map or network where every step costs the same.", [["Video: Breadth-first search in 4 minutes", "https://www.youtube.com/watch?v=HZ5YTanv5QE"]]],
+  ["10", "DFS and recursion", "you need to explore everything connected, walk nested data, or count every possible path.", [["Video: Learn RECURSION in 5 minutes!", "https://www.youtube.com/watch?v=ivl5-snqul8"], ["Video: Depth-first search in 4 minutes", "https://www.youtube.com/watch?v=Urx87-NMm6c"]]],
+  ["11", "Try every option", "the input is small and you need every order or combination, or to visit each place once.", [["Video: Introduction to Backtracking - Brute Force Approach", "https://www.youtube.com/watch?v=DKCbsiDBN6c"]]],
+  ["12", "Fastest route (Dijkstra)", "shortest time on a map where each road takes a different number of minutes.", [["Video: Dijkstra's algorithm in 3 minutes", "https://www.youtube.com/watch?v=_lHSawdgXpI"], ["Video: Dijkstra's Algorithm - Computerphile", "https://www.youtube.com/watch?v=GazC3A4OQTE"]]],
+  ["13", "Order things that depend on each other", "there are prerequisites or dependencies and you need an order, or to know if it's impossible.", [["Video: Topological Sort", "https://www.youtube.com/watch?v=cIBFEhD77b4"]]],
+  ["14", "Dynamic programming", "the question asks for the fewest, the most, or the number of ways, and the answer builds on smaller amounts.", [["Video: Dynamic Programming 1D - Full Course - Python", "https://www.youtube.com/watch?v=_i4Yxeh5ceQ"]]],
+];
+const STEPS = [
+  ["lesson", "Read the lesson"],
+  ["solved", "All tests pass"],
+  ["day", "Rewrote next day"],
+  ["week", "Rewrote a week later"],
+];
+const WEEK = 7 * 24 * 60 * 60 * 1000;
+const LOCAL_KEY = "pattern-course-progress";
+
+let progress = {};          // { "01": { lesson: 1730..., solved: ..., day: ..., week: ... }, ... }
+let docRef = null;          // db document when available
+let writing = Promise.resolve();
+
+function stepDone(p, key) { return !!(progress[p] && progress[p][key]); }
+function coreDone(p) { return stepDone(p, "lesson") && stepDone(p, "solved") && stepDone(p, "day"); }
+function mastered(p) { return coreDone(p) && stepDone(p, "week"); }
+function reviewDue(p) {
+  return coreDone(p) && !stepDone(p, "week") && Date.now() - progress[p].day >= WEEK;
+}
+function started(p) { return STEPS.some(([k]) => stepDone(p, k)); }
+function shortDate(ts) {
+  return new Date(ts).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+}
+
+function copy(text, el) {
+  const done = () => { const old = el.textContent; el.textContent = "Copied"; setTimeout(() => el.textContent = old, 1200); };
+  try {
+    navigator.clipboard.writeText(text).then(done, () => selectText(el));
+  } catch (e) { selectText(el); }
+}
+function selectText(el) {
+  const r = document.createRange(); r.selectNodeContents(el);
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+}
+
+function render() {
+  const nextIndex = PATTERNS.findIndex(([n]) => !coreDone(n));
+  const masteredCount = PATTERNS.filter(([n]) => mastered(n)).length;
+
+  document.getElementById("masteredCount").innerHTML = "";
+  document.getElementById("masteredCount").append(String(masteredCount), Object.assign(document.createElement("small"), { textContent: " of 14" }));
+
+  const meter = document.getElementById("meter");
+  meter.replaceChildren(...PATTERNS.map(([n]) => {
+    const s = document.createElement("span");
+    if (mastered(n)) s.className = "full"; else if (started(n)) s.className = "part";
+    return s;
+  }));
+
+  const nextName = document.getElementById("nextName");
+  const nextCmd = document.getElementById("nextCmd");
+  if (nextIndex === -1) {
+    nextName.textContent = "All 14 patterns learned. Keep up the weekly rewrites.";
+    nextCmd.hidden = true;
+  } else {
+    const [n, name] = PATTERNS[nextIndex];
+    nextName.textContent = `Pattern ${n}: ${name}`;
+    nextCmd.hidden = false;
+    nextCmd.textContent = `python practice.py ${Number(n)}`;
+  }
+
+  const due = PATTERNS.filter(([n]) => reviewDue(n));
+  const reviewBox = document.getElementById("reviewBox");
+  reviewBox.replaceChildren();
+  if (due.length) {
+    const d = document.createElement("div");
+    d.className = "review";
+    d.textContent = "Review due: " + due.map(([n, name]) => `${n} ${name}`).join(", ") + ". Rewrite it from memory, then tick the last step.";
+    reviewBox.append(d);
+  }
+
+  const list = document.getElementById("list");
+  list.replaceChildren(...PATTERNS.map(([n, name, spot, videos], i) => {
+    const card = document.createElement("article");
+    card.className = "pattern" + (i === nextIndex ? " is-next" : "");
+
+    const head = document.createElement("div"); head.className = "head";
+    const num = Object.assign(document.createElement("span"), { className: "num", textContent: n });
+    const title = Object.assign(document.createElement("span"), { className: "name", textContent: name });
+    const pill = document.createElement("span");
+    if (mastered(n)) { pill.className = "pill done"; pill.textContent = "Mastered"; }
+    else if (reviewDue(n)) { pill.className = "pill due"; pill.textContent = "Review due"; }
+    else if (coreDone(n)) { pill.className = "pill going"; pill.textContent = `Review from ${shortDate(progress[n].day + WEEK)}`; }
+    else if (started(n)) { pill.className = "pill going"; pill.textContent = "In progress"; }
+    else { pill.className = "pill"; pill.textContent = "Not started"; }
+    head.append(num, title, pill);
+
+    const p = document.createElement("p"); p.className = "spot";
+    p.append(Object.assign(document.createElement("b"), { textContent: "Use it when " }), spot);
+
+    const tools = document.createElement("div"); tools.className = "tools";
+    const cmd = Object.assign(document.createElement("button"), { className: "cmd", type: "button", textContent: `python practice.py ${Number(n)}`, title: "Copy command" });
+    cmd.addEventListener("click", () => copy(cmd.textContent, cmd));
+    tools.append(cmd);
+    (videos || []).forEach(([label, href]) => {
+      tools.append(Object.assign(document.createElement("a"), { href, textContent: label, target: "_blank", rel: "noopener" }));
+    });
+
+    const steps = document.createElement("div"); steps.className = "steps";
+    STEPS.forEach(([key, label]) => {
+      const id = `s-${n}-${key}`;
+      const lab = document.createElement("label");
+      lab.className = "step" + (stepDone(n, key) ? " checked" : "");
+      lab.htmlFor = id;
+      const box = Object.assign(document.createElement("input"), { type: "checkbox", id, checked: stepDone(n, key) });
+      box.addEventListener("change", () => toggle(n, key, box.checked));
+      const text = document.createElement("span");
+      text.append(label);
+      if (stepDone(n, key)) text.append(Object.assign(document.createElement("span"), { className: "when", textContent: shortDate(progress[n][key]) }));
+      lab.append(box, text);
+      steps.append(lab);
+    });
+
+    card.append(head, p, tools, steps);
+    return card;
+  }));
+}
+
+function toggle(n, key, on) {
+  const next = structuredClone(progress);
+  next[n] = next[n] || {};
+  if (on) next[n][key] = Date.now(); else delete next[n][key];
+  progress = next;
+  render();
+  save();
+}
+
+function save() {
+  const snapshot = progress;
+  if (docRef) {
+    writing = writing.then(() => docRef.set({ patterns: snapshot })).catch(() => {
+      document.getElementById("saveNote").textContent = "Couldn't save that change. Check your connection and tick it again.";
+    });
+  } else {
+    try { localStorage.setItem(LOCAL_KEY, JSON.stringify(snapshot)); } catch (e) {}
+  }
+}
+
+function useLocal(message) {
+  try { progress = JSON.parse(localStorage.getItem(LOCAL_KEY) || "{}") || {}; } catch (e) { progress = {}; }
+  document.getElementById("saveNote").textContent = message;
+  render();
+}
+
+document.getElementById("nextCmd").addEventListener("click", (e) => copy(e.currentTarget.textContent, e.currentTarget));
+render();
+
+(async () => {
+  const [db, user] = await Promise.all([
+    window.claude ? claude.use("db") : null,
+    window.claude ? claude.use("user") : null,
+  ]);
+  const uid = user ? await user.id() : null;
+  if (!db || !uid) {
+    useLocal("Progress is saved in this browser only.");
+    return;
+  }
+  docRef = db.doc("data/users/" + uid + "/progress");
+  const timer = setTimeout(() => {
+    document.getElementById("saveNote").textContent = "Can't reach your saved progress yet. Ticks will save once it connects.";
+  }, 10000);
+  docRef.onSnapshot((snap) => {
+    if (!snap.metadata.fromCache) clearTimeout(timer);
+    progress = (snap.exists && snap.data().patterns) ? snap.data().patterns : {};
+    document.getElementById("saveNote").textContent = "Progress saves to your account automatically.";
+    render();
+  }, () => {
+    clearTimeout(timer);
+    docRef = null;
+    useLocal("Couldn't load saved progress, so this browser is keeping it for now.");
+  });
+})();
+</script>
