@@ -3,16 +3,29 @@
 **Watch first:** [Binary search in 4 minutes](https://www.youtube.com/watch?v=fDKIpRe8GW4) (Michael Sambol). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-When a list is already sorted, check the middle item, throw away the half that can't contain the answer, and repeat until one item is left.
+## What it does
+Binary search finds something in a sorted list much faster than reading the list from the start. It looks at the middle item first, and because the list is in order, that one check tells it which half the answer must be in, so it throws the other half away and repeats on what's left until it finds the item or runs out of list.
 
-## How to spot it
-- The list is **sorted**, and you need to find something in it
-- "Find the **first** one that is at least / after ..."
-- "What's the **smallest** (or largest) value that still works?", where checking one value is easy, but there are many values to try
-- The list is huge and the question hints that going through every item is too slow
+It works on anything that's sorted, like order numbers, dates, prices or words in a dictionary, and it can also find the smallest value that makes something work, as long as you can check any single value easily. Because every check halves what's left, a list of a million items needs only about 20 checks. This is called O(log n), which means the work grows very slowly as the list gets bigger.
 
-Each check halves what's left. A list of 1,000,000 items needs about 20 checks, instead of up to 1,000,000. This is O(log n): the work grows very slowly as the list gets bigger.
+## A quick example
+For example, finding 60 in this sorted list of 15 numbers takes four looks instead of eleven:
+
+`[3, 8, 12, 19, 25, 31, 36, 42, 47, 55, 60, 68, 73, 81, 90]`
+
+| Look | Positions still possible | Middle item | Compared with 60 |
+|---|---|---|---|
+| 1 | 0 to 14 | 42 (position 7) | smaller, so the answer is to the right |
+| 2 | 8 to 14 | 68 (position 11) | bigger, so the answer is to the left |
+| 3 | 8 to 10 | 55 (position 9) | smaller, so the answer is to the right |
+| 4 | 10 to 10 | 60 (position 10) | found it |
+
+## When to use it
+Use binary search when the data is sorted, or when you're hunting for a number and can easily check whether any single guess works, for example:
+- the list is **sorted** and you need to find something in it
+- "find the **first** one that is at least / after ..."
+- "what's the **smallest** (or largest) value that still works?"
+- the list is huge and going through every item would be too slow
 
 ---
 
@@ -104,7 +117,7 @@ while low <= high:
 return -1
 ```
 
-**A second form: "search on the answer".** Sometimes there's no list. The question is "what's the smallest value that works?", for example the slowest speed that still finishes on time. If you can write a function `works(value)` that answers True or False, and every value above a working one also works, you can binary search the **values** instead of a list. Problem 3 is this kind.
+**A second form: "search on the answer".** Sometimes there's no list at all, and the question is "what's the smallest value that works?", like the slowest speed that still finishes on time. As long as you can write a function `works(value)` that answers True or False, and every value above a working one also works, you can binary search the **values** themselves instead of a list. Problem 3 is this kind.
 
 ---
 

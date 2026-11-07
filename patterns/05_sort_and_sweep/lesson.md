@@ -3,17 +3,26 @@
 **Watch first:** [Merge Interval Algorithm In 4 Minutes](https://www.youtube.com/watch?v=hG9QDwiE28w) (Kantan Coding). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-Put the items in order first, then go through them a single time, keeping a running count or a "current" value as you go.
+## What it does
+Sort and sweep handles questions about things that take up a stretch of time or a range, like bookings, work shifts, meetings or train journeys. You put everything in order first, then walk through the list once, keeping a running count or a note of the current item as you go.
 
-## How to spot it
-Look for questions about **times, ranges or things that overlap**:
+Sorting is what makes this work, because once everything is in time order, each item only needs to be compared with what came just before it, instead of with every other item in the list.
+
+## A quick example
+For example, a café has three table bookings: 9:00–10:00, 9:30–11:00 and 10:30–12:00. Once they're sorted by start time, you can spot every clash by comparing each booking with the one before it.
+
+| Booking | Compared with the one before | Clash? |
+|---|---|---|
+| 9:00–10:00 | it's the first one, nothing to compare | no |
+| 9:30–11:00 | starts at 9:30, before the last one ends at 10:00 | yes |
+| 10:30–12:00 | starts at 10:30, before the last one ends at 11:00 | yes |
+
+## When to use it
+Reach for this pattern when a question gives you a list of start and end times and asks how they overlap, for example:
 - "How many are happening **at the same time**?"
 - "**Merge** the overlapping shifts / bookings / slots"
 - "Can one person do **all of them** without a clash?"
-- The data is a list of `(start, end)` pairs.
-
-When the items are in time order, each one only needs to be compared with what came just before it. That's why sorting first makes the rest easy.
+- the data is a list of `(start, end)` pairs
 
 ---
 
@@ -113,7 +122,7 @@ Returns **3**.
 ### What to say in the interview
 "The number of ovens is the most pizzas baking at once. The simple way checks every pizza against every other, which is O(n²). Instead I turn each bake into two events, +1 going in and −1 coming out, sort them by time with 'out' before 'in' at the same minute, and keep a running count. The answer is the highest count. Sorting is the slowest step, so it's O(n log n)."
 
-O(n log n) means a little more than the number of items, because of the sort. It's far quicker than O(n²) for big lists.
+O(n log n) is the cost of sorting: a little more work than going through the list once, but far quicker than O(n²) once the list gets big.
 
 ---
 

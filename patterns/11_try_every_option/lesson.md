@@ -3,20 +3,29 @@
 **Watch first:** [Introduction to Backtracking - Brute Force Approach](https://www.youtube.com/watch?v=DKCbsiDBN6c) (Abdul Bari). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-When the input is small, list every possible order or group, check each one, and keep the best.
+## What it does
+Trying every option means listing every possible answer, checking each one, and keeping the best, instead of looking for a clever shortcut. It works for any question where the answer is an order or a group picked from a small set of things, like the order to visit a few places, which toppings to pick, or which orders to put together so they add up to an exact amount.
 
-This is often called **brute force**: you don't need a clever idea, just a reliable way to go through every option.
+People often call this **brute force**. It's reliable because it can't miss the best answer, but the number of options grows very quickly as the list gets longer, so it's only practical when there are just a handful of items.
 
-## How to spot it
-| In the question | Example |
-|---|---|
-| "Visit every place exactly once" or "in what order" | the best order to drop off pizzas |
-| "Every way to choose" or "all combinations" | every way to pick 2 toppings out of 4 |
-| "Find a group that adds up to exactly ..." | which orders exactly fill the van |
-| The input is small, and the question even says brute force is fine | "a handful of deliveries" |
+## A quick example
+As an example, say a customer can pick any 2 toppings from ham (£1.20), mushroom (£0.80) and olive (£0.60), and you want the cheapest pair. There are only three possible pairs, so you can simply list them all and keep the cheapest:
 
-**The catch:** the number of options grows very fast. It's fine for a handful of items and far too slow for hundreds. Always say this in the interview.
+| Pair | Total | Cheapest so far |
+|---|---|---|
+| ham + mushroom | £2.00 | £2.00 |
+| ham + olive | £1.80 | £1.80 |
+| mushroom + olive | £1.40 | **£1.40** |
+
+## When to use it
+Reach for it when the question wants the best order or the best group, and the input is small enough that checking everything is realistic. These are the signs to look for:
+
+- **visit every place exactly once**, or **in what order**
+- **every way to choose**, or **all combinations**
+- **find a group that adds up to exactly** some amount
+- a small input, sometimes with the question even saying brute force is fine
+
+The catch is how fast the number of options grows, which makes it fine for a handful of items and far too slow for hundreds, so always mention this in the interview:
 
 | Items | Orders to try (permutations) | Groups to try (any size) |
 |---|---|---|

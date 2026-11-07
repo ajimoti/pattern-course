@@ -3,8 +3,10 @@
 **Watch first:** [Dijkstra's algorithm in 3 minutes](https://www.youtube.com/watch?v=_lHSawdgXpI) (Michael Sambol). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-Find the quickest way from one place to another when every road takes a different number of minutes.
+## What it does
+Dijkstra's algorithm finds the quickest or cheapest way from a starting point to somewhere else, when each connection costs a different amount. It works on anything made of connected places where moving between them has its own cost, like roads that take different numbers of minutes, flights with different prices, or network links with different delays.
+
+It keeps a note of the best cost it has found so far to each place, and always carries on from the place it can reach most cheaply. Because it always deals with the cheapest place first, no cheaper way to a place can turn up after it has finished with it. So as soon as it finishes with the place you're after, you have your answer.
 
 ## Before you start
 This pattern joins two things you've already done:
@@ -14,7 +16,7 @@ This pattern joins two things you've already done:
 | BFS | 09 | Spread out from the start one step at a time, using a queue. Every move cost 1 minute. |
 | Heap | 08 | Always hand you the smallest number in a list. |
 
-**Dijkstra is BFS where the roads take different times.** Because one road might take 1 minute and another 8, you can't just go "one step at a time" any more. Instead, you always carry on from **the place you can reach soonest**, and the heap gives you that place. So the queue from BFS becomes a heap.
+**Dijkstra is BFS for connections that cost different amounts.** When one road takes 1 minute and another takes 8, going "one step at a time" no longer finds the fastest route, so instead you always carry on from **the place you can reach soonest**. The heap hands you that place, which is why the queue from BFS becomes a heap here.
 
 The name is pronounced "DIKE-stra". It's named after the person who came up with it.
 
@@ -22,10 +24,23 @@ If you'd like to see it drawn out before reading on, these two videos show it on
 - Dijkstra's algorithm in 3 minutes: https://www.youtube.com/watch?v=_lHSawdgXpI
 - Dijkstra's Algorithm, Computerphile (slower, drawn by hand): https://www.youtube.com/watch?v=GazC3A4OQTE
 
-## How to spot it
-- The question asks for the **fastest**, **cheapest** or **shortest** way between places.
-- Each connection has its **own cost** (minutes, miles, pounds).
-- If every connection costs the same, use BFS (pattern 09) instead. It's simpler.
+## A quick example
+For example, say you're booking flights from London to Rome, and these are the prices:
+
+| Flight | Price |
+|---|---|
+| London → Rome | £200 |
+| London → Paris | £50 |
+| Paris → Rome | £60 |
+
+Flying straight there costs £200, but going through Paris costs £50 + £60 = **£110**. Dijkstra finds the £110 route without listing every possible route, which matters once there are thousands of them.
+
+## When to use it
+Use it when you need the quickest, cheapest or shortest way between places and each connection has its own cost.
+- The question asks for the **fastest**, **cheapest**, **shortest time** or **lowest cost** between places.
+- Each road, flight or link has its **own number** (minutes, miles, pounds).
+- No connection has a cost below zero. Dijkstra doesn't work if one does.
+- If every connection costs the same, BFS (pattern 09) is simpler and does the same job.
 
 ---
 
@@ -78,7 +93,7 @@ Keep a note of **the quickest time you've found so far to each place**. Then rep
 
 Stop when the place you pick is C.
 
-**Why you can stop there:** you always pick the soonest place next. So by the time you pick C, every place still waiting is at least as far away as C. No quicker way to C can turn up later.
+**Why you can stop there:** because you always pick the soonest place next, by the time you pick C every place still waiting is at least as far away as C, so no quicker way to C can turn up later.
 
 ### First, list the roads out of each place
 The `roads` list is hard to search, so first turn it into a dict: place → the roads leaving it. Each road is added twice, once in each direction, because roads go both ways.

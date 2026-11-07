@@ -3,15 +3,25 @@
 **Watch first:** [Two Pointers Was Hard Until I Learned These Patterns](https://www.youtube.com/watch?v=rQhNcycbf8w) (AlgoMonster). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-Keep two positions in a list (often one at the start and one at the end) and move them towards each other step by step, so you only go through the list once instead of comparing every pair.
+## What it does
+Two pointers finds pairs or compares items in a list by keeping track of two positions at once, instead of checking every item against every other item. It works on sorted lists of numbers, on words and codes you want to compare from both ends, and on two sorted lists you want to combine, because in each case you can tell which position to move next just by looking at the two items you're on.
 
-## How to spot it
-- The list is **sorted** (or you're allowed to sort it), and the question asks about **pairs**: "two items that add up to", "closest pair".
-- The question compares the **start and end** of something: "reads the same backwards".
-- The question gives you **two sorted lists** and asks you to combine or compare them.
+Usually one position starts at the beginning and the other at the end, and you move them towards each other one step at a time until they meet, so you only go through the list once. A "pointer" here just means a variable holding a position in the list, like `left = 0`.
 
-A "pointer" here just means a variable holding a position in the list, like `left = 0`. Nothing more.
+## A quick example
+As an example, to check whether the code `"abcba"` reads the same backwards, you compare the first and last letters, then move both one step inwards:
+
+| Left letter | Right letter | Same? |
+|---|---|---|
+| a | a | Yes |
+| b | b | Yes |
+| c (they've met) | | done: it reads the same backwards |
+
+## When to use it
+Use two pointers when the question is about pairs in a sorted list, about comparing the two ends of something, or about walking through two sorted lists together. Look out for:
+- a **sorted** list (or one you're allowed to sort) and a question about **pairs**: "two items that add up to", "closest pair"
+- comparing the **start and end** of something: "reads the same backwards"
+- **two sorted lists** you have to combine or compare
 
 ---
 
@@ -45,7 +55,7 @@ Start with two prices: the cheapest (4, the first in the list) and the most expe
 | 6 | 11 | 17 | too small | move left: 6 → 9 |
 | 9 | 11 | 20 | exact | **answer: (9, 11)** |
 
-Why you never miss the answer: when 4 + 15 = 19 is too small, 4 plus anything else is even smaller, since 15 is the biggest price. So 4 can't be part of any pair, and it's safe to move past it. Each move rules out one price for good.
+You never miss the answer this way. When 4 + 15 = 19 is too small, 4 plus any other price would be even smaller, because 15 is the biggest price, so 4 can't be part of any pair and it's safe to move past it. Each move rules out one price for good.
 
 ### The code
 ```python
@@ -82,7 +92,7 @@ def two_prices(prices, budget):
 | 1 | 6 | 3 | 11 | 17 | less than 20: `left` becomes 2 |
 | 2 | 9 | 3 | 11 | 20 | equal: return `(9, 11)` |
 
-Four steps. Checking every pair of five prices would take ten.
+That took four steps, while checking every pair of five prices would take ten.
 
 ### What to say in the interview
 "The prices are sorted, so I start with the cheapest and the most expensive. If the total is too small, I move up from the cheap end. If it's too big, I move down from the expensive end. Each step rules one price out, so it's a single pass through the list, instead of checking every pair."
@@ -105,7 +115,7 @@ while i < len(a) and j < len(b):
     # take the smaller of a[i] and b[j], and move that pointer on
 # then add whatever is left over in a or b
 ```
-Speed: each step moves at least one pointer, so the work grows in step with the length of the list.
+Each step moves at least one pointer, so the work grows in step with the length of the list rather than with the number of pairs.
 
 ## Common mistakes
 1. **Using it on an unsorted list.** The "too small, so move left" reasoning only works if the list is sorted.

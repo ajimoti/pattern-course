@@ -3,13 +3,28 @@
 **Watch first:** [Valid Anagram - Leetcode 242 - Python](https://www.youtube.com/watch?v=9UtInBqnCgA) (NeetCode). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-Go through the list once and keep a dict of how many times you've seen each thing, then answer the question from those counts.
+## What it does
+Counting with a dict answers questions about how often things appear in a list. It works on any list where things repeat, like words in a sentence, items in shopping baskets, votes in a poll, or orders in a day, because you go through the list once and keep a running tally for each thing in a dict.
 
-## How to spot it
-- The question asks "how many", "most", "least", "top 3", "only once", "more than twice".
-- The question asks you to **group** things that are the same (same toppings, same customer, same day).
-- You catch yourself thinking "for each item, count how many others match it". That's a loop inside a loop. Counting once with a dict replaces it.
+Once the tally is done, you answer the question from the counts instead of going back to the list, so "which is the most common" or "which appeared only once" becomes a quick look at the dict. The same idea also lets you group things that are the same, by storing a list of matching items under each key instead of a number.
+
+## A quick example
+As an example, here's a tally of the orders in one hour as you go through them one by one:
+
+| Order | Tally after this order |
+|---|---|
+| pepperoni | pepperoni 1 |
+| hawaiian | pepperoni 1, hawaiian 1 |
+| hawaiian | pepperoni 1, hawaiian 2 |
+| margherita | pepperoni 1, hawaiian 2, margherita 1 |
+
+From the finished tally you can see straight away that hawaiian is the most popular.
+
+## When to use it
+Use a counting dict whenever the question is about how often things appear, or about putting matching things together. Look out for:
+- "how many", "most", "least", "top 3", "only once", "more than twice"
+- **grouping** things that are the same (same toppings, same customer, same day)
+- the urge to write "for each item, count how many others match it", which is a loop inside a loop that one counting pass replaces
 
 ---
 
@@ -107,7 +122,7 @@ Then the two sorts:
 | sort that by `how_many`, biggest first | `["hawaiian", "margherita", "pepperoni"]` |
 | `ranked[:2]` | `["hawaiian", "margherita"]` |
 
-Why margherita stays ahead of pepperoni: they both have a count of 1. When two items have the same value, `sorted` keeps them in the order they were already in, and they were already A to Z.
+Margherita stays ahead of pepperoni because they both have a count of 1, and when two items have the same value, `sorted` keeps them in the order they were already in, which was A to Z.
 
 ### What to say in the interview
 "I go through the orders once, keep only the last 60 minutes, and count each pizza in a dict. Then I sort the names alphabetically and sort again by count, biggest first. Ties stay alphabetical because sorting keeps equal items in the order they were in. Then I return the top k."
@@ -125,7 +140,7 @@ for item in items:
 #   only once    -> keep items where counts[item] == 1
 #   group things -> store a LIST per key instead of a number (see problem 3)
 ```
-Speed: one pass through the list, then whatever you do with the counts. Much faster than counting each item by going through the whole list again.
+This takes one pass through the list plus whatever you then do with the counts, which is much faster than going back through the whole list to count each item separately.
 
 ## Common mistakes
 1. **`counts[pizza] += 1` the first time you see a pizza.** It crashes with `KeyError`, because there's no count yet. Use `counts.get(pizza, 0) + 1`.

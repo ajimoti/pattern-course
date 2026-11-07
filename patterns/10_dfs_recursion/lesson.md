@@ -3,20 +3,28 @@
 **Watch first:** [Learn RECURSION in 5 minutes!](https://www.youtube.com/watch?v=ivl5-snqul8) (Bro Code). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-A function that calls itself on a smaller part of the problem, adding up the answers as they come back, so you can follow one path all the way to the end before trying the next.
+## What it does
+Recursion is when a function solves a problem by calling itself on a smaller piece of the same problem, then uses the answers that come back to build its own. It suits anything that contains smaller copies of itself, like folders inside folders, comments with replies to replies, or a combo deal that includes other deals.
 
-**Recursion** means a function calling itself. **DFS** stands for **depth-first search**: follow one path as deep as it goes, then come back and try the next path. DFS is usually written with recursion.
+DFS, short for **depth-first search**, uses the same idea to explore things that are connected, like squares on a map or roads between places. It follows one path as far as it can go, then backs up and tries the next one, so it ends up visiting everything that can be reached from where it started. It's usually written with recursion, because "explore from here" is the same job at every step.
 
-## How to spot it
-| In the question | Example |
-|---|---|
-| Things inside things, to any depth | a combo deal that contains other combos, which contain more combos |
-| "How many different routes / ways" | count every route from the shop to a customer |
-| "How many separate groups" | how many separate neighbourhoods of connected roads on a map |
-| You need to visit everything, and the order doesn't matter | add up every pizza in every combo |
+## A quick example
+As an example, say a folder holds 2 files plus a subfolder, and the subfolder holds 3 files. To count every file, the function counts the folder's own files and then calls itself on the subfolder, so the top folder's call has to wait for the subfolder's answer before it can finish:
 
-**BFS or DFS?**
+| Call | Its own files | Files from folders inside it | Total it hands back |
+|---|---|---|---|
+| `count(subfolder)` | 3 | none | 3 |
+| `count(top folder)` | 2 | 3, handed back by the subfolder | 5 |
+
+## When to use it
+Reach for recursion and DFS when something contains smaller versions of itself, or when you need to explore everything that's connected rather than find the nearest thing. These are the signs to look for:
+
+- things inside things, to any depth: deals inside deals, folders inside folders
+- **how many different routes** or **how many ways** to get somewhere
+- **how many separate groups**, or whether everything is connected
+- you need to visit everything, and the order you visit in doesn't matter
+
+If you're not sure whether a question wants BFS or DFS, this is the difference:
 | | BFS (Pattern 09) | DFS (this pattern) |
 |---|---|---|
 | Order | everything 1 step away, then 2 steps, ... | one path all the way down, then the next |
@@ -26,7 +34,7 @@ A function that calls itself on a smaller part of the problem, adding up the ans
 ---
 
 ## First: recursion on its own
-Here's the smallest possible example:
+Before the worked example, here is recursion at its very smallest: a function that counts down by calling itself with a smaller number each time, until it reaches zero.
 
 ```python
 def count_down(n):

@@ -3,14 +3,28 @@
 **Watch first:** [Introduction to Hash Tables and Dictionaries](https://www.youtube.com/watch?v=sfWyugl4JWA) (CS Dojo). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-If your code searches through one list again and again to find matching items, put that list into a dict first, so each search becomes a single instant lookup.
+## What it does
+A dict lookup speeds up code that keeps searching through the same list to find matching items. It works for anything you match up by a shared value, like orders and their payments, students and their grades, or products and their prices, because you can store one side in a dict once and then find any item in it straight away instead of searching.
 
-## How to spot it
-- The code has a loop inside another loop, and the inner loop is only there to **find a match** (same id, same name, same value).
-- The question says something like "for each order, find its delivery / payment / customer".
-- The question asks you to make slow code faster.
-- The question asks "is there another item that ...?" (for example, another order that makes up the rest of a total).
+Without a dict, every search starts at the top of the list and checks item after item until it finds a match, so searching a long list many times gets very slow. With a dict, you go through that list once to fill the dict, and after that each lookup jumps straight to the item you asked for.
+
+## A quick example
+As an example, say you have 3 orders and a list of payments, and you want to know which orders were paid. You put the payments into a dict once, then look up each order in it:
+
+| Order | Look it up in the payments dict | Paid? |
+|---|---|---|
+| 101 | found | Yes |
+| 102 | not found | No |
+| 103 | found | Yes |
+
+Each order is one lookup, so you never read through the payments list again.
+
+## When to use it
+Reach for a dict whenever your code would otherwise search one list over and over to match things up. Look out for:
+- a loop inside another loop, where the inner loop is only there to **find a match** (same id, same name, same value)
+- "for each order, find its delivery / payment / customer"
+- "make this slow code faster"
+- "is there another item that ...?", for example another order that makes up the rest of a total
 
 ---
 
@@ -58,7 +72,7 @@ def late_orders_slow(orders, deliveries):
                 late.append(o["id"])
     return late
 ```
-For order 1, it checks every line of the delivery log. For order 2, it checks every line of the delivery log again. And so on.
+For order 1 it reads every line of the delivery log, then for order 2 it reads the whole log again, and it keeps doing that for every order, so the number of checks is orders times deliveries.
 
 | Orders | Deliveries | Checks the slow code makes |
 |---|---|---|
@@ -137,7 +151,7 @@ for thing in other_list:
         value = lookup[thing["key"]]      # get it straight away
         ...
 ```
-Why it's fast: a list has to be checked item by item to find something. A dict goes straight to the key you ask for.
+This is fast because a list has to be checked item by item to find something, while a dict goes straight to the key you ask for.
 
 ## Common mistakes
 1. **Looking up a key that isn't there.** `minutes[3]` crashes with `KeyError` because order 3 was never delivered. Check `if order_id in minutes` first, or use `minutes.get(order_id)` which gives `None` instead of crashing.

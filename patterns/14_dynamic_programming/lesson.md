@@ -3,15 +3,29 @@
 **Watch first:** [Dynamic Programming 1D - Full Course - Python](https://www.youtube.com/watch?v=_i4Yxeh5ceQ) (NeetCode). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-Work out the answer for the smallest version of the problem, store it, then use the stored answers to work out the next size up, until you reach the size you were asked about.
+## What it does
+Dynamic programming answers a big question by building up to it from smaller versions of the same question. You start with the smallest size, write down its answer, and use the answers you've already written to work out the next size, until you reach the one you were asked about.
 
-The name "dynamic programming" (often shortened to **DP**) doesn't describe the idea well. In practice it means: **fill in a table of answers, smallest first.**
+It works on questions that ask for the fewest, the most, or the number of ways to reach something, like making a total from coins or boxes, choosing the best set of houses or jobs, or counting the ways to climb a staircase. The name "dynamic programming" (often shortened to **DP**) doesn't describe the idea well, but in practice it just means **filling in a table of answers, smallest first**.
 
-## How to spot it
-- The question asks for the **fewest**, **most**, **cheapest** or **number of ways**.
-- The obvious "grab the biggest / best thing first" approach gives the **wrong** answer in some cases.
-- You can describe the answer for a big amount using answers for **smaller amounts**. For example: "the fewest boxes for 8 slices is 1 box plus the fewest boxes for whatever's left."
+## A quick example
+For example, to find the fewest boxes for 7 slices when boxes hold 1, 4 or 6, you work up from 1 slice, using answers you've already written to get each new one:
+
+| Slices | Fewest boxes | How |
+|---|---|---|
+| 1 | 1 | one 1-box |
+| 2 | 2 | 1 + 1 |
+| 3 | 3 | 1 + 1 + 1 |
+| 4 | 1 | one 4-box |
+| 5 | 2 | the answer for 4 (1 box) + one 1-box |
+| 6 | 1 | one 6-box |
+| 7 | 2 | the answer for 6 (1 box) + one 1-box |
+
+## When to use it
+Use it when the question asks for the fewest, the most, or how many ways, and the obvious "grab the best thing first" approach can give the wrong answer.
+- Words like **fewest**, **most**, **cheapest**, **number of ways**.
+- Grabbing the biggest or best-looking option first fails on some case.
+- A bigger answer can be built from smaller ones, e.g. "the fewest boxes for 8 slices is 1 box plus the fewest boxes for whatever's left".
 
 ---
 
@@ -37,10 +51,10 @@ The answer should be `2`. If an amount can't be made, return `-1`.
 | Biggest first | 6, then 1, then 1 | 3 |
 | Best possible | 4, then 4 | **2** |
 
-So we can't just grab boxes greedily. We need to compare the options properly.
+So we can't just grab the biggest box each time; we need to compare every option properly.
 
 ### The key idea
-Say you're packing 8 slices. **The last box you add** is a 1, a 4 or a 6.
+Say you're packing 8 slices. Whatever you do, **the last box you add** is a 1, a 4 or a 6:
 
 | If the last box is | Slices left before it | Total boxes |
 |---|---|---|
@@ -48,14 +62,14 @@ Say you're packing 8 slices. **The last box you add** is a 1, a 4 or a 6.
 | 4 | 8 − 4 = 4 | 1 + (fewest boxes for 4) |
 | 6 | 8 − 6 = 2 | 1 + (fewest boxes for 2) |
 
-The best answer for 8 is the smallest of those three. **But that needs the answers for 7, 4 and 2.** So work them out first, starting from 0 and going up, and store each answer in a list called `best`:
+The best answer for 8 is the smallest of those three, **but that needs the answers for 7, 4 and 2**, so you work those out first, starting from 0 and going up, and store each answer in a list called `best`:
 
 - `best[0]` = fewest boxes for 0 slices = 0
 - `best[1]` = fewest boxes for 1 slice
 - ... and so on, up to `best[8]`.
 
 ### How you'd do it with a pen
-For each amount, try each box size that fits. "Uses" means 1 box plus the stored answer for what's left.
+For each amount, try each box size that fits: that's 1 box plus the stored answer for whatever's left.
 
 | Amount | Try a 1-box | Try a 4-box | Try a 6-box | best |
 |---|---|---|---|---|
@@ -72,7 +86,7 @@ For each amount, try each box size that fits. "Uses" means 1 box plus the stored
 **best[8] = 2.** Every number in a row comes from rows above it that are already filled in.
 
 ### When it's impossible
-With box sizes `[4, 6]` and 7 slices, rows 1, 2, 3, 5 and 7 have no way to make them. We mark those as **infinity** (`float("inf")`), meaning "can't be done". Any number is smaller than infinity, so a real answer always replaces it. If `best[7]` is still infinity at the end, return -1.
+With box sizes `[4, 6]` and 7 slices, rows 1, 2, 3, 5 and 7 have no way to make them. We mark those as **infinity** (`float("inf")`), meaning "can't be done", and because every number is smaller than infinity, any real answer will replace it. If `best[7]` is still infinity at the end, return -1.
 
 ### The code
 ```python

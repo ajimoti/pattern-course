@@ -39,6 +39,35 @@ references confusing. He wants everything in one place, in plain English, in a l
    time, e.g. "O(n) means the time grows in step with the number of items".
 9. British spelling.
 
+## How the prose must read (approved by Ajimoti — follow exactly)
+- **General first, then the example.** Say what the pattern does in general terms. Never state a
+  pizza example as if it were the definition ("BFS finds the closest customer..." is WRONG).
+  Then say what kinds of things it applies to, then give the example.
+- **Flowing, natural sentences**, the way a person explains something out loud. Connect ideas with
+  "so", "then", "because", "instead of", "until". Not choppy: no strings of tiny sentences
+  ("It does X. Then Y. It never Z."). Not overloaded either: no sentence that tries to do two
+  jobs where the second half doesn't follow from the first.
+- Short paragraphs (2-3 sentences). No jargon without a plain explanation.
+
+Approved models (copy this voice):
+
+> BFS finds the fewest steps from a starting point to something you're looking for. It works on
+> anything where things are connected to each other, like squares on a map, people who know each
+> other, or stations on a train line, as long as every step counts the same.
+>
+> It starts by checking everything one step away, then everything two steps away, and keeps moving
+> outwards like that. Because it always finishes the closer ones before going further, the first
+> time it finds what you're looking for, you know it took the fewest steps to get there.
+
+> A sliding window answers questions about groups of items that sit next to each other in a list,
+> like the best three days in a row. Instead of adding up every group from scratch, it works out
+> the first group once and then slides along, adding the new item that comes in and taking away
+> the one that drops out.
+
+> Dynamic programming answers a big question by building up to it from smaller versions of the
+> same question. You start with the smallest size, write down its answer, and use the answers
+> you've already written to work out the next size, until you reach the one you were asked about.
+
 ## lesson.md layout
 ```
 # Pattern NN: Name

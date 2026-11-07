@@ -3,15 +3,27 @@
 **Watch first:** [Topological Sort | Kahn's Algorithm | Graph Theory](https://www.youtube.com/watch?v=cIBFEhD77b4) (WilliamFiset). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-When some jobs must wait for other jobs, count how many jobs each one is waiting for, do the ones waiting for nothing, and repeat.
+## What it does
+A topological sort puts things in an order where everything comes after the things it depends on. It works on any set of jobs with "this must happen before that" rules, like the build steps in a project, courses with prerequisites, the steps of a recipe, or software that has to be installed in a certain order. **Topological sort** is the name interviewers will know it by.
 
-The proper name for this is **topological sort**. Interviewers will know it by that name.
+It counts how many jobs each one is still waiting for, does every job that's waiting for nothing, and then lowers the count of the jobs that were waiting on it. Repeating that until nothing is left gives you a valid order, and if you get stuck with jobs still waiting, you know some of them depend on each other in a loop, so no order is possible.
 
-## How to spot it
-- The question talks about things that **must happen before** other things: build steps, courses, recipes, tasks, installs.
-- It asks for **an order** to do everything in, or **whether it's possible** to do everything.
+## A quick example
+For example, getting dressed: you put on socks before shoes, and trousers before shoes.
+
+| Job | Waiting for |
+|---|---|
+| socks | nothing |
+| trousers | nothing |
+| shoes | socks, trousers |
+
+Socks and trousers are waiting for nothing, so they go first, and once both are done, shoes is waiting for nothing too. One valid order is socks, trousers, shoes.
+
+## When to use it
+Use it when a question gives you rules about what must happen before what, and asks for an order or whether everything can be done.
 - Words like "depends on", "requires", "prerequisite", "before", "after".
+- It asks for **an order** to do everything in.
+- It asks **whether it's possible** to finish everything. A loop in the rules makes it impossible.
 
 ---
 
@@ -52,7 +64,7 @@ The answer should be `["db", "menu", "payments", "app"]`.
 | payments | app |
 | app | nobody |
 
-**Now build.** Anything waiting for 0 is ready. Build it, then take 1 off the count of every part that was waiting for it.
+**Now build.** Anything waiting for 0 is ready, so build it, then take 1 off the count of every part that was waiting for it.
 
 | Step | Ready to build | Build (first alphabetically) | Counts that go down | New counts |
 |---|---|---|---|---|
@@ -63,7 +75,7 @@ The answer should be `["db", "menu", "payments", "app"]`.
 
 **Order: db, menu, payments, app.**
 
-**How you spot an impossible case.** Take `{"a": ["b"], "b": ["a"]}`: a waits for b, and b waits for a. Both start waiting for 1, so **nothing is ever ready**, and you build 0 parts out of 2. Whenever you finish with fewer parts built than there are parts, there's a loop, so raise an error.
+**How you spot an impossible case.** Take `{"a": ["b"], "b": ["a"]}`, where a waits for b and b waits for a. Both start out waiting for 1, so **nothing is ever ready** and you build 0 of the 2 parts. Whenever you finish with fewer parts built than there are parts, there's a loop, so raise an error.
 
 ### The code
 ```python

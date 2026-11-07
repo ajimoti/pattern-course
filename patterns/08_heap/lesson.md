@@ -3,16 +3,29 @@
 **Watch first:** [Heaps in 3 minutes — Intro](https://www.youtube.com/watch?v=0wPlzMU-k00) (Michael Sambol). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-A heap is a list that always keeps its smallest item at position `[0]`, so you can keep taking the smallest out and putting new items in, quickly.
+## What it does
+A heap hands you the smallest item in a collection quickly, again and again, even while new items keep being added and old ones taken out. In Python it's a normal list that the `heapq` module keeps arranged so the smallest item is always at position `[0]`.
 
-## How to spot it
+That makes it the right tool whenever you keep asking "which one is next?", like the next free driver, the soonest deadline, the cheapest option or the closest point. If you only need the smallest once, `min()` is fine, but when you need it over and over with the list changing in between, a heap gets you each answer quickly instead of looking through everything every time.
+
+## A quick example
+For example, a print queue where the job with the lowest number always prints next, while new jobs keep arriving:
+
+| What happens | Heap after | Next to print (`[0]`) |
+|---|---|---|
+| job 5 arrives | `[5]` | 5 |
+| job 2 arrives | `[2, 5]` | 2 |
+| job 8 arrives | `[2, 5, 8]` | 2 |
+| print the next job (2) | `[5, 8]` | 5 |
+| job 1 arrives | `[1, 8, 5]` | 1 |
+| print the next job (1) | `[5, 8]` | 5 |
+
+## When to use it
+Use a heap when you need the smallest (or soonest, cheapest, closest) item again and again while the collection keeps changing, which shows up as:
 - "the **next free** driver / oven / slot"
-- "the **soonest**, **closest**, **cheapest** one", asked again and again while things keep changing
+- "the **soonest**, **closest**, **cheapest** one", asked again and again
 - "the **k smallest** / **k closest** / **top k**"
-- **Merging** several sorted lists into one
-
-If you only need the smallest **once**, `min()` is fine. A heap is for when you need it **over and over**, with items being added and removed in between.
+- **merging** several sorted lists into one
 
 ---
 
@@ -96,7 +109,7 @@ def dispatch(orders, drivers, trip):
 
     return leaves
 ```
-This is correct. But `min()` and `.index()` both look at every driver, for every order. With 1,000 drivers, that's around 1,000 steps per order.
+This works, but `min()` and `.index()` both look at every driver for every order, so with 1,000 drivers that's around 1,000 steps per order.
 
 ### The code, second version: with a heap
 With a heap, you don't need to know **which** driver it is. Take out the soonest time and put back that driver's new time:

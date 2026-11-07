@@ -3,21 +3,29 @@
 **Watch first:** [Breadth-first search in 4 minutes](https://www.youtube.com/watch?v=HZ5YTanv5QE) (Michael Sambol). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-Start from one place, check everything 1 step away, then everything 2 steps away, and so on, so the first time you reach what you're looking for, you've found the shortest way there.
+## What it does
+BFS finds the fewest steps from a starting point to something you're looking for. It works on anything where things are connected to each other, like squares on a map, people who know each other, or stations on a train line, as long as every step counts the same.
 
-BFS stands for **breadth-first search**. "Breadth-first" means you check every place at the current distance before going any further.
+It starts by checking everything one step away, then everything two steps away, and keeps moving outwards like that. Because it always finishes the closer ones before going further, the first time it finds what you're looking for, you know it took the fewest steps to get there.
 
-## How to spot it
-The question usually has these things in it:
+BFS stands for **breadth-first search**, and "breadth-first" just means it covers everything at the current distance before moving any further out.
 
-| In the question | Example |
-|---|---|
-| Things connected to other things | roads between squares, customers who referred each other, shops linked to each other |
-| Every step costs the same | each move takes 1 minute, each referral is 1 step |
-| It asks for the **fewest** steps, the **nearest** thing, or **how long until everything** is reached | "nearest customer", "how many steps from Ada to Esi", "how many minutes until every shop knows" |
+## A quick example
+As an example, say you know Ben and Cara, Ben knows Dev, and Cara knows Dev and Eve. You want to know how many introductions it would take to reach Eve, so BFS checks the people one introduction away first, then the people two introductions away:
 
-If the steps cost **different** amounts (one road takes 4 minutes, another takes 1), BFS is the wrong tool. That's Dijkstra, a later pattern.
+| Round | Steps from you | Who it checks | Found Eve? |
+|---|---|---|---|
+| 1 | 1 | Ben, Cara | no |
+| 2 | 2 | Dev, Eve | **yes, in 2 steps** |
+
+## When to use it
+Reach for BFS when the question asks for the fewest steps between connected things and every step counts the same. These are the signs to look for:
+
+- things connected to other things: squares on a map, people who referred each other, shops that call each other
+- every step costs the same: one move, one introduction, one phone call
+- words like **fewest steps**, **nearest**, **shortest chain**, or **how long until everyone** is reached
+
+If the steps cost different amounts, for example one road takes 4 minutes and another takes 1, BFS gives the wrong answer and you need Dijkstra instead (Pattern 12).
 
 ---
 

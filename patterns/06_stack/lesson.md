@@ -3,16 +3,10 @@
 **Watch first:** [Stacks in 3 minutes](https://www.youtube.com/watch?v=KcT3aVgrrpU) (Michael Sambol). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-A stack is a list where you only ever add to the end and take from the end, so the last thing you put in is the first thing you get out.
+## What it does
+A stack is a list where you only ever add to the end and take from the end, so the last thing you put in is always the first thing you get back. That makes it useful whenever the most recent item is the one you need to deal with next, like undoing your last action, matching a closing bracket with the opening one before it, or going back through the pages you've visited in a browser.
 
-## How to spot it
-- **Undo**: "go back to how it was before the last action"
-- **Matching pairs**: brackets, opening and closing tags, start and end markers
-- **"The most recent one that hasn't been dealt with yet"**
-- **"For each item, find the next one that is bigger"**
-
-In Python, a normal list is a stack:
+You don't need anything special in Python, because a normal list already works as a stack:
 
 | Code | What it does |
 |---|---|
@@ -20,6 +14,24 @@ In Python, a normal list is a stack:
 | `stack.pop()` | remove the last item and give it back |
 | `stack[-1]` | look at the last item without removing it |
 | `if stack:` | True if the stack has anything in it |
+
+## A quick example
+For example, a text editor keeps every letter you type on a stack, so that pressing undo removes whatever you typed most recently.
+
+| Action | Stack after |
+|---|---|
+| type `a` | `a` |
+| type `b` | `a b` |
+| type `c` | `a b c` |
+| undo | `a b` (`c` went in last, so it comes out first) |
+| type `d` | `a b d` |
+
+## When to use it
+Use a stack when the thing you need to deal with next is always the most recent one you haven't finished with yet, which shows up in questions like:
+- **undo**: "go back to how it was before the last action"
+- **matching pairs**: brackets, opening and closing tags, start and end markers
+- "the **most recent** one that hasn't been dealt with yet"
+- "for each item, find the **next one that is bigger**"
 
 ---
 
@@ -48,9 +60,9 @@ Some notes that should give `False`:
 | `"([)]"` | `[` was opened last, so it must be closed first |
 
 ### How you'd do it with a pen
-Read the note left to right. Each time you see an **opening** bracket, write it at the end of a list. Each time you see a **closing** bracket, it must match the **last** opening bracket you wrote down. If it does, cross that one off. If it doesn't, or the list is empty, the note is broken.
+Read the note from left to right, writing each **opening** bracket at the end of a list as you meet it. When you reach a **closing** bracket, it has to match the **last** opening bracket you wrote down, so if it does you cross that one off, and if it doesn't (or there's nothing left to match) the note is broken.
 
-At the end, the list must be empty. If anything is left over, some bracket was never closed.
+By the end the list should be empty, because anything left over is a bracket that was never closed.
 
 For `"(extra cheese [no onions]) {ring bell}"`, ignoring the letters and spaces:
 

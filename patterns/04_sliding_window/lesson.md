@@ -3,19 +3,24 @@
 **Watch first:** [Introduction to Sliding Window and 2 Pointers (C++/Java, idea is the same)](https://www.youtube.com/watch?v=9kdHxplyl5I) (take U forward). Every problem's video is listed in `videos.md`.
 
 
-## In one sentence
-When a question is about a run of items next to each other in a list, keep a running total for the current run, and as the run moves along, add the new item and take away the one that dropped off, instead of adding the whole run up again each time.
+## What it does
+A sliding window answers questions about groups of items that sit next to each other in a list, like the best three days in a row, the longest stretch of on-time deliveries, or the longest run of letters with no repeats. Instead of adding up every group from scratch, it works out the first group once and then slides along, adding the new item that comes in and taking away the one that drops out. The "window" is simply the group of items you're looking at right now.
 
-## How to spot it
-- The question says **"in a row"**, **"consecutive"**, **"a stretch of"**, **"any k days"**, **"longest run"**.
-- It asks for the **best / longest / shortest** run of items next to each other.
-- You catch yourself writing a loop that adds up `k` items, inside a loop over every starting position.
+Sometimes the window is always the same size, like "any 3 days in a row", which is what the worked example below uses. Other times it grows and shrinks: it gets longer until it breaks a rule, then gives up items from the front until the rule is met again, like "the longest stretch with at most 1 late delivery". That second kind is explained further down and used in problem 3.
 
-"Window" here means: the run of items you're currently looking at, from one position to another.
+## A quick example
+As an example, here are the first two three-day stretches of a week's takings, `[120, 80, 200, 150, ...]`. The second total comes straight from the first one:
 
-There are two kinds:
-1. **Fixed size:** the run is always `k` items long ("best 3 days in a row"). The worked example below.
-2. **Grows and shrinks:** the run gets longer until it breaks a rule, then gets shorter from the front until the rule is met again ("longest stretch with at most 1 late delivery"). Explained further down, and used in problem 3.
+| Days | How you get the total |
+|---|---|
+| 0 to 2 | add them once: 120 + 80 + 200 = 400 |
+| 1 to 3 | 400 − day 0 (120) + day 3 (150) = 430 |
+
+## When to use it
+Use a sliding window when the question is about a run of items next to each other and you want the best, longest or shortest one. Look out for:
+- **"in a row"**, **"consecutive"**, **"a stretch of"**, **"any k days"**, **"longest run"**
+- the **best / longest / shortest** group of items next to each other
+- the urge to write a loop that adds up `k` items inside a loop over every starting position
 
 ---
 
@@ -47,12 +52,9 @@ Write out every three-day stretch:
 | 2 | 200 + 150 + 90 | 440 |
 | 3 | 150 + 90 + 300 | **540** |
 
-Now notice how each total relates to the one before. Going from the stretch starting on day 0 to the one starting on day 1:
-- day 0 (120) drops off the front
-- day 3 (150) joins at the end
-- days 1 and 2 are in both, so they don't need adding again
+Now look at how each total relates to the one before it. When you move from the stretch starting on day 0 to the one starting on day 1, day 0 (120) drops off the front and day 3 (150) joins at the end, while days 1 and 2 are in both stretches, so they don't need adding again.
 
-So: 400 − 120 + 150 = 430. One subtraction and one addition, however long the stretch is.
+That gives 400 − 120 + 150 = 430: one subtraction and one addition, however long the stretch is.
 
 ### The code
 ```python
@@ -98,7 +100,7 @@ Step 1: `total = 120 + 80 + 200 = 400`, `best_total = 400`, `best_start = 0`.
 | 4 | 90 | 1 | 80 | 430 + 90 − 80 = 440 | 2 | (2, 440) |
 | 5 | 300 | 2 | 200 | 440 + 300 − 200 = 540 | 3 | **(3, 540)** |
 
-With a year of data and a 7-day stretch, adding every stretch from scratch is about 365 × 7 additions. The sliding version is about 365 × 2.
+With a year of data and a 7-day stretch, adding every stretch from scratch takes about 365 × 7 additions, while the sliding version takes about 365 × 2.
 
 ### What to say in the interview
 "Instead of adding up every stretch from scratch, I add up the first k days once. Then each time the stretch moves along a day, I add the new day and subtract the day that dropped off. That's one pass through the list."
@@ -106,10 +108,10 @@ With a year of data and a 7-day stretch, adding every stretch from scratch is ab
 ---
 
 ## The second kind: a window that grows and shrinks
-Problem 3 asks for the **longest** stretch of deliveries with **at most k late ones**. The length isn't fixed, so the window works differently:
+Problem 3 asks for the **longest** stretch of deliveries with **at most k late ones**. Because the length isn't fixed, the window works a little differently, repeating these steps for each delivery:
 
-1. Add the next delivery to the end of the window. If it's late, add 1 to `late`.
-2. While the window has too many late deliveries, remove deliveries from the front. If a removed one was late, take 1 off `late`.
+1. Add the next delivery to the end of the window, and if it's late, add 1 to `late`.
+2. While the window has too many late deliveries, remove deliveries from the front, taking 1 off `late` whenever a removed one was late.
 3. The window now follows the rule, so check whether it's the longest so far.
 
 The window runs from position `left` to position `right`, so its length is `right - left + 1`.
@@ -144,7 +146,7 @@ With `deliveries = ["O", "L", "O", "O", "L", "L", "O"]` (O = on time, L = late) 
 
 The answer is **4**: positions 0 to 3 (O, L, O, O).
 
-Every delivery is added once and removed at most once, so it's still one pass through the list.
+Every delivery is added once and removed at most once, so this is still a single pass through the list.
 
 ---
 
