@@ -333,3 +333,6 @@ Test them with:
 ```
 python practice.py 12
 ```
+
+## More practice
+Once all 3 problems pass, work through `more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

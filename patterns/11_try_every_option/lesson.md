@@ -260,3 +260,6 @@ Open `practice.py`:
 - **Problem 3** (a little harder): find orders that exactly fill the delivery van.
 
 Test your answers with `python practice.py 11`.
+
+## More practice
+Once all 3 problems pass, work through `more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

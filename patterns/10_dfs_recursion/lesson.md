@@ -182,3 +182,6 @@ Open `practice.py`:
 - **Problem 3** (a little harder): count the separate neighbourhoods on a map.
 
 Test your answers with `python practice.py 10`.
+
+## More practice
+Once all 3 problems pass, work through `more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.
