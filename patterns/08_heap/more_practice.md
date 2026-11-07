@@ -9,7 +9,7 @@ Do these after all 3 problems in `practice.py` pass. Start at the top: they go f
 | 3 | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | Medium |  |
 | 4 | [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) | Medium | The original of problem 2 |
 | 5 | [Task Scheduler](https://leetcode.com/problems/task-scheduler/) | Medium |  |
-| 6 | [Single-Threaded CPU](https://leetcode.com/problems/single-threaded-cpu/) | Medium | The original of problem 1 |
+| 6 | [Single-Threaded CPU](https://leetcode.com/problems/single-threaded-cpu/) | Medium | Same idea as problem 1 |
 | 7 | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | Hard | The original of problem 3 |
 
 **On NeetCode:** look under the **Heap / Priority Queue** topic at https://neetcode.io/practice. Each problem there has a free video.

@@ -5,7 +5,7 @@ Do these after all 3 problems in `practice.py` pass. Start at the top: they go f
 | # | Problem (LeetCode, free) | Difficulty | Note |
 |---|---|---|---|
 | 1 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | Medium | The original of problem 2 |
-| 2 | [Car Pooling](https://leetcode.com/problems/car-pooling/) | Medium | The original of problem 1 |
+| 2 | [Car Pooling](https://leetcode.com/problems/car-pooling/) | Medium | Very close to problem 1 |
 | 3 | [Insert Interval](https://leetcode.com/problems/insert-interval/) | Medium |  |
 | 4 | [Non Overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | Medium |  |
 | 5 | [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) | Medium |  |
