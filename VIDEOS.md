@@ -6,7 +6,7 @@
 
 ## One short video per pattern
 
-Watch the pattern's video before reading its lesson. Every problem's own video is in that pattern's `videos.md`.
+Watch the pattern's video before reading its lesson. Every problem's own video is in that pattern's `b_videos.md`.
 
 | # | Pattern | Video |
 |---|---|---|

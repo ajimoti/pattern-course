@@ -4,7 +4,7 @@ Pattern course test runner.
   python practice.py                 # progress across every pattern
   python practice.py 3               # test your answers for pattern 3
   python practice.py 3 --solutions   # see the model solutions pass for pattern 3
-  python practice.py 3 --reset       # blank practice.py for pattern 3 (your old answers are kept in practice_backup.py)
+  python practice.py 3 --reset       # blank c_practice.py for pattern 3 (your old answers are kept in c_practice_backup.py)
 """
 import importlib.util
 import shutil
@@ -24,13 +24,13 @@ def load(path, name):
 
 def pattern_dirs():
     return sorted(p for p in ROOT.iterdir()
-                  if p.is_dir() and p.name[:2].isdigit() and (p / "tests.py").exists())
+                  if p.is_dir() and p.name[:2].isdigit() and (p / "f_tests.py").exists())
 
 
 def run_pattern(folder, use_solutions=False, quiet=False):
-    """Run every test_* function in tests.py against practice.py (or solutions.py)."""
-    code_file = folder / ("solutions.py" if use_solutions else "practice.py")
-    tests = load(folder / "tests.py", f"tests_{folder.name}")
+    """Run every test_* function in f_tests.py against c_practice.py (or d_solutions.py)."""
+    code_file = folder / ("d_solutions.py" if use_solutions else "c_practice.py")
+    tests = load(folder / "f_tests.py", f"tests_{folder.name}")
     try:
         code = load(code_file, f"code_{folder.name}")
     except Exception as e:
@@ -50,7 +50,7 @@ def run_pattern(folder, use_solutions=False, quiet=False):
         except AssertionError:
             if not quiet:
                 frame = traceback.extract_tb(sys.exc_info()[2])[-1]
-                print(f"  FAIL  {label}   (tests.py line {frame.lineno}: {frame.line})")
+                print(f"  FAIL  {label}   (f_tests.py line {frame.lineno}: {frame.line})")
         except Exception as e:
             if not quiet:
                 print(f"  ERR   {label}   {type(e).__name__}: {e}")
@@ -58,7 +58,7 @@ def run_pattern(folder, use_solutions=False, quiet=False):
 
 
 def title(folder):
-    lesson = folder / "lesson.md"
+    lesson = folder / "a_lesson.md"
     if lesson.exists():
         first = lesson.read_text().splitlines()[0]
         return first.lstrip("# ").split(" (")[0].strip()
@@ -78,9 +78,9 @@ def main():
             return
         folder = match[0]
         if "--reset" in sys.argv:
-            shutil.copy(folder / "practice.py", folder / "practice_backup.py")
-            shutil.copy(folder / "blank.py", folder / "practice.py")
-            print(f"{title(folder)}: practice.py is blank again.")
+            shutil.copy(folder / "c_practice.py", folder / "c_practice_backup.py")
+            shutil.copy(folder / "g_blank.py", folder / "c_practice.py")
+            print(f"{title(folder)}: c_practice.py is blank again.")
             print("Your previous answers are in practice_backup.py. Now write them from memory.")
             return
         print(f"{title(folder)}  ({'solutions' if use_solutions else 'your answers'})\n")
@@ -90,7 +90,7 @@ def main():
             print(f"All passing. Tomorrow, run `python practice.py {number} --reset` and write them again from memory.")
         return
 
-    print("Your progress (tests passing in each practice.py)\n")
+    print("Your progress (tests passing in each c_practice.py)\n")
     for folder in folders:
         passed, total = run_pattern(folder, use_solutions, quiet=True)
         bar = "#" * passed + "." * (total - passed)
