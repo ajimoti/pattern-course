@@ -6,7 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-- [Valid Anagram - Leetcode 242 - Python](https://www.youtube.com/watch?v=9UtInBqnCgA) (NeetCode)
+Watch this first. It teaches one thing: how to count things with a dict, and Python's Counter that does it for you.
+
+- [Counters in Python Simply Explained](https://www.youtube.com/watch?v=yrV__XKaFn8) (NeuralNine, 12 min)
 
 ## Each problem
 

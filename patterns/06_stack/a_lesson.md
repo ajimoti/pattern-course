@@ -1,6 +1,6 @@
 # Pattern 06: Stack
 
-**Watch first:** [Stacks in 3 minutes](https://www.youtube.com/watch?v=KcT3aVgrrpU) (Michael Sambol). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Python Stacks - Python Tutorial for Absolute Beginners](https://www.youtube.com/watch?v=NKmasqr_Xkw) (Programming with Mosh, 5 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

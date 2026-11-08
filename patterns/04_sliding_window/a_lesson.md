@@ -1,6 +1,6 @@
 # Pattern 04: Sliding window
 
-**Watch first:** [Introduction to Sliding Window and 2 Pointers (C++/Java, idea is the same)](https://www.youtube.com/watch?v=9kdHxplyl5I) (take U forward). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Sliding Window Technique](https://www.youtube.com/watch?v=dOonV4byDEg) (Profound Academy, 6 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

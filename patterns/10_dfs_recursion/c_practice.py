@@ -88,8 +88,8 @@ def total_pizzas(deal):
 #   added together. Stopping point: if you're at the end, that's 1 route.
 #
 # VIDEO (watch after you've had a real go, about 20-30 minutes)
-#   Depth-first search in 4 minutes (Michael Sambol)
-#   https://www.youtube.com/watch?v=Urx87-NMm6c
+#   Learn Depth First Search in 7 minutes (Bro Code)
+#   https://www.youtube.com/watch?v=by93qH4ACxo
 #   Same idea as LeetCode 797 All Paths From Source to Target. The video uses a different story and
 #   different names, so watch for the method, not the details.
 def count_routes(roads, start, end):

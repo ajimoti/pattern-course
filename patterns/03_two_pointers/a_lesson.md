@@ -1,6 +1,6 @@
 # Pattern 03: Two pointers
 
-**Watch first:** [Two Pointers Was Hard Until I Learned These Patterns](https://www.youtube.com/watch?v=rQhNcycbf8w) (AlgoMonster). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Visual introduction Two Pointer Algorithm](https://www.youtube.com/watch?v=On03HWe2tZM) (Josh's DevBox, 8 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

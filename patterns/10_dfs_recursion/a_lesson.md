@@ -1,6 +1,6 @@
 # Pattern 10: DFS and recursion (go deep first)
 
-**Watch first:** [Learn RECURSION in 5 minutes!](https://www.youtube.com/watch?v=ivl5-snqul8) (Bro Code). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Learn RECURSION in 5 minutes!](https://www.youtube.com/watch?v=ivl5-snqul8) (Bro Code, 6 min), then [Learn Depth First Search in 7 minutes](https://www.youtube.com/watch?v=by93qH4ACxo) (Bro Code, 8 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

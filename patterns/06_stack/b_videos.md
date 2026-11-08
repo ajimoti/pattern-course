@@ -6,7 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-- [Stacks in 3 minutes](https://www.youtube.com/watch?v=KcT3aVgrrpU) (Michael Sambol)
+Watch this first. It teaches one thing: what a stack is and how to use a Python list as one.
+
+- [Python Stacks - Python Tutorial for Absolute Beginners](https://www.youtube.com/watch?v=NKmasqr_Xkw) (Programming with Mosh, 5 min)
 
 ## Each problem
 

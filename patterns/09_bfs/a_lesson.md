@@ -1,6 +1,6 @@
 # Pattern 09: BFS (spread out one step at a time)
 
-**Watch first:** [Breadth-first search in 4 minutes](https://www.youtube.com/watch?v=HZ5YTanv5QE) (Michael Sambol). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Learn Breadth First Search in 6 minutes](https://www.youtube.com/watch?v=7Cox-J7onXw) (Bro Code, 7 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

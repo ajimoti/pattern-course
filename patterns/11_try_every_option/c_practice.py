@@ -52,8 +52,8 @@ from itertools import combinations, permutations
 # VIDEO (watch after you've had a real go, about 20-30 minutes)
 #   Backtracking: Permutations - Leetcode 46 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=s7AvT7cGdSo
-#   The Traveling Salesman Problem: When Good Enough Beats Perfect (Reducible)
-#   https://www.youtube.com/watch?v=GiDsjIBOVoA
+#   Backtracking: Permutations - Leetcode 46 - Python (NeetCode)
+#   https://www.youtube.com/watch?v=s7AvT7cGdSo
 #   Same idea as LeetCode 46 Permutations. The video uses a different story and
 #   different names, so watch for the method, not the details.
 def read_points(text):

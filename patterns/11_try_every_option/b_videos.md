@@ -13,6 +13,5 @@
 | Problem | Same idea as | Video |
 |---|---|---|
 | 1. The shortest delivery route | 46 Permutations | [Backtracking: Permutations - Leetcode 46 - Python](https://www.youtube.com/watch?v=s7AvT7cGdSo) (NeetCode) |
-| 1. The shortest delivery route | Travelling salesman (brute force) | [The Traveling Salesman Problem: When Good Enough Beats Perfect](https://www.youtube.com/watch?v=GiDsjIBOVoA) (Reducible) |
 | 2. Every way to choose toppings | 77 Combinations | [Combinations - Leetcode 77 - Python](https://www.youtube.com/watch?v=q0s6m7AiM7o) (NeetCode) |
 | 3. Fill the van exactly | 78 Subsets | [Subsets - Backtracking - Leetcode 78](https://www.youtube.com/watch?v=REOH22Xwdkk) (NeetCode) |

@@ -1,6 +1,6 @@
 # Pattern 07: Binary search
 
-**Watch first:** [Binary search in 4 minutes](https://www.youtube.com/watch?v=fDKIpRe8GW4) (Michael Sambol). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Binary Search Algorithm Explained (Full Code Included)](https://www.youtube.com/watch?v=DnvWAd-RGhk) (Derrick Sherrill, 6 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

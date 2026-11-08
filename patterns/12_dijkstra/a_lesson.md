@@ -1,6 +1,6 @@
 # Pattern 12: Fastest route (Dijkstra)
 
-**Watch first:** [Dijkstra's algorithm in 3 minutes](https://www.youtube.com/watch?v=_lHSawdgXpI) (Michael Sambol). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU) (Spanning Tree, 9 min), then [Dijkstra's Algorithm - Computerphile](https://www.youtube.com/watch?v=GazC3A4OQTE) (Computerphile, 11 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does
@@ -21,7 +21,7 @@ This pattern joins two things you've already done:
 The name is pronounced "DIKE-stra". It's named after the person who came up with it.
 
 If you'd like to see it drawn out before reading on, these two videos show it on a small map:
-- Dijkstra's algorithm in 3 minutes: https://www.youtube.com/watch?v=_lHSawdgXpI
+- How Dijkstra's Algorithm Works (Spanning Tree, 9 min): https://www.youtube.com/watch?v=EFg3u_E6eHU
 - Dijkstra's Algorithm, Computerphile (slower, drawn by hand): https://www.youtube.com/watch?v=GazC3A4OQTE
 
 ## A quick example

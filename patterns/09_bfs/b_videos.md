@@ -6,7 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-- [Breadth-first search in 4 minutes](https://www.youtube.com/watch?v=HZ5YTanv5QE) (Michael Sambol)
+Watch this first. It teaches one thing: how BFS checks everything one step away, then two steps away, and so on.
+
+- [Learn Breadth First Search in 6 minutes](https://www.youtube.com/watch?v=7Cox-J7onXw) (Bro Code, 7 min)
 
 ## Each problem
 

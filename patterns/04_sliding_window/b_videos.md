@@ -6,7 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-- [Introduction to Sliding Window and 2 Pointers (C++/Java, idea is the same)](https://www.youtube.com/watch?v=9kdHxplyl5I) (take U forward)
+Watch this first. It teaches one thing: how a window slides along a list instead of adding up every group from scratch.
+
+- [Sliding Window Technique](https://www.youtube.com/watch?v=dOonV4byDEg) (Profound Academy, 6 min)
 
 ## Each problem
 

@@ -5,9 +5,13 @@
 2. **For each problem:** have a real go first, about 20-30 minutes. Then watch its video, close it, and write your own answer.
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
-## The idea
-- [Dijkstra's algorithm in 3 minutes](https://www.youtube.com/watch?v=_lHSawdgXpI) (Michael Sambol)
-- [Dijkstra's Algorithm - Computerphile](https://www.youtube.com/watch?v=GazC3A4OQTE) (Computerphile)
+## The idea, one step at a time
+Watch these in order. Each one teaches one thing, and together they take about 20 minutes.
+
+| Step | What you'll learn | Video | Length |
+|---|---|---|---|
+| 1 | How Dijkstra finds the fastest route when roads take different times | [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU) (Spanning Tree) | 9 min |
+| 2 | The same idea again, explained slowly on a whiteboard | [Dijkstra's Algorithm - Computerphile](https://www.youtube.com/watch?v=GazC3A4OQTE) (Computerphile) | 11 min |
 
 ## Each problem
 

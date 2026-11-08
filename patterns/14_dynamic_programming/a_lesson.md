@@ -1,6 +1,6 @@
 # Pattern 14: Dynamic programming (build answers from smaller answers)
 
-**Watch first:** [Dynamic Programming 1D - Full Course - Python](https://www.youtube.com/watch?v=_i4Yxeh5ceQ) (NeetCode). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [A Beginner's Guide to Dynamic Programming](https://www.youtube.com/watch?v=oNoILrFOx2k) (Matt Guest, 7 min), then [Mastering Dynamic Programming - How to solve any interview problem](https://www.youtube.com/watch?v=Hdr64lKQ3e4) (Tech With Nikola, 20 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

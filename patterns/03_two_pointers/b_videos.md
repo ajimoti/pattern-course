@@ -6,7 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-- [Two Pointers Was Hard Until I Learned These Patterns](https://www.youtube.com/watch?v=rQhNcycbf8w) (AlgoMonster)
+Watch this first. It teaches one thing: what two pointers are, starting from the slow way and moving to the fast way.
+
+- [Visual introduction Two Pointer Algorithm](https://www.youtube.com/watch?v=On03HWe2tZM) (Josh's DevBox, 8 min)
 
 ## Each problem
 

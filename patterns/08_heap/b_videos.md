@@ -5,9 +5,13 @@
 2. **For each problem:** have a real go first, about 20-30 minutes. Then watch its video, close it, and write your own answer.
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
-## The idea
-- [Heaps in 3 minutes — Intro](https://www.youtube.com/watch?v=0wPlzMU-k00) (Michael Sambol)
-- [Heaps & Priority Queues - Heapify, Heap Sort, Heapq Library](https://www.youtube.com/watch?v=E2v9hBgG6gE) (Greg Hogg)
+## The idea, one step at a time
+Watch these in order. Each one teaches one thing, and together they take about 28 minutes.
+
+| Step | What you'll learn | Video | Length |
+|---|---|---|---|
+| 1 | What a heap is and why the smallest item is always on top | [Heaps Visually Explained (Priority Queues)](https://www.youtube.com/watch?v=XycnarZEBvQ) (ByteQuest) | 12 min |
+| 2 | How to use a heap in Python with heapq | [Heaps & Priority Queues in Python](https://www.youtube.com/watch?v=wGSQ486Y4sc) (NeuralNine) | 16 min |
 
 ## Each problem
 
