@@ -10,7 +10,7 @@ Watch the pattern's video before reading its lesson. Every problem's own video i
 
 | # | Pattern | Video |
 |---|---|---|
-| 01 | Dict lookup | [Introduction to Hash Tables and Dictionaries](https://www.youtube.com/watch?v=sfWyugl4JWA) (CS Dojo) |
+| 01 | Dict lookup | [Python Tutorial for Beginners 5: Dictionaries](https://www.youtube.com/watch?v=daefaLgNkw0) (Corey Schafer), then [Lists vs Sets (for lookup efficiency)](https://www.youtube.com/watch?v=xzDEEzH8XWk) (BugBytes) |
 | 02 | Counting with a dict | [Valid Anagram - Leetcode 242 - Python](https://www.youtube.com/watch?v=9UtInBqnCgA) (NeetCode) |
 | 03 | Two pointers | [Two Pointers Was Hard Until I Learned These Patterns](https://www.youtube.com/watch?v=rQhNcycbf8w) (AlgoMonster) |
 | 04 | Sliding window | [Introduction to Sliding Window and 2 Pointers (C++/Java, idea is the same)](https://www.youtube.com/watch?v=9kdHxplyl5I) (take U forward) |

@@ -6,8 +6,8 @@ PATTERN 01: DICT LOOKUP - SOLUTIONS
 # 1. WHICH ORDERS ARRIVED LATE?
 #
 # VIDEO (watch after you've had a real go, about 20-30 minutes)
-#   Hash Tables and Hash Functions (Computer Science Lessons)
-#   https://www.youtube.com/watch?v=KyUTuwz_b7Q
+#   Lists vs Sets (for lookup efficiency) (BugBytes)
+#   https://www.youtube.com/watch?v=xzDEEzH8XWk
 def late_orders_slow(orders, deliveries):
     late = []
     for o in orders:

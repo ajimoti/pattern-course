@@ -1,6 +1,6 @@
 # Pattern 01: Dict lookup
 
-**Watch first:** [Introduction to Hash Tables and Dictionaries](https://www.youtube.com/watch?v=sfWyugl4JWA) (CS Dojo). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Python Tutorial for Beginners 5: Dictionaries](https://www.youtube.com/watch?v=daefaLgNkw0) (Corey Schafer, 10 min), then [Lists vs Sets (for lookup efficiency)](https://www.youtube.com/watch?v=xzDEEzH8XWk) (BugBytes, 7 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

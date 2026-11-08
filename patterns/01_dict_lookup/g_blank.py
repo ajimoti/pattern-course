@@ -49,8 +49,8 @@ Test from the pattern_course folder:   python3 practice.py 1
 #   Put the delivery log into a dict first: {order id: minutes}.
 #
 # VIDEO (watch after you've had a real go, about 20-30 minutes)
-#   Hash Tables and Hash Functions (Computer Science Lessons)
-#   https://www.youtube.com/watch?v=KyUTuwz_b7Q
+#   Lists vs Sets (for lookup efficiency) (BugBytes)
+#   https://www.youtube.com/watch?v=xzDEEzH8XWk
 def late_orders_slow(orders, deliveries):
     late = []
     for o in orders:
