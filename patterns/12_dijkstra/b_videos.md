@@ -6,12 +6,12 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea, one step at a time
-Watch these in order. Each one teaches one thing, and together they take about 20 minutes.
+Watch these in order. Each one teaches one thing, and together they take about 17 minutes.
 
-| Step | What you'll learn | Video | Length |
+| Step | What you'll learn | Video | Watch |
 |---|---|---|---|
-| 1 | How Dijkstra finds the fastest route when roads take different times | [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU) (Spanning Tree) | 9 min |
-| 2 | The same idea again, explained slowly on a whiteboard | [Dijkstra's Algorithm - Computerphile](https://www.youtube.com/watch?v=GazC3A4OQTE) (Computerphile) | 11 min |
+| 1 | How Dijkstra finds the fastest route when roads take different times | [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU) (Spanning Tree) | all (9 min) |
+| 2 | The same idea again, worked through as a table, one row at a time | [Dijkstras Shortest Path Algorithm Explained – With Example](https://www.youtube.com/watch?v=bZkzH5x0SKU) (FelixTechTips) | all (8 min) |
 
 ## Each problem
 

@@ -6,7 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-- [Merge Interval Algorithm In 4 Minutes](https://www.youtube.com/watch?v=hG9QDwiE28w) (Kantan Coding)
+Watch this first. It teaches one thing: why you sort by start time, then walk through once, merging anything that overlaps. Watch from 0:52 (the link starts there).
+
+- [Merge Interval Algorithm In 4 Minutes](https://www.youtube.com/watch?v=hG9QDwiE28w&t=52s) (Kantan Coding, 5 min)
 
 ## Each problem
 

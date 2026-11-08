@@ -6,12 +6,12 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea, one step at a time
-Watch these in order. Each one teaches one thing, and together they take about 28 minutes.
+Watch these in order. Each one teaches one thing, and together they take about 9 minutes.
 
-| Step | What you'll learn | Video | Length |
+| Step | What you'll learn | Video | Watch |
 |---|---|---|---|
-| 1 | What a heap is and why the smallest item is always on top | [Heaps Visually Explained (Priority Queues)](https://www.youtube.com/watch?v=XycnarZEBvQ) (ByteQuest) | 12 min |
-| 2 | How to use a heap in Python with heapq | [Heaps & Priority Queues in Python](https://www.youtube.com/watch?v=wGSQ486Y4sc) (NeuralNine) | 16 min |
+| 1 | Why you'd want the most urgent item next, again and again | [The easiest way to learn about Heaps and Priority Queue](https://www.youtube.com/watch?v=QSLbp6NO2-s) (AlgoMonster) | 0:00–3:45 only (4 min) |
+| 2 | How to use Python's heapq: push, pop the smallest, and the top k | [Data Structures in Python – Heapq Module](https://www.youtube.com/watch?v=4hkJBcW5Ruk) (Syed Mohiuddin) | all (5 min) |
 
 ## Each problem
 

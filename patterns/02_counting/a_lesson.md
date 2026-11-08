@@ -1,6 +1,6 @@
 # Pattern 02: Counting with a dict
 
-**Watch first:** [Counters in Python Simply Explained](https://www.youtube.com/watch?v=yrV__XKaFn8) (NeuralNine, 12 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Counters in Python Simply Explained](https://www.youtube.com/watch?v=yrV__XKaFn8) (NeuralNine, 0:00–3:48, then 7:03–8:37 (most_common). Skip the rest). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

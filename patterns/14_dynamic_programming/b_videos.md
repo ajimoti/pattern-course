@@ -6,12 +6,12 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea, one step at a time
-Watch these in order. Each one teaches one thing, and together they take about 27 minutes.
+Watch these in order. Each one teaches one thing, and together they take about 23 minutes.
 
-| Step | What you'll learn | Video | Length |
+| Step | What you'll learn | Video | Watch |
 |---|---|---|---|
-| 1 | What dynamic programming is, with a small example | [A Beginner's Guide to Dynamic Programming](https://www.youtube.com/watch?v=oNoILrFOx2k) (Matt Guest) | 7 min |
-| 2 | A step-by-step way to work out any dynamic programming problem | [Mastering Dynamic Programming - How to solve any interview problem](https://www.youtube.com/watch?v=Hdr64lKQ3e4) (Tech With Nikola) | 20 min |
+| 1 | What dynamic programming is, using one example: store answers so you never work them out twice | [What Is Dynamic Programming and How To Use It](https://www.youtube.com/watch?v=vYquumk4nWw) (CS Dojo) | all, but you can skip 6:37–9:20 (11 min) |
+| 2 | Three real problems, fewest coins, number of ways and grid paths, in Python | [Mastering Dynamic Programming - How to solve any interview problem](https://www.youtube.com/watch?v=Hdr64lKQ3e4&t=472s) (Tech With Nikola) | from 7:52 (the link starts there) (12 min) |
 
 ## Each problem
 

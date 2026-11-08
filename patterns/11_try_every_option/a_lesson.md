@@ -1,6 +1,6 @@
 # Pattern 11: Try every option
 
-**Watch first:** [Introduction to Backtracking - Brute Force Approach](https://www.youtube.com/watch?v=DKCbsiDBN6c) (Abdul Bari). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Backtracking was HARD until I learned it this way](https://www.youtube.com/watch?v=Ak-fxEwAR14) (AlgoMonster, 6 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

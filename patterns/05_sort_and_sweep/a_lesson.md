@@ -1,6 +1,6 @@
 # Pattern 05: Sort, then walk through once
 
-**Watch first:** [Merge Interval Algorithm In 4 Minutes](https://www.youtube.com/watch?v=hG9QDwiE28w) (Kantan Coding). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Merge Interval Algorithm In 4 Minutes](https://www.youtube.com/watch?v=hG9QDwiE28w&t=52s) (Kantan Coding, 5 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

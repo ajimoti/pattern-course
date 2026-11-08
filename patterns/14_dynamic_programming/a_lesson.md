@@ -1,6 +1,6 @@
 # Pattern 14: Dynamic programming (build answers from smaller answers)
 
-**Watch first:** [A Beginner's Guide to Dynamic Programming](https://www.youtube.com/watch?v=oNoILrFOx2k) (Matt Guest, 7 min), then [Mastering Dynamic Programming - How to solve any interview problem](https://www.youtube.com/watch?v=Hdr64lKQ3e4) (Tech With Nikola, 20 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [What Is Dynamic Programming and How To Use It](https://www.youtube.com/watch?v=vYquumk4nWw) (CS Dojo, 11 min; you can skip 6:37–9:20), then [Mastering Dynamic Programming - How to solve any interview problem](https://www.youtube.com/watch?v=Hdr64lKQ3e4&t=472s) (Tech With Nikola, 12 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

@@ -67,8 +67,8 @@ def find_order(order_ids, target):
 #   might be an earlier one to the left.
 #
 # VIDEO (watch after you've had a real go, about 20-30 minutes)
-#   Search Insert Position - Leetcode 35 - Binary Search (Python) (Greg Hogg)
-#   https://www.youtube.com/watch?v=4bluwC4wSlI
+#   Search Insert Position - Binary Search - Leetcode 35 - Python (NeetCode)
+#   https://www.youtube.com/watch?v=K-RYzDZkzCI
 #   Same idea as LeetCode 35 Search Insert Position. The video uses a different story and
 #   different names, so watch for the method, not the details.
 def first_departure(leave_times, ready):

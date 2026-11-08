@@ -1,6 +1,6 @@
 # Pattern 03: Two pointers
 
-**Watch first:** [Visual introduction Two Pointer Algorithm](https://www.youtube.com/watch?v=On03HWe2tZM) (Josh's DevBox, 8 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Two Sum II - Leetcode 167 - Python](https://www.youtube.com/watch?v=cQ1Oz4ckceM) (NeetCode, 8 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

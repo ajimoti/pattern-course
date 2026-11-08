@@ -1,6 +1,6 @@
 # Pattern 04: Sliding window
 
-**Watch first:** [Sliding Window Technique](https://www.youtube.com/watch?v=dOonV4byDEg) (Profound Academy, 6 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Sliding window technique](https://www.youtube.com/watch?v=p-ss2JNynmw) (Inside code, 9 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does

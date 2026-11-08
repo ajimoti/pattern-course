@@ -6,9 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-Watch this first. It teaches one thing: how to count things with a dict, and Python's Counter that does it for you.
+Watch this first. It teaches one thing: how to count things with a dict, then Python's Counter, which does the counting for you. Watch 0:00–3:48, then 7:03–8:37 (most_common). Skip the rest.
 
-- [Counters in Python Simply Explained](https://www.youtube.com/watch?v=yrV__XKaFn8) (NeuralNine, 12 min)
+- [Counters in Python Simply Explained](https://www.youtube.com/watch?v=yrV__XKaFn8) (NeuralNine, 6 min)
 
 ## Each problem
 

@@ -6,9 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-Watch this first. It teaches one thing: what two pointers are, starting from the slow way and moving to the fast way.
+Watch this first. It teaches one thing: how two pointers find a pair in a sorted list, worked out slowly from the slow way.
 
-- [Visual introduction Two Pointer Algorithm](https://www.youtube.com/watch?v=On03HWe2tZM) (Josh's DevBox, 8 min)
+- [Two Sum II - Leetcode 167 - Python](https://www.youtube.com/watch?v=cQ1Oz4ckceM) (NeetCode, 8 min)
 
 ## Each problem
 

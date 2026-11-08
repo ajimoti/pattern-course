@@ -6,7 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-- [Introduction to Backtracking - Brute Force Approach](https://www.youtube.com/watch?v=DKCbsiDBN6c) (Abdul Bari)
+Watch this first. It teaches one thing: how to try every option: make a choice, explore, then undo it.
+
+- [Backtracking was HARD until I learned it this way](https://www.youtube.com/watch?v=Ak-fxEwAR14) (AlgoMonster, 6 min)
 
 ## Each problem
 

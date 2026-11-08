@@ -6,9 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-Watch this first. It teaches one thing: how a window slides along a list instead of adding up every group from scratch.
+Watch this first. It teaches one thing: how a window slides along a list: take away the item that leaves, add the one that comes in.
 
-- [Sliding Window Technique](https://www.youtube.com/watch?v=dOonV4byDEg) (Profound Academy, 6 min)
+- [Sliding window technique](https://www.youtube.com/watch?v=p-ss2JNynmw) (Inside code, 9 min)
 
 ## Each problem
 

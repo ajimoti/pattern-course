@@ -25,8 +25,8 @@ def total_pizzas(deal):
 # times; you'd remember answers in a dict (that's Pattern 14, dynamic programming).
 #
 # VIDEO (watch after you've had a real go, about 20-30 minutes)
-#   Learn Depth First Search in 7 minutes (Bro Code)
-#   https://www.youtube.com/watch?v=by93qH4ACxo
+#   Depth First Search Visually Explained, watch 0:00-3:40 (ByteQuest)
+#   https://www.youtube.com/watch?v=84jNzUOY78c
 #   Same idea as LeetCode 797 All Paths From Source to Target. The video uses a different story and
 #   different names, so watch for the method, not the details.
 def count_routes(roads, start, end):

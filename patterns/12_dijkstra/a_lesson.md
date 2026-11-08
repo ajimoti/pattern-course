@@ -1,6 +1,6 @@
 # Pattern 12: Fastest route (Dijkstra)
 
-**Watch first:** [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU) (Spanning Tree, 9 min), then [Dijkstra's Algorithm - Computerphile](https://www.youtube.com/watch?v=GazC3A4OQTE) (Computerphile, 11 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU) (Spanning Tree, 9 min), then [Dijkstras Shortest Path Algorithm Explained – With Example](https://www.youtube.com/watch?v=bZkzH5x0SKU) (FelixTechTips, 8 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does
@@ -22,7 +22,7 @@ The name is pronounced "DIKE-stra". It's named after the person who came up with
 
 If you'd like to see it drawn out before reading on, these two videos show it on a small map:
 - How Dijkstra's Algorithm Works (Spanning Tree, 9 min): https://www.youtube.com/watch?v=EFg3u_E6eHU
-- Dijkstra's Algorithm, Computerphile (slower, drawn by hand): https://www.youtube.com/watch?v=GazC3A4OQTE
+- Dijkstra's Shortest Path Algorithm Explained (FelixTechTips, 8 min, worked as a table): https://www.youtube.com/watch?v=bZkzH5x0SKU
 
 ## A quick example
 For example, say you're booking flights from London to Rome, and these are the prices:

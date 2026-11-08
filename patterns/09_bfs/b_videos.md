@@ -6,9 +6,9 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-Watch this first. It teaches one thing: how BFS checks everything one step away, then two steps away, and so on.
+Watch this first. It teaches one thing: how BFS finds the fewest steps by checking one step away, then two, and so on.
 
-- [Learn Breadth First Search in 6 minutes](https://www.youtube.com/watch?v=7Cox-J7onXw) (Bro Code, 7 min)
+- [Breadth First Search (BFS): Visualized and Explained](https://www.youtube.com/watch?v=xlVX7dXLS64) (Reducible, 11 min)
 
 ## Each problem
 

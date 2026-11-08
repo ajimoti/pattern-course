@@ -1,6 +1,6 @@
 # Pattern 08: Heap (always get the smallest next)
 
-**Watch first:** [Heaps Visually Explained (Priority Queues)](https://www.youtube.com/watch?v=XycnarZEBvQ) (ByteQuest, 12 min), then [Heaps & Priority Queues in Python](https://www.youtube.com/watch?v=wGSQ486Y4sc) (NeuralNine, 16 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [The easiest way to learn about Heaps and Priority Queue](https://www.youtube.com/watch?v=QSLbp6NO2-s) (AlgoMonster, 0:00–3:45 only), then [Data Structures in Python – Heapq Module](https://www.youtube.com/watch?v=4hkJBcW5Ruk) (Syed Mohiuddin, 5 min). Every problem's video is listed in `b_videos.md`.
 
 
 ## What it does
