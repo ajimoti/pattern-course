@@ -2,6 +2,12 @@
 
 **Watch first:** [Python Tutorial for Beginners 5: Dictionaries](https://www.youtube.com/watch?v=daefaLgNkw0) (Corey Schafer, 10 min), then [Lists vs Sets (for lookup efficiency)](https://www.youtube.com/watch?v=xzDEEzH8XWk) (BugBytes, 7 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 1              # test your answers in c_practice.py
+python3 practice.py 1 --solutions  # see the model answers pass
+python3 practice.py 1 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 A dict lookup speeds up code that keeps searching through the same list to find matching items. It works for anything you match up by a shared value, like orders and their payments, students and their grades, or products and their prices, because you can store one side in a dict once and then find any item in it straight away instead of searching.
@@ -178,8 +184,10 @@ Open `c_practice.py` in this folder:
 
 Test your answers from the `pattern_course` folder:
 ```bash
-python3 practice.py 1
+python3 practice.py 1              # test your answers
+python3 practice.py 1 --solutions  # see the model answers pass
 ```
+Tomorrow, run `python3 practice.py 1 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

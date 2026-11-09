@@ -2,6 +2,12 @@
 
 **Watch first:** [Two Sum II - Leetcode 167 - Python](https://www.youtube.com/watch?v=cQ1Oz4ckceM) (NeetCode, 8 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 3              # test your answers in c_practice.py
+python3 practice.py 3 --solutions  # see the model answers pass
+python3 practice.py 3 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 Two pointers finds pairs or compares items in a list by keeping track of two positions at once, instead of checking every item against every other item. It works on sorted lists of numbers, on words and codes you want to compare from both ends, and on two sorted lists you want to combine, because in each case you can tell which position to move next just by looking at the two items you're on.
@@ -140,8 +146,10 @@ Open `c_practice.py` in this folder:
 
 Test your answers from the `pattern_course` folder:
 ```bash
-python3 practice.py 3
+python3 practice.py 3              # test your answers
+python3 practice.py 3 --solutions  # see the model answers pass
 ```
+Tomorrow, run `python3 practice.py 3 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

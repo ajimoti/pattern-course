@@ -2,6 +2,12 @@
 
 **Watch first:** [Topological Sort | Kahn's Algorithm | Graph Theory](https://www.youtube.com/watch?v=cIBFEhD77b4) (WilliamFiset). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 13              # test your answers in c_practice.py
+python3 practice.py 13 --solutions  # see the model answers pass
+python3 practice.py 13 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 A topological sort puts things in an order where everything comes after the things it depends on. It works on any set of jobs with "this must happen before that" rules, like the build steps in a project, courses with prerequisites, the steps of a recipe, or software that has to be installed in a certain order. **Topological sort** is the name interviewers will know it by.
@@ -181,10 +187,12 @@ possible = len(order) == len(all_things)
 2. **The order to do the kitchen prep.** Same method, but the rules are given as (first, then) pairs.
 3. **Can a new driver finish all the training?** Return True or False instead of the order.
 
-Test them with:
+Test your answers from the `pattern_course` folder:
+```bash
+python3 practice.py 13              # test your answers
+python3 practice.py 13 --solutions  # see the model answers pass
 ```
-python practice.py 13
-```
+Tomorrow, run `python3 practice.py 13 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

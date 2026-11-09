@@ -2,6 +2,12 @@
 
 **Watch first:** [Merge Interval Algorithm In 4 Minutes](https://www.youtube.com/watch?v=hG9QDwiE28w&t=52s) (Kantan Coding, 5 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 5              # test your answers in c_practice.py
+python3 practice.py 5 --solutions  # see the model answers pass
+python3 practice.py 5 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 Sort and sweep handles questions about things that take up a stretch of time or a range, like bookings, work shifts, meetings or train journeys. You put everything in order first, then walk through the list once, keeping a running count or a note of the current item as you go.
@@ -164,8 +170,10 @@ Open `c_practice.py` in this folder:
 
 Test your answers:
 ```bash
-python3 practice.py 5
+python3 practice.py 5              # test your answers
+python3 practice.py 5 --solutions  # see the model answers pass
 ```
+Tomorrow, run `python3 practice.py 5 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

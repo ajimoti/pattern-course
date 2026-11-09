@@ -2,6 +2,12 @@
 
 **Watch first:** [The easiest way to learn about Heaps and Priority Queue](https://www.youtube.com/watch?v=QSLbp6NO2-s) (AlgoMonster, 0:00–3:45 only), then [Data Structures in Python – Heapq Module](https://www.youtube.com/watch?v=4hkJBcW5Ruk) (Syed Mohiuddin, 5 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 8              # test your answers in c_practice.py
+python3 practice.py 8 --solutions  # see the model answers pass
+python3 practice.py 8 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 A heap hands you the smallest item in a collection quickly, again and again, even while new items keep being added and old ones taken out. In Python it's a normal list that the `heapq` module keeps arranged so the smallest item is always at position `[0]`.
@@ -192,8 +198,10 @@ Open `c_practice.py` in this folder:
 
 Test your answers:
 ```bash
-python3 practice.py 8
+python3 practice.py 8              # test your answers
+python3 practice.py 8 --solutions  # see the model answers pass
 ```
+Tomorrow, run `python3 practice.py 8 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

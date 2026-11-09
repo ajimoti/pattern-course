@@ -2,6 +2,12 @@
 
 **Watch first:** [Counters in Python Simply Explained](https://www.youtube.com/watch?v=yrV__XKaFn8) (NeuralNine, 0:00–3:48, then 7:03–8:37 (most_common). Skip the rest). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 2              # test your answers in c_practice.py
+python3 practice.py 2 --solutions  # see the model answers pass
+python3 practice.py 2 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 Counting with a dict answers questions about how often things appear in a list. It works on any list where things repeat, like words in a sentence, items in shopping baskets, votes in a poll, or orders in a day, because you go through the list once and keep a running tally for each thing in a dict.
@@ -166,8 +172,10 @@ Open `c_practice.py` in this folder:
 
 Test your answers from the `pattern_course` folder:
 ```bash
-python3 practice.py 2
+python3 practice.py 2              # test your answers
+python3 practice.py 2 --solutions  # see the model answers pass
 ```
+Tomorrow, run `python3 practice.py 2 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

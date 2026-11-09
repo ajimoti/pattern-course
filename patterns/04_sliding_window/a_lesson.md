@@ -2,6 +2,12 @@
 
 **Watch first:** [Sliding window technique](https://www.youtube.com/watch?v=p-ss2JNynmw) (Inside code, 9 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 4              # test your answers in c_practice.py
+python3 practice.py 4 --solutions  # see the model answers pass
+python3 practice.py 4 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 A sliding window answers questions about groups of items that sit next to each other in a list, like the best three days in a row, the longest stretch of on-time deliveries, or the longest run of letters with no repeats. Instead of adding up every group from scratch, it works out the first group once and then slides along, adding the new item that comes in and taking away the one that drops out. The "window" is simply the group of items you're looking at right now.
@@ -191,8 +197,10 @@ Open `c_practice.py` in this folder:
 
 Test your answers from the `pattern_course` folder:
 ```bash
-python3 practice.py 4
+python3 practice.py 4              # test your answers
+python3 practice.py 4 --solutions  # see the model answers pass
 ```
+Tomorrow, run `python3 practice.py 4 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

@@ -2,6 +2,12 @@
 
 **Watch first:** [Python Stacks - Python Tutorial for Absolute Beginners](https://www.youtube.com/watch?v=NKmasqr_Xkw) (Programming with Mosh, 5 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 6              # test your answers in c_practice.py
+python3 practice.py 6 --solutions  # see the model answers pass
+python3 practice.py 6 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 A stack is a list where you only ever add to the end and take from the end, so the last thing you put in is always the first thing you get back. That makes it useful whenever the most recent item is the one you need to deal with next, like undoing your last action, matching a closing bracket with the opening one before it, or going back through the pages you've visited in a browser.
@@ -146,8 +152,10 @@ Open `c_practice.py` in this folder:
 
 Test your answers:
 ```bash
-python3 practice.py 6
+python3 practice.py 6              # test your answers
+python3 practice.py 6 --solutions  # see the model answers pass
 ```
+Tomorrow, run `python3 practice.py 6 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

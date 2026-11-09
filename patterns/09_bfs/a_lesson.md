@@ -2,6 +2,12 @@
 
 **Watch first:** [Breadth First Search (BFS): Visualized and Explained](https://www.youtube.com/watch?v=xlVX7dXLS64) (Reducible, 11 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 9              # test your answers in c_practice.py
+python3 practice.py 9 --solutions  # see the model answers pass
+python3 practice.py 9 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 BFS finds the fewest steps from a starting point to something you're looking for. It works on anything where things are connected to each other, like squares on a map, people who know each other, or stations on a train line, as long as every step counts the same.
@@ -326,7 +332,12 @@ Open `c_practice.py`:
 - **Problem 2** (easier): how many referral steps between two customers.
 - **Problem 3** (a little harder): how many minutes until news reaches every shop.
 
-Test your answers with `python practice.py 9`.
+Test your answers from the `pattern_course` folder:
+```bash
+python3 practice.py 9              # test your answers
+python3 practice.py 9 --solutions  # see the model answers pass
+```
+Tomorrow, run `python3 practice.py 9 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

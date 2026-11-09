@@ -2,6 +2,12 @@
 
 **Watch first:** [What Is Dynamic Programming and How To Use It](https://www.youtube.com/watch?v=vYquumk4nWw) (CS Dojo, 11 min; you can skip 6:37–9:20), then [Mastering Dynamic Programming - How to solve any interview problem](https://www.youtube.com/watch?v=Hdr64lKQ3e4&t=472s) (Tech With Nikola, 12 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 14              # test your answers in c_practice.py
+python3 practice.py 14 --solutions  # see the model answers pass
+python3 practice.py 14 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 Dynamic programming answers a big question by building up to it from smaller versions of the same question. You start with the smallest size, write down its answer, and use the answers you've already written to work out the next size, until you reach the one you were asked about.
@@ -175,10 +181,12 @@ return table[n]
 2. **The most tips on one street.** At each house, decide: skip it, or stop and add this tip to the best total from two houses back. Fill the table house by house.
 3. **How many ways to box an order?** Count the mixes instead of finding the fewest.
 
-Test them with:
+Test your answers from the `pattern_course` folder:
+```bash
+python3 practice.py 14              # test your answers
+python3 practice.py 14 --solutions  # see the model answers pass
 ```
-python practice.py 14
-```
+Tomorrow, run `python3 practice.py 14 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

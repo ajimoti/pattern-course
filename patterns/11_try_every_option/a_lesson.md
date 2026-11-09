@@ -2,6 +2,12 @@
 
 **Watch first:** [Backtracking was HARD until I learned it this way](https://www.youtube.com/watch?v=Ak-fxEwAR14) (AlgoMonster, 6 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 11              # test your answers in c_practice.py
+python3 practice.py 11 --solutions  # see the model answers pass
+python3 practice.py 11 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 Trying every option means listing every possible answer, checking each one, and keeping the best, instead of looking for a clever shortcut. It works for any question where the answer is an order or a group picked from a small set of things, like the order to visit a few places, which toppings to pick, or which orders to put together so they add up to an exact amount.
@@ -268,7 +274,12 @@ Open `c_practice.py`:
 - **Problem 2** (easier): every way to choose toppings. Do it with `combinations`, then again without it.
 - **Problem 3** (a little harder): find orders that exactly fill the delivery van.
 
-Test your answers with `python practice.py 11`.
+Test your answers from the `pattern_course` folder:
+```bash
+python3 practice.py 11              # test your answers
+python3 practice.py 11 --solutions  # see the model answers pass
+```
+Tomorrow, run `python3 practice.py 11 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

@@ -2,6 +2,12 @@
 
 **Watch first:** [Binary Search Animated](https://www.youtube.com/watch?v=eVuPCG5eIr4) (Dreams of Code, 0:00–3:41 only), then [Binary Search Algorithm Explained (Full Code Included)](https://www.youtube.com/watch?v=DnvWAd-RGhk) (Derrick Sherrill, 6 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 7              # test your answers in c_practice.py
+python3 practice.py 7 --solutions  # see the model answers pass
+python3 practice.py 7 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 Binary search finds something in a sorted list much faster than reading the list from the start. It looks at the middle item first, and because the list is in order, that one check tells it which half the answer must be in, so it throws the other half away and repeats on what's left until it finds the item or runs out of list.
@@ -148,8 +154,10 @@ Open `c_practice.py` in this folder:
 
 Test your answers:
 ```bash
-python3 practice.py 7
+python3 practice.py 7              # test your answers
+python3 practice.py 7 --solutions  # see the model answers pass
 ```
+Tomorrow, run `python3 practice.py 7 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

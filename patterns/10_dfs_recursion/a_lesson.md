@@ -2,6 +2,12 @@
 
 **Watch first:** [Learn RECURSION in 5 minutes!](https://www.youtube.com/watch?v=ivl5-snqul8) (Bro Code, 6 min), then [Depth First Search Visually Explained – DFS (Graphs)](https://www.youtube.com/watch?v=84jNzUOY78c) (ByteQuest, 0:00–3:40 only). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 10              # test your answers in c_practice.py
+python3 practice.py 10 --solutions  # see the model answers pass
+python3 practice.py 10 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 Recursion is when a function solves a problem by calling itself on a smaller piece of the same problem, then uses the answers that come back to build its own. It suits anything that contains smaller copies of itself, like folders inside folders, comments with replies to replies, or a combo deal that includes other deals.
@@ -189,7 +195,12 @@ Open `c_practice.py`:
 - **Problem 2** (easier): count every route from the shop to a customer on one-way roads.
 - **Problem 3** (a little harder): count the separate neighbourhoods on a map.
 
-Test your answers with `python practice.py 10`.
+Test your answers from the `pattern_course` folder:
+```bash
+python3 practice.py 10              # test your answers
+python3 practice.py 10 --solutions  # see the model answers pass
+```
+Tomorrow, run `python3 practice.py 10 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.

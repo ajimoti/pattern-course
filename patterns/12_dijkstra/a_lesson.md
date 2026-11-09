@@ -2,6 +2,12 @@
 
 **Watch first:** [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU) (Spanning Tree, 9 min), then [Dijkstras Shortest Path Algorithm Explained – With Example](https://www.youtube.com/watch?v=bZkzH5x0SKU) (FelixTechTips, 8 min). Every problem's video is listed in `b_videos.md`.
 
+**Commands for this pattern** (run them in the `pattern_course` folder):
+```bash
+python3 practice.py 12              # test your answers in c_practice.py
+python3 practice.py 12 --solutions  # see the model answers pass
+python3 practice.py 12 --reset      # blank c_practice.py, to rewrite from memory
+```
 
 ## What it does
 Dijkstra's algorithm finds the quickest or cheapest way from a starting point to somewhere else, when each connection costs a different amount. It works on anything made of connected places where moving between them has its own cost, like roads that take different numbers of minutes, flights with different prices, or network links with different delays.
@@ -344,10 +350,12 @@ while to_visit:
 2. **Fastest time from the shop to every place.** Easy once 1 works.
 3. **When has every shop got the promo message?** The links only go one way.
 
-Test them with:
+Test your answers from the `pattern_course` folder:
+```bash
+python3 practice.py 12              # test your answers
+python3 practice.py 12 --solutions  # see the model answers pass
 ```
-python practice.py 12
-```
+Tomorrow, run `python3 practice.py 12 --reset` to blank your answers and write them again from memory.
 
 ## More practice
 Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.
