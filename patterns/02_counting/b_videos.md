@@ -6,9 +6,11 @@
 3. The problem videos solve the original LeetCode version, so the story and names differ from our pizza version. The method is the same.
 
 ## The idea
-Watch this first. It teaches one thing: how to count things with a dict, then Python's Counter, which does the counting for you. Watch 0:00–3:48, then 7:03–8:37 (most_common). Skip the rest.
+Watch this first. It teaches one thing: how to count with a dict. Go through the items once, add 1 to each item's count, then answer the question from the counts. Watch 0:00–9:10. The rest is a different method (sorting) that this pattern doesn't use.
 
-- [Counters in Python Simply Explained](https://www.youtube.com/watch?v=yrV__XKaFn8) (NeuralNine, 6 min)
+- [Valid Anagram - Leetcode 242 - Python](https://www.youtube.com/watch?v=9UtInBqnCgA) (NeetCode, 9 min)
+
+`Counter` from Python's `collections` is only a shortcut that builds the same counts for you. Learn to write the dict version by hand first; the video shows `Counter` briefly at 8:16.
 
 ## Each problem
 

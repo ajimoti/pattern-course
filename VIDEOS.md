@@ -11,7 +11,7 @@ Watch the pattern's video before reading its lesson. Every problem's own video i
 | # | Pattern | Video |
 |---|---|---|
 | 01 | Dict lookup | [Python Tutorial for Beginners 5: Dictionaries](https://www.youtube.com/watch?v=daefaLgNkw0) (Corey Schafer), then [Lists vs Sets (for lookup efficiency)](https://www.youtube.com/watch?v=xzDEEzH8XWk) (BugBytes) |
-| 02 | Counting with a dict | [Counters in Python Simply Explained](https://www.youtube.com/watch?v=yrV__XKaFn8) (NeuralNine) |
+| 02 | Counting with a dict | [Valid Anagram - Leetcode 242 - Python](https://www.youtube.com/watch?v=9UtInBqnCgA) (NeetCode), 0:00–9:10 |
 | 03 | Two pointers | [Two Sum II - Leetcode 167 - Python](https://www.youtube.com/watch?v=cQ1Oz4ckceM) (NeetCode) |
 | 04 | Sliding window | [Sliding window technique](https://www.youtube.com/watch?v=p-ss2JNynmw) (Inside code) |
 | 05 | Sort, then walk through once | [Merge Interval Algorithm In 4 Minutes](https://www.youtube.com/watch?v=hG9QDwiE28w&t=52s) (Kantan Coding) |

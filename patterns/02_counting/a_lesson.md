@@ -1,6 +1,6 @@
 # Pattern 02: Counting with a dict
 
-**Watch first:** [Counters in Python Simply Explained](https://www.youtube.com/watch?v=yrV__XKaFn8) (NeuralNine, 0:00–3:48, then 7:03–8:37 (most_common). Skip the rest). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Valid Anagram - Leetcode 242 - Python](https://www.youtube.com/watch?v=9UtInBqnCgA) (NeetCode, 0:00–9:10 only). Every problem's video is listed in `b_videos.md`.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
