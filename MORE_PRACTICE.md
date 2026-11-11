@@ -6,6 +6,8 @@ Every pattern has 5 to 7 extra problems on LeetCode. They're free, and you can r
 
 NeetCode (https://neetcode.io/practice) groups problems by topic too, each with a free video. The topic to look under is listed for each pattern.
 
+**Want more?** Each pattern folder also has `e_practice_links.md`: links to that pattern's whole category on LeetCode and NeetCode, plus 6 to 8 more free problems that aren't in the lists below.
+
 - **Pattern 01: Dict lookup:** `patterns/01_dict_lookup/e_more_practice.md` (7 problems)
 - **Pattern 02: Counting with a dict:** `patterns/02_counting/e_more_practice.md` (6 problems)
 - **Pattern 03: Two pointers:** `patterns/03_two_pointers/e_more_practice.md` (7 problems)

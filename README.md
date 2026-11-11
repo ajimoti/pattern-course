@@ -18,7 +18,7 @@ Plain Python 3.9+, standard library only.
    ```
 5. Stuck? Have a real go for 20-30 minutes, then watch that problem's video. It's linked above each problem in `c_practice.py` and listed in `b_videos.md`. Then close the video and write your own answer.
 6. Only open `d_solutions.py` once your tests pass.
-7. Then do at least 3 of the extra LeetCode problems in that pattern's `e_more_practice.md` (all free, easiest first). `MORE_PRACTICE.md` lists them all.
+7. Then do at least 3 of the extra LeetCode problems in that pattern's `e_more_practice.md` (all free, easiest first). `MORE_PRACTICE.md` lists them all. For even more, each pattern's `e_practice_links.md` links to whole LeetCode and NeetCode categories.
 8. Tick the steps in your tracker page as you go.
 
 ## The four steps for every pattern

@@ -178,4 +178,4 @@ python3 practice.py 2 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 2 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
