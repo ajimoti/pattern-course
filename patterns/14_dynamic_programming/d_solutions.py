@@ -6,17 +6,17 @@ PATTERN 14: DYNAMIC PROGRAMMING (BUILD ANSWERS FROM SMALLER ANSWERS) - SOLUTIONS
 # =============================================================================
 # 1. THE FEWEST BOXES FOR AN ORDER OF SLICES
 # =============================================================================
-# Idea: work out the fewest boxes for 0 slices, then 1, then 2, ... up to the
-# order. For each amount, try every box size: "use one box of this size, plus
+# Idea: work out the fewest boxes for 0 slices, then 1, then 2, ... up to
+# `slices`. For each amount, try every box size: "use one box of this size, plus
 # the fewest boxes for whatever is left" (already worked out). Keep the best.
 # float("inf") means "can't be done (yet)".
 # Speed: (number of slices) x (number of box sizes).
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Coin Change - Dynamic Programming Bottom Up - Leetcode 322 (NeetCode)
 #   https://www.youtube.com/watch?v=H9bfqozjoqs
-#   Same idea as LeetCode 322 Coin Change. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 322 Coin Change. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def fewest_boxes(slices, box_sizes):
     best = [0] + [float("inf")] * slices       # best[amount] = fewest boxes for that amount
 
@@ -42,11 +42,11 @@ def fewest_boxes(slices, box_sizes):
 # Keep the bigger one. You only ever need the last two totals.
 # Speed: one pass along the street.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   House Robber - Leetcode 198 - Dynamic Programming (Python) (Greg Hogg)
 #   https://www.youtube.com/watch?v=kIII1uT6F8Y
-#   Same idea as LeetCode 198 House Robber. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 198 House Robber. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def most_tips(tips):
     two_back = 0      # best total up to two houses ago
     one_back = 0      # best total up to the previous house
@@ -69,11 +69,11 @@ def most_tips(tips):
 # whatever order the boxes are listed in.
 # Speed: (number of slices) x (number of box sizes).
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Coin Change 2 - Dynamic Programming Unbounded Knapsack - Leetcode 518 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=Mjy4hd2xgrs
-#   Same idea as LeetCode 518 Coin Change II. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 518 Coin Change II. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def ways_to_pack(slices, box_sizes):
     ways = [1] + [0] * slices
 

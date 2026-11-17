@@ -10,11 +10,11 @@ Test from the pattern_course folder:   python3 practice.py 3
 # =============================================================================
 # THE PROBLEM
 #   A customer has a gift card worth exactly £20 and wants to spend all of it
-#   on two different pizzas. The menu prices are listed from cheapest to most
-#   expensive.
+#   on two different pizzas from your pizza shop. The menu prices are listed
+#   from cheapest to most expensive.
 #
 #   Checking every pizza against every other pizza would work, but the full
-#   menu is long and the app has to answer instantly. Because the prices are
+#   menu is long and your shop's app has to answer instantly. Because the prices are
 #   already in order, you can do it in one pass.
 #
 # THE DATA
@@ -23,10 +23,12 @@ Test from the pattern_course folder:   python3 practice.py 3
 #
 # YOUR TASK
 #   two_prices(prices, budget) returns (cheaper price, dearer price) for two
-#   different pizzas that add up to exactly the budget. If there's no such
+#   different pizzas that add up to exactly budget. If there's no such
 #   pair, return None. Two pizzas can have the same price.
 #
 # EXAMPLE
+#   left points at the cheapest price (4), right at the dearest (15).
+#   Add the two. Too small: move left up one. Too big: move right down one.
 #   4 + 15 = 19, too small  -> move left  (4 -> 6)
 #   6 + 15 = 21, too big    -> move right (15 -> 11)
 #   6 + 11 = 17, too small  -> move left  (6 -> 9)
@@ -36,11 +38,11 @@ Test from the pattern_course folder:   python3 practice.py 3
 # HINT
 #   left = 0, right = len(prices) - 1, and loop while left < right.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Two Sum II - Leetcode 167 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=cQ1Oz4ckceM
-#   Same idea as LeetCode 167 Two Sum II. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 167 Two Sum II. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def two_prices(prices, budget):
     pass
 
@@ -49,12 +51,12 @@ def two_prices(prices, budget):
 # 2. AN ORDER CODE THAT READS THE SAME BACKWARDS
 # =============================================================================
 # THE PROBLEM
-#   For a bit of fun, the shop is running a promotion: if your order code
+#   For a bit of fun, your pizza shop is running a promotion: if your order code
 #   reads the same forwards and backwards, your pizza is free. The codes are
 #   made of letters and numbers, and upper or lower case doesn't matter, so
 #   "Xy1yX" counts.
 #
-#   The till needs to check each code as it's printed. Compare the first
+#   Your shop's till needs to check each code as it's printed. Compare the first
 #   character with the last, the second with the second-to-last, and so on,
 #   working inwards from both ends.
 #
@@ -79,11 +81,11 @@ def two_prices(prices, budget):
 #   Lowercase the code first. Then left = 0, right = len(code) - 1, and move
 #   both inwards while left < right.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Valid Palindrome - Leetcode 125 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=jJXJ16kPFWg
-#   Same idea as LeetCode 125 Valid Palindrome. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 125 Valid Palindrome. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def is_mirror_code(code):
     pass
 
@@ -92,9 +94,10 @@ def is_mirror_code(code):
 # 3. MERGING TWO SORTED LISTS OF ORDER TIMES
 # =============================================================================
 # THE PROBLEM
-#   Orders come in from two places: the app and the phone line. Each system
-#   gives you its own list of order times, already sorted from earliest to
-#   latest. The kitchen screen needs one combined list, earliest first.
+#   Your pizza shop takes orders in two ways: through its app and by phone.
+#   Each system gives you its own list of order times, already sorted from
+#   earliest to latest. The screen in the kitchen needs one combined list,
+#   earliest first.
 #
 #   You could join the lists and sort them again, but both are already in
 #   order, so you can build the combined list in a single pass by always
@@ -120,13 +123,14 @@ def is_mirror_code(code):
 #   merge_orders(app, phone)  ->  [5, 8, 12, 12, 30, 40, 41]
 #
 # HINT
-#   i = 0 for app, j = 0 for phone. Loop while both have items left. After
-#   the loop, add whatever is left in either list.
+#   i = 0 (your position in app), j = 0 (your position in phone). Loop while
+#   both lists have items left. After the loop, add whatever is left in
+#   either list.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Merge Sorted Array - Leetcode 88 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=P1Ic85RarKY
-#   Same idea as LeetCode 88 Merge Sorted Array. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 88 Merge Sorted Array. The video uses
+#   a different story and different names, so watch for the method, not the details.
 def merge_orders(app, phone):
     pass

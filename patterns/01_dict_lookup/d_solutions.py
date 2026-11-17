@@ -5,7 +5,7 @@ PATTERN 01: DICT LOOKUP - SOLUTIONS
 
 # 1. WHICH ORDERS ARRIVED LATE?
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Lists vs Sets (for lookup efficiency) (BugBytes)
 #   https://www.youtube.com/watch?v=xzDEEzH8XWk
 def late_orders_slow(orders, deliveries):
@@ -18,7 +18,7 @@ def late_orders_slow(orders, deliveries):
 
 
 def late_orders_fast(orders, deliveries):
-    # Step 1: turn the delivery log into a dict (order id -> minutes it took)
+    # Step 1: turn deliveries into a dict (order id -> minutes it took)
     minutes = {}
     for d in deliveries:
         minutes[d["order_id"]] = d["minutes"]
@@ -37,11 +37,12 @@ def late_orders_fast(orders, deliveries):
 
 # 2. ORDERS NOBODY HAS PAID FOR
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Find the Difference of Two Arrays - Leetcode 2215 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=a4wqKR-znBE
-#   Same idea as LeetCode 2215 Find the Difference of Two Arrays. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 2215 Find the Difference of Two
+#   Arrays. The video uses a different story and different names, so watch for the
+#   method, not the details.
 def unpaid_orders(orders, payments):
     # Step 1: collect every order id that has a payment
     paid = set()
@@ -60,11 +61,11 @@ def unpaid_orders(orders, payments):
 
 # 3. TWO ORDERS THAT USE UP A VOUCHER
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Two Sum - Leetcode 1 - HashMap - Python (NeetCode)
 #   https://www.youtube.com/watch?v=KLlXCFG5TnA
-#   Same idea as LeetCode 1 Two Sum. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 1 Two Sum. The video uses a different
+#   story and different names, so watch for the method, not the details.
 def voucher_pair(totals, voucher):
     seen = {}                                # total -> position where we saw it
     for j in range(len(totals)):
@@ -77,4 +78,4 @@ def voucher_pair(totals, voucher):
 # Speed: one pass through the list. Checking every pair would be
 # len(totals) x len(totals) steps.
 # Note: we check the dict BEFORE storing the current total, so an order is
-# never paired with itself (a 10 on its own doesn't make 20).
+# never paired with itself (one £10 order doesn't use up a £20 voucher).

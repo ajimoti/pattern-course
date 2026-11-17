@@ -14,11 +14,11 @@ import heapq
 # loop, so it's impossible.
 # Speed: about (parts + dependencies), plus a little for the heap.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Course Schedule I and II | Pre-requisite Tasks | Topological Sort (C++/Java) (take U forward)
 #   https://www.youtube.com/watch?v=WAOfKpxYHR8
-#   Same idea as LeetCode 210 Course Schedule II. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 210 Course Schedule II. The video uses
+#   a different story and different names, so watch for the method, not the details.
 def build_order(deps):
     waiting_on = {}      # part -> how many parts it is still waiting for
     needed_by = {}       # part -> parts that need it
@@ -50,14 +50,14 @@ def build_order(deps):
 # =============================================================================
 # 2. THE ORDER TO DO THE KITCHEN PREP
 # =============================================================================
-# Idea: the same as problem 1. The only difference is how the rules are given:
-# here each rule is (do this first, then this).
+# Idea: the same as problem 1 in this file. The only difference is how the
+# rules are given: here each rule is (do this first, then this).
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Kahn's Algorithm | Topological Sort Algorithm | BFS (take U forward)
 #   https://www.youtube.com/watch?v=73sneFXuTEg
-#   Same idea as LeetCode Topological sort walkthrough. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem has no exact LeetCode twin. The video teaches the same method on a
+#   different example, so watch for the method, not the details.
 def prep_order(steps, rules):
     waiting_on = {step: 0 for step in steps}
     unlocks = {step: [] for step in steps}        # step -> steps waiting for it
@@ -86,16 +86,17 @@ def prep_order(steps, rules):
 # =============================================================================
 # 3. CAN A NEW DRIVER FINISH ALL THE TRAINING?
 # =============================================================================
-# Idea: try to put the modules in order, exactly like problem 2. If every
+# Idea: try to put the modules in order, exactly like problem 2 in this file.
+# If every
 # module gets a place in the order, the training can be finished. If some are
 # stuck waiting on each other, it can't. No alphabetical rule is needed here,
 # so a plain list works as well as a heap.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Course Schedule I and II | Pre-requisite Tasks | Topological Sort (C++/Java) (take U forward)
 #   https://www.youtube.com/watch?v=WAOfKpxYHR8
-#   Same idea as LeetCode 207 Course Schedule. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 207 Course Schedule. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def can_finish(modules, prerequisites):
     waiting_on = {module: 0 for module in modules}
     unlocks = {module: [] for module in modules}

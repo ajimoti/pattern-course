@@ -4,16 +4,17 @@ PATTERN 09: BFS - solutions
 from collections import deque
 
 
-# 1. NEAREST CUSTOMER ON THE MAP
+# 1. NEAREST CUSTOMER ON A MAP
 # Build the graph (square -> squares one move away), then BFS from the shop
 # carrying the minutes. The first customer taken off the queue is the nearest.
 # Speed: every square is checked at most once, so it grows with the size of the map.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Breadth First Search grid shortest path (WilliamFiset)
 #   https://www.youtube.com/watch?v=KiCBXu4P-2Y
-#   Same idea as LeetCode 1091 Shortest Path in Binary Matrix. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 1091 Shortest Path in Binary Matrix.
+#   The video uses a different story and different names, so watch for the method, not
+#   the details.
 def build_graph(grid):
     rows = len(grid)
     cols = len(grid[0])
@@ -58,11 +59,11 @@ def nearest_customer(grid):
 # The links dict is already the graph. BFS from start, carrying the steps.
 # Speed: each customer and each link is looked at once.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Breadth First Search Algorithm (Shortest Path, Graph Theory) (WilliamFiset)
 #   https://www.youtube.com/watch?v=oDqjPvD54Ss
-#   Same idea as LeetCode BFS shortest path. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem has no exact LeetCode twin. The video teaches the same method on a
+#   different example, so watch for the method, not the details.
 def referral_steps(links, start, target):
     search_queue = deque()
     search_queue.append((start, 0))
@@ -87,11 +88,11 @@ def referral_steps(links, start, target):
 # missing at the end, it never heard. Otherwise the answer is the latest minute.
 # Speed: each shop and each call is looked at once.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Rotting Oranges - Leetcode 994 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=y704fEOx0s0
-#   Same idea as LeetCode 994 Rotting Oranges. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 994 Rotting Oranges. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def minutes_until_everyone_knows(calls, start):
     heard_at = {}                         # shop -> minute it first heard
     search_queue = deque()

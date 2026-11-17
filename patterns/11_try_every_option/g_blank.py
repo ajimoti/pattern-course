@@ -1,6 +1,7 @@
 """
-PATTERN 11: Try every option
-Read a_lesson.md first. Test with:  python practice.py 11
+PATTERN 11: Try every option - PRACTICE
+Read a_lesson.md first. Write your code where it says `pass`.
+Test from the pattern_course folder:   python3 practice.py 11
 """
 import math
 from itertools import combinations, permutations
@@ -10,13 +11,14 @@ from itertools import combinations, permutations
 # 1. THE SHORTEST DELIVERY ROUTE
 # =============================================================================
 # THE PROBLEM
-#   A driver starts at the pizza shop, delivers to a few customers, then
+#   A driver starts at your pizza shop, delivers to a few customers, then
 #   drives back to the shop. They can visit the customers in any order, and
 #   you want the order that means the least driving.
 #
-#   The places come in as text, like "0,0 1,1 2,0 2,2". Each pair is an
-#   address. The first one is the shop and the rest are customers. The driver
-#   goes in a straight line from one place to the next.
+#   The shop and customer addresses come in as text, like "0,0 1,1 2,0 2,2".
+#   Each x,y pair is one address on a grid. The first one is the shop and the
+#   rest are customers. The driver goes in a straight line from one place to
+#   the next.
 #
 # THE DATA
 #   text = "0,0 1,1 2,0 2,2"
@@ -25,15 +27,17 @@ from itertools import combinations, permutations
 # YOUR TASK
 #   Write three functions:
 #
-#   read_points(text) returns a list of (x, y) pairs of ints.
+#   read_points(text) takes the text and returns a list of (x, y) pairs of
+#   ints, one per address, in the same order.
 #
 #   trip_length(trip) takes a list of (x, y) places in order and returns the
 #   total straight-line distance from each place to the next.
 #
-#   best_route(points) returns (route, distance) for the shortest route that
-#   starts at points[0], visits every other point once, and ends back at
-#   points[0]. If there are no customers, the route is just [shop, shop]
-#   with distance 0.
+#   best_route(points) takes the list that read_points returns. It returns
+#   (route, distance) for the shortest route that starts at points[0] (the
+#   shop), visits every other point once, and ends back at points[0]. route is
+#   the list of places in visiting order. If there are no customers, the route
+#   is just [shop, shop] with distance 0.
 #
 # EXAMPLE
 #   read_points("0,0 1,1 2,0 2,2")  ->  [(0, 0), (1, 1), (2, 0), (2, 2)]
@@ -47,15 +51,13 @@ from itertools import combinations, permutations
 #
 # HINT
 #   math.dist(a, b) gives the distance between two points.
-#   permutations(customers) gives every order of the customers.
+#   permutations(points[1:]) gives every order of the customers.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Backtracking: Permutations - Leetcode 46 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=s7AvT7cGdSo
-#   Backtracking: Permutations - Leetcode 46 - Python (NeetCode)
-#   https://www.youtube.com/watch?v=s7AvT7cGdSo
-#   Same idea as LeetCode 46 Permutations. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 46 Permutations. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def read_points(text):
     pass
 
@@ -72,8 +74,9 @@ def best_route(points):
 # 2. EVERY WAY TO CHOOSE TOPPINGS
 # =============================================================================
 # THE PROBLEM
-#   Your "build your own" pizza lets customers pick a set number of toppings
-#   from a list. The menu designer wants to see every possible choice, so
+#   Your pizza shop has a "build your own" pizza. Customers pick a set number
+#   of toppings from a list. Your menu designer wants to see every possible
+#   choice, so
 #   they can check none of them sound awful together.
 #
 #   Order doesn't matter: ham and olive is the same pizza as olive and ham.
@@ -83,8 +86,9 @@ def best_route(points):
 #   k = 2      (how many toppings the customer picks)
 #
 # YOUR TASK
-#   topping_choices(toppings, k) returns a list of every possible choice,
-#   each as a tuple. Any order of the list is fine. Choosing 0 toppings has
+#   topping_choices(toppings, k) takes the list of toppings and k. It returns
+#   a list of every possible choice, each as a tuple of k toppings. The
+#   choices can come in any order. Choosing 0 toppings has
 #   exactly one way: [()]. Choosing more toppings than there are has no ways: [].
 #
 # EXAMPLE
@@ -97,13 +101,14 @@ def best_route(points):
 #   First get it passing with itertools.combinations.
 #   Then delete that and write it yourself with recursion: for the first
 #   topping, either take it (and choose k - 1 from the rest) or leave it
-#   (and choose k from the rest). The lesson has this written out.
+#   (and choose k from the rest). a_lesson.md has this written out, under
+#   "The pattern, in general".
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Combinations - Leetcode 77 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=q0s6m7AiM7o
-#   Same idea as LeetCode 77 Combinations. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 77 Combinations. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def topping_choices(toppings, k):
     pass
 
@@ -112,10 +117,10 @@ def topping_choices(toppings, k):
 # 3. FILL THE VAN EXACTLY
 # =============================================================================
 # THE PROBLEM
-#   For a big event you've hired a van that carries exactly a set number of
-#   pizza boxes, and the hire company charges the same however full it is. So
-#   you want to send a group of orders that fills it exactly, with no empty
-#   space.
+#   Your pizza shop is delivering to a big event. You've hired a van that
+#   carries exactly a set number of pizza boxes, and the hire company charges
+#   the same however full it is. So you want to send a group of orders that
+#   fills it exactly, with no empty space.
 #
 #   Each order has a number of pizzas, and an order can't be split. Out of the
 #   orders waiting, find a group whose pizzas add up exactly to the van's
@@ -127,7 +132,8 @@ def topping_choices(toppings, k):
 #   Each order is (order name, number of pizzas).
 #
 # YOUR TASK
-#   fill_the_van(orders, capacity) returns a list of order names whose
+#   fill_the_van(orders, capacity) takes the list of orders and the van's
+#   capacity in pizzas. It returns a list of order names whose
 #   pizzas add up to exactly capacity, using the fewest orders possible.
 #   If several groups tie for fewest, any of them is fine.
 #   Return None if no group adds up exactly.
@@ -145,10 +151,10 @@ def topping_choices(toppings, k):
 #   combinations(orders, size). The first group that adds up exactly is
 #   automatically one of the smallest.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Subsets - Backtracking - Leetcode 78 (NeetCode)
 #   https://www.youtube.com/watch?v=REOH22Xwdkk
-#   Same idea as LeetCode 78 Subsets. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 78 Subsets. The video uses a different
+#   story and different names, so watch for the method, not the details.
 def fill_the_van(orders, capacity):
     pass

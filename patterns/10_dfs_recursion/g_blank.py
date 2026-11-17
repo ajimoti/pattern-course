@@ -1,18 +1,20 @@
 """
-PATTERN 10: DFS and recursion (go deep first)
-Read a_lesson.md first. Test with:  python practice.py 10
+PATTERN 10: DFS and recursion (go deep first) - PRACTICE
+Read a_lesson.md first. Write your code where it says `pass`.
+Test from the pattern_course folder:   python3 practice.py 10
 """
 
 
 # =============================================================================
-# 1. HOW MANY PIZZAS ARE IN THIS DEAL?
+# 1. HOW MANY PIZZAS ARE IN A DEAL?
 # =============================================================================
 # THE PROBLEM
-#   Your shop sells combo deals, and some deals include other deals. The
-#   Family deal comes with two pizzas of its own, plus a Kids box and a Party
-#   add-on. The Party add-on has a pizza of its own, plus a Mini pack.
+#   Your pizza shop sells combo deals, and some deals include other deals.
+#   One of them, the Family deal, comes with two pizzas of its own, plus a
+#   Kids box and a Party add-on. The Party add-on has a pizza of its own,
+#   plus a Mini pack.
 #
-#   The kitchen needs to know how many pizzas to make when someone orders a
+#   Your kitchen needs to know how many pizzas to make when someone orders a
 #   deal. Work out the total number of pizzas in a deal, including everything
 #   inside it, however many levels deep it goes.
 #
@@ -25,7 +27,8 @@ Read a_lesson.md first. Test with:  python practice.py 10
 #
 # YOUR TASK
 #   total_pizzas(deal) returns the total number of pizzas in the deal,
-#   counting every deal inside it at every level.
+#   counting every deal inside it at every level. deal is a dict like the
+#   ones in THE DATA. A deal that contains nothing just has its own pizzas.
 #
 # EXAMPLE
 #   Kids box     = 1                     (contains nothing)
@@ -36,10 +39,11 @@ Read a_lesson.md first. Test with:  python practice.py 10
 #   total_pizzas(family_deal)  ->  7
 #
 # HINT
-#   Start with the deal's own pizzas, then add total_pizzas() of each deal in
-#   its "contains" list.
+#   Start with the deal's own pizzas, then call total_pizzas() on each deal in
+#   its "contains" list and add the results. A function that calls itself
+#   like this is called recursion.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   5 Simple Steps for Solving Any Recursive Problem (Reducible)
 #   https://www.youtube.com/watch?v=ngCos392W4w
 def total_pizzas(deal):
@@ -50,11 +54,11 @@ def total_pizzas(deal):
 # 2. HOW MANY DIFFERENT ROUTES ARE THERE?
 # =============================================================================
 # THE PROBLEM
-#   The streets around your shop are all one-way. A new driver wants to know
-#   how many different routes there are from the shop to a customer, so they
-#   can learn them all.
+#   The streets around your pizza shop are all one-way. A new driver wants to
+#   know how many different routes there are from the shop to a customer, so
+#   they can learn them all.
 #
-#   You have a list of which places each place's one-way streets lead to. The
+#   You have a record of where each place's one-way streets lead. The
 #   streets never lead you back to somewhere you've already been, so a driver
 #   can't go round in circles.
 #
@@ -70,8 +74,9 @@ def total_pizzas(deal):
 #
 # YOUR TASK
 #   count_routes(roads, start, end) returns how many different routes go
-#   from start to end. If start and end are the same place, that counts as 1
-#   route (you're already there).
+#   from start to end, where start and end are place names. If start and end
+#   are the same place, that counts as 1 route (you're already there).
+#   If there's no way from start to end, it returns 0.
 #
 # EXAMPLE
 #   Routes from Shop to C:
@@ -85,13 +90,15 @@ def total_pizzas(deal):
 #
 # HINT
 #   The routes from a place = the routes from each place its streets lead to,
-#   added together. Stopping point: if you're at the end, that's 1 route.
+#   added together. Stopping point (where the function stops calling itself):
+#   if you're at end, that's 1 route.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Depth First Search Visually Explained, watch 0:00-3:40 (ByteQuest)
 #   https://www.youtube.com/watch?v=84jNzUOY78c
-#   Same idea as LeetCode 797 All Paths From Source to Target. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 797 All Paths From Source to Target.
+#   The video uses a different story and different names, so watch for the method, not
+#   the details.
 def count_routes(roads, start, end):
     pass
 
@@ -100,10 +107,10 @@ def count_routes(roads, start, end):
 # 3. HOW MANY SEPARATE NEIGHBOURHOODS ARE THERE?
 # =============================================================================
 # THE PROBLEM
-#   You're splitting the town into delivery areas. A driver can only move up,
-#   down, left or right along roads, and buildings block the way. Any roads a
-#   driver can get between without crossing a building belong to the same
-#   neighbourhood.
+#   You run a pizza shop, and you're splitting your town into delivery areas.
+#   Your town map is a grid of squares. A driver can only move up, down, left
+#   or right along roads, and buildings block the way. Any roads a driver can
+#   get between without crossing a building belong to the same neighbourhood.
 #
 #   Count how many separate neighbourhoods there are, so you know how many
 #   delivery areas you need.
@@ -128,13 +135,15 @@ def count_routes(roads, start, end):
 #
 # HINT
 #   Go through every square. When you find a road square you haven't seen,
-#   that's a new neighbourhood: add 1, then call a recursive explore(row, col)
-#   that marks every road square connected to it as seen.
+#   that's a new neighbourhood: add 1, then call explore(row, col). Write
+#   explore as a recursive function (one that calls itself): it marks the
+#   square as seen, then calls itself on the squares up, down, left and
+#   right, so every road square connected to the first one gets marked.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Number of Islands - Leetcode 200 - Graphs (Python) (Greg Hogg)
 #   https://www.youtube.com/watch?v=gCswsDauXPc
-#   Same idea as LeetCode 200 Number of Islands. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 200 Number of Islands. The video uses
+#   a different story and different names, so watch for the method, not the details.
 def count_neighbourhoods(grid):
     pass

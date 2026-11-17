@@ -1,10 +1,10 @@
 """
 Pattern course test runner.
 
-  python practice.py                 # progress across every pattern
-  python practice.py 3               # test your answers for pattern 3
-  python practice.py 3 --solutions   # see the model solutions pass for pattern 3
-  python practice.py 3 --reset       # blank c_practice.py for pattern 3 (your old answers are kept in c_practice_backup.py)
+  python3 practice.py                 # progress across every pattern
+  python3 practice.py 3               # test your answers for pattern 3
+  python3 practice.py 3 --solutions   # see the model solutions pass for pattern 3
+  python3 practice.py 3 --reset       # blank c_practice.py for pattern 3 (your old answers are kept in c_practice_backup.py)
 """
 import importlib.util
 import shutil
@@ -74,7 +74,7 @@ def main():
         number = int(args[0])
         match = [f for f in folders if int(f.name[:2]) == number]
         if not match:
-            print(f"No pattern {number}. Run `python practice.py` to see them all.")
+            print(f"No pattern {number}. Run `python3 practice.py` to see them all.")
             return
         folder = match[0]
         if "--reset" in sys.argv:
@@ -87,7 +87,7 @@ def main():
         passed, total = run_pattern(folder, use_solutions)
         print(f"\n{passed}/{total} tests passed")
         if passed == total and not use_solutions:
-            print(f"All passing. Tomorrow, run `python practice.py {number} --reset` and write them again from memory.")
+            print(f"All passing. Tomorrow, run `python3 practice.py {number} --reset` and write them again from memory.")
         return
 
     print("Your progress (tests passing in each c_practice.py)\n")
@@ -96,7 +96,7 @@ def main():
         bar = "#" * passed + "." * (total - passed)
         done = "  done" if total and passed == total else ""
         print(f"  {title(folder):<44} {bar:<6} {passed}/{total}{done}")
-    print("\nTest one pattern:  python practice.py <number>")
+    print("\nTest one pattern:  python3 practice.py <number>")
 
 
 if __name__ == "__main__":

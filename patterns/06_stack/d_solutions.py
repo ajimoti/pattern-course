@@ -3,15 +3,15 @@ PATTERN 06: STACK - SOLUTIONS
 """
 
 
-# 1. BALANCED BRACKETS
+# 1. ARE THE BRACKETS IN AN ORDER NOTE BALANCED?
 # Stack of opening brackets. A closing bracket must match the most recent one.
 # Speed: O(n), one pass over the note.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Valid Parentheses - Stack - Leetcode 20 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=WTzjTskDFMg
-#   Same idea as LeetCode 20 Valid Parentheses. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 20 Valid Parentheses. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def is_balanced(note):
     pairs = {")": "(", "]": "[", "}": "{"}
     stack = []
@@ -29,11 +29,12 @@ def is_balanced(note):
 # The order itself is the stack: add = append, undo = pop the most recent.
 # Speed: O(n), one pass over the actions.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Backspace String Compare - Leetcode 844 - Python (NeetCodeIO)
 #   https://www.youtube.com/watch?v=k2qrymM_DOo
-#   Same idea as LeetCode 844 Backspace String Compare. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 844 Backspace String Compare. The
+#   video uses a different story and different names, so watch for the method, not the
+#   details.
 def final_order(actions):
     order = []
     for action in actions:
@@ -46,7 +47,7 @@ def final_order(actions):
     return order
 
 
-# 3. DAYS UNTIL A BUSIER DAY
+# 3. HOW MANY DAYS UNTIL A BUSIER DAY?
 # `waiting` is a stack of day numbers that haven't found a busier day yet.
 # Their order counts go down from bottom to top, so when today is busier than
 # the top day, it may also be busier than the next one down - keep popping.
@@ -68,11 +69,11 @@ def final_order(actions):
 #
 # enumerate(orders) gives (0, 30), (1, 25), (2, 40)... : the day number and its count.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Daily Temperatures - Monotonic Stack - Leetcode 739 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=cTBiBSnjO3c
-#   Same idea as LeetCode 739 Daily Temperatures. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 739 Daily Temperatures. The video uses
+#   a different story and different names, so watch for the method, not the details.
 def days_until_busier(orders):
     answer = [0] * len(orders)
     waiting = []                                  # day numbers

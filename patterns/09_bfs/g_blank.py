@@ -1,12 +1,13 @@
 """
-PATTERN 09: BFS (spread out one step at a time)
-Read a_lesson.md first. Test with:  python practice.py 9
+PATTERN 09: BFS (spread out one step at a time) - PRACTICE
+Read a_lesson.md first. Write your code where it says `pass`.
+Test from the pattern_course folder:   python3 practice.py 9
 """
 from collections import deque
 
 
 # =============================================================================
-# 1. NEAREST CUSTOMER ON THE MAP
+# 1. NEAREST CUSTOMER ON A MAP
 # =============================================================================
 # THE PROBLEM
 #   Your pizza shop has several customers waiting for their deliveries, and
@@ -27,12 +28,13 @@ from collections import deque
 # YOUR TASK
 #   Write two functions:
 #
-#   build_graph(grid) returns a dict: each square that isn't a building ->
-#   a list of the squares you can drive to in one move (up, down, left,
-#   right, in that order), leaving out squares off the map and buildings.
+#   build_graph(grid) returns a graph, as a dict. Each key is a square that
+#   isn't a building, written as (row, col). Its value is a list of the
+#   squares you can drive to in one move (up, down, left, right, in that
+#   order), leaving out squares off the map and buildings.
 #
-#   nearest_customer(grid) returns the minutes to the nearest customer,
-#   or -1 if no customer can be reached.
+#   nearest_customer(grid) returns how many minutes the driver needs to get
+#   from the shop to the nearest customer, or -1 if no customer can be reached.
 #
 # EXAMPLE
 #   build_graph(grid)[(1, 0)]  ->  [(0, 0), (2, 0)]
@@ -44,14 +46,17 @@ from collections import deque
 #       The customer at (0,3) is blocked by the building at (0,2).
 #
 # HINT
-#   Build the graph first, then search it exactly like the mango seller,
-#   with each queue item being (square, minutes).
+#   Build the graph first, then search it with BFS (breadth-first search),
+#   like the mango seller example in a_lesson.md. Use a queue (a deque: add
+#   to the back, take from the front), with each queue item being
+#   (square, minutes).
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Breadth First Search grid shortest path (WilliamFiset)
 #   https://www.youtube.com/watch?v=KiCBXu4P-2Y
-#   Same idea as LeetCode 1091 Shortest Path in Binary Matrix. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 1091 Shortest Path in Binary Matrix.
+#   The video uses a different story and different names, so watch for the method, not
+#   the details.
 def build_graph(grid):
     pass
 
@@ -64,12 +69,12 @@ def nearest_customer(grid):
 # 2. HOW MANY REFERRAL STEPS BETWEEN TWO CUSTOMERS?
 # =============================================================================
 # THE PROBLEM
-#   Your shop runs a "refer a friend" scheme, and you keep a record of which
-#   customers are linked because one referred the other.
+#   Your pizza shop runs a "refer a friend" scheme, and you keep a record of
+#   which customers are linked because one referred the other.
 #
-#   Marketing wants to know how closely two customers are connected. If Ada
-#   referred Ben, they're 1 step apart. If Ben then referred Dev, Ada and Dev
-#   are 2 steps apart. Find the smallest number of steps between two
+#   Your marketing team wants to know how closely two customers are connected.
+#   If Ada referred Ben, they're 1 step apart. If Ben then referred Dev, Ada and
+#   Dev are 2 steps apart. Find the smallest number of steps between two
 #   customers, or say they aren't connected at all.
 #
 # THE DATA
@@ -85,8 +90,9 @@ def nearest_customer(grid):
 #   Links are written down in both directions.
 #
 # YOUR TASK
-#   referral_steps(links, start, target) returns the fewest steps from start
-#   to target. Return 0 if start and target are the same person.
+#   referral_steps(links, start, target) returns the fewest steps from the
+#   customer named start to the customer named target. Return 0 if start and
+#   target are the same person.
 #   Return -1 if they aren't connected.
 #
 # EXAMPLE
@@ -95,14 +101,16 @@ def nearest_customer(grid):
 #   referral_steps(links, "Ada", "Femi")  ->  -1  (Femi isn't linked to anyone)
 #
 # HINT
-#   This is the mango seller with steps counted, like problem 1 but without
-#   having to build the graph: the links dict already is the graph.
+#   Use BFS (breadth-first search), like the mango seller example in
+#   a_lesson.md, with each queue item being (customer, steps). It's like
+#   problem 1 in this file, but you don't build a graph first: links already
+#   maps each customer to the customers one step away.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Breadth First Search Algorithm (Shortest Path, Graph Theory) (WilliamFiset)
 #   https://www.youtube.com/watch?v=oDqjPvD54Ss
-#   Same idea as LeetCode BFS shortest path. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem has no exact LeetCode twin. The video teaches the same method on a
+#   different example, so watch for the method, not the details.
 def referral_steps(links, start, target):
     pass
 
@@ -111,9 +119,10 @@ def referral_steps(links, start, target):
 # 3. HOW LONG UNTIL EVERY SHOP HEARS THE NEWS?
 # =============================================================================
 # THE PROBLEM
-#   Head office has changed the price of a margherita and phones one shop
-#   with the news. Each shop has a list of other shops it calls straight away
-#   when it hears something, and each call takes one minute.
+#   You run a chain of pizza shops. Head office has changed the price of a
+#   margherita and phones one shop with the news. Each shop has a list of
+#   other shops it calls straight away when it hears something, and each
+#   call takes one minute.
 #
 #   You want to know how many minutes it will be before every shop knows. If
 #   some shop will never hear because nobody calls it, you need to know that
@@ -126,6 +135,7 @@ def referral_steps(links, start, target):
 #       "East":    ["Central"],
 #       "West":    ["North"],
 #   }
+#   Each shop -> the shops it calls.
 #   start = "Central"    (the shop head office phones, at minute 0)
 #
 # YOUR TASK
@@ -142,13 +152,14 @@ def referral_steps(links, start, target):
 #   If there were also a shop "South": [] that nobody calls  ->  -1
 #
 # HINT
-#   BFS from start, remembering the minutes for each shop you reach. At the
-#   end, check every shop was reached, and return the biggest minutes.
+#   Do a BFS (breadth-first search, as in problem 2 in this file) from start,
+#   remembering the minute each shop you reach first hears. At the end, check
+#   every shop was reached, and return the biggest of those minutes.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Rotting Oranges - Leetcode 994 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=y704fEOx0s0
-#   Same idea as LeetCode 994 Rotting Oranges. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 994 Rotting Oranges. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def minutes_until_everyone_knows(calls, start):
     pass

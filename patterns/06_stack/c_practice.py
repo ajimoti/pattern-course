@@ -1,6 +1,7 @@
 """
-PATTERN 06: STACK
-Read a_lesson.md first. Test your answers with:  python3 practice.py 6
+PATTERN 06: STACK - PRACTICE
+Read a_lesson.md first. Write your code where it says `pass`.
+Test from the pattern_course folder:   python3 practice.py 6
 """
 
 
@@ -8,9 +9,10 @@ Read a_lesson.md first. Test your answers with:  python3 practice.py 6
 # 1. ARE THE BRACKETS IN AN ORDER NOTE BALANCED?
 # =============================================================================
 # THE PROBLEM
-#   Customers can add a note to their order, and the kitchen's printer uses
-#   brackets to format it: ( ), [ ] and { }. If a note has a bracket that's
-#   never closed, or closed with the wrong type, the printer jams.
+#   You run the ordering app for a pizza shop. Customers can add a note to
+#   their order, and a printer in the kitchen uses brackets to format it:
+#   ( ), [ ] and { }. If a note has a bracket that's never closed, or closed
+#   with the wrong type, the printer jams.
 #
 #   Before a note is sent to the kitchen, you want to check that every bracket
 #   is closed, by the right type, in the right order. Any other characters in
@@ -20,7 +22,8 @@ Read a_lesson.md first. Test your answers with:  python3 practice.py 6
 #   note = "(extra cheese [no onions]) {ring bell}"
 #
 # YOUR TASK
-#   is_balanced(note) returns True or False.
+#   is_balanced(note) returns True if every bracket in note is closed by the
+#   right type in the right order, and False otherwise.
 #   A note with no brackets at all is balanced (True).
 #
 # EXAMPLE
@@ -31,13 +34,14 @@ Read a_lesson.md first. Test your answers with:  python3 practice.py 6
 #   "([)]"                                    ->  False  ([ must close before ( )
 #
 # HINT
-#   Keep a list of opening brackets. A closing bracket must match the LAST one.
+#   Keep a list of the opening brackets you've seen. A closing bracket must
+#   match the LAST opening bracket in that list.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Valid Parentheses - Stack - Leetcode 20 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=WTzjTskDFMg
-#   Same idea as LeetCode 20 Valid Parentheses. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 20 Valid Parentheses. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def is_balanced(note):
     pass
 
@@ -46,10 +50,10 @@ def is_balanced(note):
 # 2. UNDO IN THE ORDER EDITOR
 # =============================================================================
 # THE PROBLEM
-#   The app lets customers build an order one pizza at a time. There's also an
-#   undo button, which takes away the most recent pizza they added. Pressing
-#   undo again takes away the one before that, and so on. Pressing undo when
-#   the order is empty does nothing.
+#   Your pizza shop's app lets customers build an order one pizza at a time.
+#   There's also an undo button, which takes away the most recent pizza they
+#   added. Pressing undo again takes away the one before that, and so on.
+#   Pressing undo when the order is empty does nothing.
 #
 #   You get a list of everything the customer tapped, in order.
 #
@@ -61,8 +65,9 @@ def is_balanced(note):
 #   Each action is either "add <pizza name>" or "undo".
 #
 # YOUR TASK
-#   final_order(actions) returns the list of pizza names left, in the order
-#   they were added.
+#   final_order(actions) returns a list of the pizza names still in the
+#   customer's order at the end, in the order they were added.
+#   If nothing is left, it returns [].
 #
 # EXAMPLE
 #   add margherita  -> [margherita]
@@ -78,11 +83,12 @@ def is_balanced(note):
 # HINT
 #   "add margherita".split(" ", 1) gives ["add", "margherita"].
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Backspace String Compare - Leetcode 844 - Python (NeetCodeIO)
 #   https://www.youtube.com/watch?v=k2qrymM_DOo
-#   Same idea as LeetCode 844 Backspace String Compare. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 844 Backspace String Compare. The
+#   video uses a different story and different names, so watch for the method, not the
+#   details.
 def final_order(actions):
     pass
 
@@ -91,12 +97,12 @@ def final_order(actions):
 # 3. HOW MANY DAYS UNTIL A BUSIER DAY?
 # =============================================================================
 # THE PROBLEM
-#   You've got the number of orders the shop took each day for the last week.
-#   For staff planning, the manager wants to know, for each day, how many days
-#   she'd have to wait until a day with MORE orders than that one.
+#   You run a pizza shop, and you have the number of orders it took each day
+#   for the last week. For staff planning, your manager wants to know, for
+#   each day, how many days she'd have to wait until a day with MORE orders
+#   than that one.
 #
-#   If there's no busier day after it in the list, the answer for that day
-#   is 0.
+#   If no later day is busier, the answer for that day is 0.
 #
 # THE DATA
 #   orders = [30, 25, 40, 35, 50]
@@ -104,6 +110,8 @@ def final_order(actions):
 #
 # YOUR TASK
 #   days_until_busier(orders) returns a list the same length as orders.
+#   Each entry is how many days that day waits for a busier day, or 0 if no
+#   later day is busier.
 #
 # EXAMPLE
 #   Day 0 (30): the next day with more than 30 is day 2 (40)  -> 2 days
@@ -115,15 +123,18 @@ def final_order(actions):
 #   days_until_busier(orders)  ->  [2, 1, 2, 1, 0]
 #
 # HINT
-#   The slow way checks every later day for every day: O(n squared).
-#   The fast way keeps a stack of day numbers still waiting for a busier day.
-#   When today is busier than the day on top of the stack, that day's wait
-#   is over: pop it and work out its answer.
+#   The slow way checks every later day for every day: O(n squared), where n
+#   is the number of days.
+#   The fast way keeps a stack (a list you only add to and take from at the
+#   end) of day numbers still waiting for a busier day. As you go through the
+#   days, when the current day is busier than the day on top of the stack (its
+#   last item), that day's wait is over: pop it (remove it from the end) and
+#   work out its answer.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Daily Temperatures - Monotonic Stack - Leetcode 739 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=cTBiBSnjO3c
-#   Same idea as LeetCode 739 Daily Temperatures. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 739 Daily Temperatures. The video uses
+#   a different story and different names, so watch for the method, not the details.
 def days_until_busier(orders):
     pass

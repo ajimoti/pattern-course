@@ -5,11 +5,12 @@ PATTERN 04: SLIDING WINDOW - SOLUTIONS
 
 # 1. THE BEST THREE DAYS IN A ROW
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Maximum Average Subarray I - LeetCode 643 - Python (Deepti Talesra)
 #   https://www.youtube.com/watch?v=etiqMUxUEmc
-#   Same idea as LeetCode 643 Maximum Average Subarray I. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 643 Maximum Average Subarray I. The
+#   video uses a different story and different names, so watch for the method, not the
+#   details.
 def best_run(revenue, k):
     if k <= 0 or k > len(revenue):
         return None
@@ -33,11 +34,12 @@ def best_run(revenue, k):
 
 # 2. HOW MANY STRETCHES HIT THE TARGET?
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Number of Subarrays of size K and Average >= Threshold - Leetcode 1343 (NeetCodeIO)
 #   https://www.youtube.com/watch?v=D8B4tKxMTnY
-#   Same idea as LeetCode 1343 Sub-arrays of Size K with Average >= Threshold. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 1343 Sub-arrays of Size K with Average
+#   >= Threshold. The video uses a different story and different names, so watch for the
+#   method, not the details.
 def count_good_stretches(revenue, k, target):
     if k <= 0 or k > len(revenue):
         return 0
@@ -56,13 +58,14 @@ def count_good_stretches(revenue, k, target):
 
 # 3. THE LONGEST STRETCH WITH AT MOST K LATE DELIVERIES
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Max Consecutive Ones III (Deepti Talesra)
 #   https://www.youtube.com/watch?v=ZpsdDNbCgc0
-#   Same idea as LeetCode 1004 Max Consecutive Ones III. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 1004 Max Consecutive Ones III. The
+#   video uses a different story and different names, so watch for the method, not the
+#   details.
 def longest_stretch(deliveries, k):
-    left = 0                                  # front of the window
+    left = 0                                  # front of the window (the run checked)
     late = 0                                  # late deliveries in the window
     best = 0
 

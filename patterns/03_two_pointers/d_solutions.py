@@ -5,11 +5,11 @@ PATTERN 03: TWO POINTERS - SOLUTIONS
 
 # 1. TWO PIZZAS THAT USE UP A BUDGET EXACTLY
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Two Sum II - Leetcode 167 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=cQ1Oz4ckceM
-#   Same idea as LeetCode 167 Two Sum II. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 167 Two Sum II. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def two_prices(prices, budget):
     left = 0                      # cheapest price still in play
     right = len(prices) - 1       # most expensive price still in play
@@ -30,11 +30,11 @@ def two_prices(prices, budget):
 
 # 2. AN ORDER CODE THAT READS THE SAME BACKWARDS
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Valid Palindrome - Leetcode 125 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=jJXJ16kPFWg
-#   Same idea as LeetCode 125 Valid Palindrome. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 125 Valid Palindrome. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def is_mirror_code(code):
     code = code.lower()
     left = 0
@@ -54,11 +54,11 @@ def is_mirror_code(code):
 
 # 3. MERGING TWO SORTED LISTS OF ORDER TIMES
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Merge Sorted Array - Leetcode 88 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=P1Ic85RarKY
-#   Same idea as LeetCode 88 Merge Sorted Array. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 88 Merge Sorted Array. The video uses
+#   a different story and different names, so watch for the method, not the details.
 def merge_orders(app, phone):
     merged = []
     i = 0                         # next unused time in app

@@ -9,14 +9,15 @@ Test from the pattern_course folder:   python3 practice.py 4
 # 1. THE BEST THREE DAYS IN A ROW
 # =============================================================================
 # THE PROBLEM
-#   The shop owner is planning a three-day promotion for next year and wants
-#   to copy the timing of this year's best stretch. She has the takings for
-#   each day and wants to know which three days in a row brought in the most
-#   money.
+#   The owner of your pizza shop is planning a three-day promotion for next
+#   year and wants to copy the timing of this year's best three-day stretch.
+#   She has the takings (money taken) for each day and wants to know which
+#   three days in a row brought in the most money.
 #
-#   The real report covers a whole year, so adding up every stretch from
-#   scratch would mean a lot of repeated adding. As the stretch moves along by
-#   one day, add the day that joins and take away the day that drops off.
+#   Her real figures cover a whole year (THE DATA below is a short sample), so
+#   adding up every stretch from scratch would mean a lot of repeated adding.
+#   As the stretch moves along by one day, add the day that joins and take
+#   away the day that drops off.
 #
 # THE DATA
 #   revenue = [120, 80, 200, 150, 90, 300]    takings for day 0 ... day 5
@@ -36,13 +37,15 @@ Test from the pattern_course folder:   python3 practice.py 4
 #
 # HINT
 #   Add up the first k days once with sum(revenue[:k]). Then loop new_day
-#   from k to the end, and the day dropping off is new_day - k.
+#   (the day that joins) from k to the last day. The day dropping off is
+#   new_day - k.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Maximum Average Subarray I - LeetCode 643 - Python (Deepti Talesra)
 #   https://www.youtube.com/watch?v=etiqMUxUEmc
-#   Same idea as LeetCode 643 Maximum Average Subarray I. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 643 Maximum Average Subarray I. The
+#   video uses a different story and different names, so watch for the method, not the
+#   details.
 def best_run(revenue, k):
     pass
 
@@ -51,11 +54,12 @@ def best_run(revenue, k):
 # 2. HOW MANY STRETCHES HIT THE TARGET?
 # =============================================================================
 # THE PROBLEM
-#   Head office gives each shop a bonus for every three-day stretch where the
-#   takings reach £435 or more. Stretches can overlap: days 1-3 and days 2-4
-#   both count if they both reach the target.
+#   Your pizza shop belongs to a chain. Head office gives each shop a bonus
+#   for every three-day stretch where the takings (money taken) reach £435 or
+#   more. Stretches can overlap: days 1-3 and days 2-4 both count if they
+#   both reach the target.
 #
-#   The owner wants to know how many bonuses she's earned this week.
+#   Your shop's owner wants to know how many bonuses she's earned this week.
 #
 # THE DATA
 #   revenue = [120, 80, 200, 150, 90, 300]
@@ -75,14 +79,16 @@ def best_run(revenue, k):
 #   count_good_stretches(revenue, 3, 435)  ->  2
 #
 # HINT
-#   Same running total as problem 1. Check the first stretch too, not just
-#   the ones inside the loop.
+#   Keep a running total the same way as in problem 1 in this file: add the
+#   day that joins, take away the day that drops off. Check the first
+#   stretch too, not just the ones inside the loop.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Number of Subarrays of size K and Average >= Threshold - Leetcode 1343 (NeetCodeIO)
 #   https://www.youtube.com/watch?v=D8B4tKxMTnY
-#   Same idea as LeetCode 1343 Sub-arrays of Size K with Average >= Threshold. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 1343 Sub-arrays of Size K with Average
+#   >= Threshold. The video uses a different story and different names, so watch for the
+#   method, not the details.
 def count_good_stretches(revenue, k, target):
     pass
 
@@ -91,9 +97,9 @@ def count_good_stretches(revenue, k, target):
 # 3. THE LONGEST STRETCH WITH AT MOST K LATE DELIVERIES
 # =============================================================================
 # THE PROBLEM
-#   Drivers get a weekly award for their longest run of deliveries where no
-#   more than one was late. Each delivery is marked "O" for on time or "L" for
-#   late, in the order they happened.
+#   Your pizza shop's drivers get a weekly award for their longest run of
+#   deliveries where no more than one was late. Each delivery is marked "O"
+#   for on time or "L" for late, in the order they happened.
 #
 #   The length of the run isn't fixed. Keep making the run longer from the
 #   end, and whenever it has too many late deliveries, drop deliveries from
@@ -116,13 +122,16 @@ def count_good_stretches(revenue, k, target):
 #   longest_stretch(deliveries, 1)  ->  4
 #
 # HINT
-#   left = 0, late = 0. For each right: add it, then `while late > k:` remove
-#   deliveries[left] and move left on. The length is right - left + 1.
+#   Keep left = 0 (front of the run) and late = 0 (late deliveries in the
+#   run). Loop right (end of the run) over every position: add
+#   deliveries[right], then `while late > k:` remove deliveries[left] and
+#   move left on. The run's length is right - left + 1.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Max Consecutive Ones III (Deepti Talesra)
 #   https://www.youtube.com/watch?v=ZpsdDNbCgc0
-#   Same idea as LeetCode 1004 Max Consecutive Ones III. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 1004 Max Consecutive Ones III. The
+#   video uses a different story and different names, so watch for the method, not the
+#   details.
 def longest_stretch(deliveries, k):
     pass

@@ -3,12 +3,12 @@ PATTERN 10: DFS and recursion - solutions
 """
 
 
-# 1. HOW MANY PIZZAS ARE IN THIS DEAL?
+# 1. HOW MANY PIZZAS ARE IN A DEAL?
 # A deal's total = its own pizzas + the total of each deal inside it.
 # Stopping point: a deal that contains nothing (the loop runs zero times).
 # Speed: each deal is visited once.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   5 Simple Steps for Solving Any Recursive Problem (Reducible)
 #   https://www.youtube.com/watch?v=ngCos392W4w
 def total_pizzas(deal):
@@ -24,11 +24,12 @@ def total_pizzas(deal):
 # Speed: fine for small maps. On big maps the same place gets counted many
 # times; you'd remember answers in a dict (that's Pattern 14, dynamic programming).
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Depth First Search Visually Explained, watch 0:00-3:40 (ByteQuest)
 #   https://www.youtube.com/watch?v=84jNzUOY78c
-#   Same idea as LeetCode 797 All Paths From Source to Target. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 797 All Paths From Source to Target.
+#   The video uses a different story and different names, so watch for the method, not
+#   the details.
 def count_routes(roads, start, end):
     if start == end:
         return 1
@@ -43,11 +44,11 @@ def count_routes(roads, start, end):
 # neighbourhood: count it, then explore() marks everything connected to it.
 # Speed: each square is visited once.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Number of Islands - Leetcode 200 - Graphs (Python) (Greg Hogg)
 #   https://www.youtube.com/watch?v=gCswsDauXPc
-#   Same idea as LeetCode 200 Number of Islands. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 200 Number of Islands. The video uses
+#   a different story and different names, so watch for the method, not the details.
 def count_neighbourhoods(grid):
     if not grid:
         return 0

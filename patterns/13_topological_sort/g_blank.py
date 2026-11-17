@@ -1,7 +1,7 @@
 """
 PATTERN 13: ORDER THINGS THAT DEPEND ON EACH OTHER - PRACTICE
-Read a_lesson.md first. Then write your code where it says `pass`.
-Test your answers:   python practice.py 13
+Read a_lesson.md first. Write your code where it says `pass`.
+Test from the pattern_course folder:   python3 practice.py 13
 """
 import heapq
 
@@ -10,9 +10,10 @@ import heapq
 # 1. WHAT ORDER SHOULD WE BUILD THE APP IN?   (the lesson's worked example)
 # =============================================================================
 # THE PROBLEM
-#   The pizza app is split into a few parts, and some of them can't be built
-#   until others are done. The menu needs the database, for example, so the
-#   database has to be built first.
+#   Your team is building an ordering app for your pizza shop. The app is split
+#   into a few parts, and some of them can't be built until others are done.
+#   The menu part needs the database part ("db"), for example, so the database
+#   has to be built first.
 #
 #   Work out an order to build everything in. When more than one part is
 #   ready at the same time, build them in alphabetical order, so the answer
@@ -27,7 +28,8 @@ import heapq
 #   Each key is a part. Its list is the parts it needs built first.
 #
 # YOUR TASK
-#   build_order(deps) returns a list of parts in build order.
+#   build_order(deps) takes the deps dict and returns a list of every part,
+#   in build order.
 #   A part might only appear inside a list (not as a key). It still needs building.
 #   Raise ValueError if the parts depend on each other in a loop.
 #
@@ -44,11 +46,11 @@ import heapq
 # HINT
 #   For each part, count how many parts it is still waiting for.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Course Schedule I and II | Pre-requisite Tasks | Topological Sort (C++/Java) (take U forward)
 #   https://www.youtube.com/watch?v=WAOfKpxYHR8
-#   Same idea as LeetCode 210 Course Schedule II. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 210 Course Schedule II. The video uses
+#   a different story and different names, so watch for the method, not the details.
 def build_order(deps):
     pass
 
@@ -57,9 +59,10 @@ def build_order(deps):
 # 2. THE ORDER TO DO THE KITCHEN PREP
 # =============================================================================
 # THE PROBLEM
-#   Every morning the kitchen has a list of prep jobs to get through before
-#   opening. Some jobs have to wait for others. You can't stretch the dough
-#   until it has proofed, and you can't add the toppings until the dough is
+#   Every morning your pizza shop's kitchen has a list of prep jobs to get
+#   through before opening. Some jobs have to wait for others. You can't stretch
+#   the dough until it has proofed (left to rise), and you can't add the
+#   toppings until the dough is
 #   stretched and the sauce is made.
 #
 #   Write out the order the jobs should be done in. If more than one job could
@@ -75,7 +78,8 @@ def build_order(deps):
 #   Each rule is (do this first, then this).
 #
 # YOUR TASK
-#   prep_order(steps, rules) returns the list of steps in order.
+#   prep_order(steps, rules) takes the list of steps and the list of rules.
+#   It returns every step, in the order to do them.
 #   Raise ValueError if the rules go round in a loop.
 #
 # EXAMPLE
@@ -88,13 +92,14 @@ def build_order(deps):
 #       ["make dough", "make sauce", "proof dough", "stretch dough", "add toppings"]
 #
 # HINT
-#   Same method as problem 1. Only the shape of the input is different.
+#   Same method as problem 1 in this file: count how many steps each step is
+#   still waiting for. Only the shape of the input is different.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Kahn's Algorithm | Topological Sort Algorithm | BFS (take U forward)
 #   https://www.youtube.com/watch?v=73sneFXuTEg
-#   Same idea as LeetCode Topological sort walkthrough. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem has no exact LeetCode twin. The video teaches the same method on a
+#   different example, so watch for the method, not the details.
 def prep_order(steps, rules):
     pass
 
@@ -103,7 +108,8 @@ def prep_order(steps, rules):
 # 3. CAN A NEW DRIVER FINISH ALL THE TRAINING?
 # =============================================================================
 # THE PROBLEM
-#   New drivers go through a set of training modules before their first shift.
+#   New drivers at your pizza shop go through a set of training modules before
+#   their first shift.
 #   Some modules can only be started once another one is finished. Someone in
 #   head office has been editing the rules, and you're worried they've made a
 #   loop, where two modules each need the other to be done first. If that has
@@ -117,8 +123,9 @@ def prep_order(steps, rules):
 #   Each pair is (finish this first, before starting this).
 #
 # YOUR TASK
-#   can_finish(modules, prerequisites) returns True if every module can be
-#   finished, and False if some are stuck waiting on each other.
+#   can_finish(modules, prerequisites) takes the list of modules and the list
+#   of prerequisite pairs. It returns True if every module can be finished,
+#   and False if some are stuck waiting on each other.
 #
 # EXAMPLE
 #   safety, app and customer service need nothing, so do them.
@@ -129,12 +136,13 @@ def prep_order(steps, rules):
 #       (a needs b first, b needs a first, so neither can start)
 #
 # HINT
-#   Try to put them in order like problem 2, and count how many you manage.
+#   Try to put the modules in order like problem 2 in this file, and count how
+#   many you manage.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Course Schedule I and II | Pre-requisite Tasks | Topological Sort (C++/Java) (take U forward)
 #   https://www.youtube.com/watch?v=WAOfKpxYHR8
-#   Same idea as LeetCode 207 Course Schedule. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 207 Course Schedule. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def can_finish(modules, prerequisites):
     pass

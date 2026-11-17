@@ -7,15 +7,14 @@ from itertools import combinations, permutations
 
 # 1. THE SHORTEST DELIVERY ROUTE
 # Try every order of the customers, put the shop at both ends, measure, keep
-# the shortest. Speed: grows with n! (n factorial) - fine for about 8 customers.
+# the shortest. Speed: grows with n! (n factorial), where n is the number of
+# customers - fine for about 8 customers.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Backtracking: Permutations - Leetcode 46 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=s7AvT7cGdSo
-#   Backtracking: Permutations - Leetcode 46 - Python (NeetCode)
-#   https://www.youtube.com/watch?v=s7AvT7cGdSo
-#   Same idea as LeetCode 46 Permutations. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 46 Permutations. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def read_points(text):
     points = []
     for pair in text.split(" "):
@@ -51,11 +50,11 @@ def best_route(points):
 #     return list(combinations(toppings, k))
 # Speed: grows with the number of choices, which is large for big lists.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Combinations - Leetcode 77 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=q0s6m7AiM7o
-#   Same idea as LeetCode 77 Combinations. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 77 Combinations. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def topping_choices(toppings, k):
     if k == 0:
         return [()]
@@ -70,13 +69,14 @@ def topping_choices(toppings, k):
 
 # 3. FILL THE VAN EXACTLY
 # Try every group, smallest groups first. The first exact match uses the
-# fewest orders. Speed: up to 2 to the power n groups - fine for about 20 orders.
+# fewest orders. Speed: up to 2 to the power n groups, where n is the number of
+# orders - fine for about 20 orders.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Subsets - Backtracking - Leetcode 78 (NeetCode)
 #   https://www.youtube.com/watch?v=REOH22Xwdkk
-#   Same idea as LeetCode 78 Subsets. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 78 Subsets. The video uses a different
+#   story and different names, so watch for the method, not the details.
 def fill_the_van(orders, capacity):
     for size in range(len(orders) + 1):
         for group in combinations(orders, size):

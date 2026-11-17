@@ -3,14 +3,14 @@ PATTERN 07: BINARY SEARCH - SOLUTIONS
 """
 
 
-# 1. FIND AN ORDER
+# 1. FIND AN ORDER NUMBER IN A SORTED LIST
 # Check the middle, keep the half the target must be in. O(log n).
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Binary Search - Leetcode 704 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=s4DPM8ct1pI
-#   Same idea as LeetCode 704 Binary Search. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 704 Binary Search. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def find_order(order_ids, target):
     low = 0
     high = len(order_ids) - 1
@@ -25,9 +25,9 @@ def find_order(order_ids, target):
     return -1
 
 
-# 2. FIRST DELIVERY AT OR AFTER A TIME
-# Same loop, but when the middle time is late enough, remember it as the best
-# answer so far and keep looking LEFT for an earlier one. O(log n).
+# 2. THE FIRST DELIVERY AT OR AFTER A GIVEN TIME
+# Same loop as find_order, but when the middle time is late enough, remember it
+# as the best answer so far and keep looking LEFT for an earlier one. O(log n).
 #
 # Watch it run: leave_times = [5, 12, 12, 20, 31], ready = 13
 #   low high middle value  >= 13?  best  next
@@ -35,11 +35,12 @@ def find_order(order_ids, target):
 #   3   4    3      20     yes     20    high = 2
 #   3   2    stop (low past high)  -> return 20
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Search Insert Position - Binary Search - Leetcode 35 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=K-RYzDZkzCI
-#   Same idea as LeetCode 35 Search Insert Position. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 35 Search Insert Position. The video
+#   uses a different story and different names, so watch for the method, not the
+#   details.
 def first_departure(leave_times, ready):
     low = 0
     high = len(leave_times) - 1
@@ -60,7 +61,7 @@ def first_departure(leave_times, ready):
 #   return leave_times[i] if i < len(leave_times) else -1
 
 
-# 3. SLOWEST ROBOT SPEED
+# 3. HOW FAST DOES THE PIZZA ROBOT NEED TO BE?
 # There's no list to search, so search the possible SPEEDS instead (1 to the biggest pile).
 # If a speed works, every faster speed works too, so we can halve the range each time.
 # Speed: O(n log m), where n = number of shops and m = biggest pile.
@@ -72,11 +73,12 @@ def first_departure(leave_times, ready):
 #   4   5    4       1+2+2+3 = 8                   yes    answer = 4, high = 3
 #   4   3    stop -> return 4
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Koko Eating Bananas - Binary Search - Leetcode 875 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=U2SozAs9RzA
-#   Same idea as LeetCode 875 Koko Eating Bananas. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 875 Koko Eating Bananas. The video
+#   uses a different story and different names, so watch for the method, not the
+#   details.
 def slowest_speed(piles, hours):
     def hours_needed(speed):
         total = 0

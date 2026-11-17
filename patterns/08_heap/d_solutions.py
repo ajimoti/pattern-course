@@ -8,11 +8,12 @@ import heapq
 # Heap of "minute each driver is back". Pop the soonest, push them back with
 # their new return time. O(n log d): n orders, d drivers.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Single-Threaded CPU - Priority Queue - Leetcode 1834 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=RR1n-d4oYqE
-#   Same idea as LeetCode 1834 Single-Threaded CPU (similar idea). The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 1834 Single-Threaded CPU. The video
+#   uses a different story and different names, so watch for the method, not the
+#   details.
 def dispatch(orders, drivers, trip):
     back_at = [0] * drivers
     leaves = {}
@@ -31,11 +32,12 @@ def dispatch(orders, drivers, trip):
 # Watch it run: after pushing everything, popping gives
 #   (1.2, "Ben"), (1.2, "Dev"), (3.0, "Chloe"), ...   -> keep the first 3 names
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   K Closest Points to Origin - Heap / Priority Queue - Leetcode 973 (NeetCode)
 #   https://www.youtube.com/watch?v=rI2EBUEMfTk
-#   Same idea as LeetCode 973 K Closest Points to Origin. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 973 K Closest Points to Origin. The
+#   video uses a different story and different names, so watch for the method, not the
+#   details.
 def closest_customers(customers, k):
     heap = []
     for name, distance in customers:
@@ -51,7 +53,7 @@ def closest_customers(customers, k):
 #   [name for name, d in heapq.nsmallest(k, customers, key=lambda c: (c[1], c[0]))]
 
 
-# 3. MERGE SORTED ORDER LISTS
+# 3. MERGE SORTED ORDER LISTS FROM SEVERAL SHOPS
 # Heap holds one item per list: (minute, which list, position in that list).
 # Pop the smallest, then push the next item from the same list.
 # O(N log s): N = all minutes, s = number of shops.
@@ -66,11 +68,12 @@ def closest_customers(customers, k):
 #   (9, 0, 2)    [..., 9]               list 0 has no more          10
 #   (10, 1, 2)   [..., 9, 10]           list 1 has no more          empty -> done
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Merge K Sorted Lists - Leetcode 23 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=q5a5OiGbT6Q
-#   Same idea as LeetCode 23 Merge k Sorted Lists. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 23 Merge k Sorted Lists. The video
+#   uses a different story and different names, so watch for the method, not the
+#   details.
 def merge_order_lists(shop_lists):
     heap = []
     for which, shop in enumerate(shop_lists):

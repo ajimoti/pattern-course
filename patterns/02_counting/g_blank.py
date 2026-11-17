@@ -12,7 +12,7 @@ Test from the pattern_course folder:   python3 practice.py 2
 #   Your pizza shop's app has a "Popular right now" section that shows
 #   customers which pizzas have been ordered the most in the last hour.
 #
-#   As customers place orders, the system records the type of pizza and the
+#   As customers place orders, the app records the type of pizza and the
 #   minute each order was placed. Only orders placed within the last 60
 #   minutes should count. If two or more pizzas have the same number of
 #   orders, they should appear in alphabetical order.
@@ -25,24 +25,28 @@ Test from the pattern_course folder:   python3 practice.py 2
 #   k = 2        how many pizzas to show
 #
 # YOUR TASK
-#   trending(events, now, k) returns a list of the top k pizza names.
+#   trending(events, now, k) returns a list of the k most-ordered pizza
+#   names, most orders first, with ties in A to Z order.
 #   Count only orders placed AFTER minute (now - 60), up to now.
-#   If there are fewer than k pizzas, return them all. No orders -> [].
+#   If there are fewer than k different pizzas, return them all.
+#   No orders -> [].
 #
 # EXAMPLE
-#   An hour ago was minute 30. Minutes 0 and 30 don't count.
+#   now is 90, so an hour ago was minute 30. Minutes 0 and 30 don't count.
 #   Counts: hawaiian 2, pepperoni 1, margherita 1
 #   Ranked: hawaiian, then margherita and pepperoni (tied, so A to Z)
 #   trending(events, 90, 2)  ->  ["hawaiian", "margherita"]
 #
 # HINT
-#   Sort the names A to Z first, then sort that by count with reverse=True.
+#   Sort the names A to Z first, then sort that list by count with
+#   reverse=True. The second sort keeps tied names in A to Z order.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Top K Frequent Elements - Bucket Sort - Leetcode 347 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=YPTqKIgVk-k
-#   Same idea as LeetCode 347 Top K Frequent Elements. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 347 Top K Frequent Elements. The video
+#   uses a different story and different names, so watch for the method, not the
+#   details.
 def trending(events, now, k):
     pass
 
@@ -51,13 +55,13 @@ def trending(events, now, k):
 # 2. THE FIRST CUSTOMER WHO ONLY ORDERED ONCE
 # =============================================================================
 # THE PROBLEM
-#   The shop wants to win back customers who tried it once and never came
-#   back. Marketing will send a free garlic bread voucher, but they only have
-#   one voucher left this week, so it goes to the earliest customer who has
-#   ordered exactly once.
+#   Your pizza shop wants to win back customers who ordered once and never
+#   came back. The marketing team will send a free garlic bread voucher, but
+#   they only have one voucher left this week, so it goes to the earliest
+#   customer who has ordered exactly once.
 #
-#   You have the list of customer names in the order their orders were
-#   placed. Some names appear many times, some appear only once.
+#   You have a list of customer names, one for each order, in the order the
+#   orders were placed. Some names appear many times, some appear only once.
 #
 # THE DATA
 #   orders = ["ada", "ben", "ada", "cy", "ben", "dee"]
@@ -80,11 +84,12 @@ def trending(events, now, k):
 #   Two passes: count everyone first, then go through the list again in order
 #   and return the first name with a count of 1.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Leetcode 387 - First Unique Character in a String - Python Solution (Data Engineering Studies)
 #   https://www.youtube.com/watch?v=jKI5nClXQDM
-#   Same idea as LeetCode 387 First Unique Character in a String. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 387 First Unique Character in a
+#   String. The video uses a different story and different names, so watch for the
+#   method, not the details.
 def first_one_time_customer(orders):
     pass
 
@@ -93,10 +98,10 @@ def first_one_time_customer(orders):
 # 3. ORDERS WITH THE SAME TOPPINGS
 # =============================================================================
 # THE PROBLEM
-#   To save time in the kitchen, the chef wants orders with exactly the same
-#   toppings made together. The toppings might be listed in a different order
-#   on different tickets ("ham, pineapple" and "pineapple, ham" are the same
-#   pizza), but they still count as the same.
+#   To save time in the kitchen, your pizza shop's chef wants orders with
+#   exactly the same toppings made together. The toppings might be listed in
+#   a different order on different order tickets ("ham, pineapple" and
+#   "pineapple, ham" are the same pizza), but they still count as the same.
 #
 #   Put the orders into groups, where every order in a group has the same set
 #   of toppings.
@@ -111,8 +116,8 @@ def first_one_time_customer(orders):
 #
 # YOUR TASK
 #   group_same_toppings(orders) returns a list of groups. Each group is a list
-#   of order ids, in the order they appear. The groups are in the order their
-#   first order appears. No orders -> [].
+#   of order ids, in the order they appear in orders. The groups are in the
+#   order their first order appears. No orders -> [].
 #
 # EXAMPLE
 #   Order 1: ham, pineapple       -> new group          [[1]]
@@ -127,10 +132,10 @@ def first_one_time_customer(orders):
 #   a list of order ids. A list can't be a dict key, so turn it into a tuple:
 #   tuple(sorted(toppings)).
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Group Anagrams - Categorize Strings by Count - Leetcode 49 (NeetCode)
 #   https://www.youtube.com/watch?v=vzdNOK2oB2E
-#   Same idea as LeetCode 49 Group Anagrams. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 49 Group Anagrams. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def group_same_toppings(orders):
     pass

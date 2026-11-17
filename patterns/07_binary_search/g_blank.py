@@ -1,14 +1,15 @@
 """
-PATTERN 07: BINARY SEARCH
-Read a_lesson.md first. Test your answers with:  python3 practice.py 7
+PATTERN 07: BINARY SEARCH - PRACTICE
+Read a_lesson.md first. Write your code where it says `pass`.
+Test from the pattern_course folder:   python3 practice.py 7
 """
 
 
 # =============================================================================
-# 1. FIND AN ORDER IN THE SORTED ORDER LIST
+# 1. FIND AN ORDER NUMBER IN A SORTED LIST
 # =============================================================================
 # THE PROBLEM
-#   Your shop keeps every order number from today in a list, sorted from
+#   Your pizza shop keeps every order number from today in a list, sorted from
 #   smallest to biggest. A customer rings up about their order, and you need to
 #   find where it sits in the list so you can pull up its details.
 #
@@ -20,18 +21,18 @@ Read a_lesson.md first. Test your answers with:  python3 practice.py 7
 #   target = 120
 #
 # YOUR TASK
-#   find_order(order_ids, target) returns the position of target in the list,
-#   or -1 if it isn't there. Don't go through the list item by item.
+#   find_order(order_ids, target) returns the position (index) of target in
+#   order_ids, or -1 if it isn't there. Don't go through order_ids item by item.
 #
 # EXAMPLE
 #   find_order(order_ids, 120)  ->  4     (order_ids[4] is 120)
 #   find_order(order_ids, 110)  ->  -1
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Binary Search - Leetcode 704 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=s4DPM8ct1pI
-#   Same idea as LeetCode 704 Binary Search. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 704 Binary Search. The video uses a
+#   different story and different names, so watch for the method, not the details.
 def find_order(order_ids, target):
     pass
 
@@ -40,16 +41,16 @@ def find_order(order_ids, target):
 # 2. THE FIRST DELIVERY AT OR AFTER A GIVEN TIME
 # =============================================================================
 # THE PROBLEM
-#   Drivers leave the shop at set minutes through the evening, and the list of
-#   those minutes is sorted. When a pizza comes out of the oven, it goes with
-#   the first driver leaving at that minute or later.
+#   Your pizza shop's drivers leave at set minutes through the evening, and
+#   you have a sorted list of those minutes. When a pizza comes out of the
+#   oven, it goes with the first driver leaving at that minute or later.
 #
 #   If the pizza is ready after the last driver has left, it can't go out
 #   tonight.
 #
 # THE DATA
-#   leave_times = [5, 12, 12, 20, 31]
-#   ready = 13
+#   leave_times = [5, 12, 12, 20, 31]   (minutes into the evening, sorted)
+#   ready = 13                          (the minute the pizza comes out of the oven)
 #
 # YOUR TASK
 #   first_departure(leave_times, ready) returns the first leave time that is
@@ -63,14 +64,15 @@ def find_order(order_ids, target):
 #
 # HINT
 #   You're not looking for an exact match. Keep track of the best answer so
-#   far: when the middle time is >= ready, it's a possible answer, but there
-#   might be an earlier one to the left.
+#   far: when the time in the middle of the range you're searching is >= ready,
+#   it's a possible answer, but there might be an earlier one to its left.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Search Insert Position - Binary Search - Leetcode 35 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=K-RYzDZkzCI
-#   Same idea as LeetCode 35 Search Insert Position. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 35 Search Insert Position. The video
+#   uses a different story and different names, so watch for the method, not the
+#   details.
 def first_departure(leave_times, ready):
     pass
 
@@ -79,9 +81,10 @@ def first_departure(leave_times, ready):
 # 3. HOW FAST DOES THE PIZZA ROBOT NEED TO BE?
 # =============================================================================
 # THE PROBLEM
-#   Your shops are trying out a robot that tops pizzas. Each shop has a pile
-#   of bases waiting. The robot works on one shop's pile per hour: in that
-#   hour it tops up to `speed` pizzas from that pile. If the pile has fewer
+#   You own several pizza shops, and they're trying out a robot that tops
+#   pizzas. Each shop has a pile of pizza bases waiting. The robot works on
+#   one shop's pile per hour: in that hour it tops up to a set number of
+#   pizzas from that pile. That number is its speed. If the pile has fewer
 #   left than that, it finishes them and sits idle until the next hour.
 #
 #   The robot has to clear every shop's pile within a set number of hours.
@@ -105,13 +108,16 @@ def first_departure(leave_times, ready):
 #   slowest_speed(piles, 8)  ->  4
 #
 # HINT
-#   Write a helper hours_needed(speed). Then binary search the SPEEDS from
-#   1 to max(piles), looking for the smallest speed where hours_needed <= hours.
+#   Write a helper hours_needed(speed) that returns how many hours the robot
+#   needs at that speed. Then binary search the SPEEDS (check the middle speed,
+#   keep the half the answer must be in) from 1 to max(piles), looking for the
+#   smallest speed where hours_needed <= hours.
 #
-# VIDEO (watch after you've had a real go, about 20-30 minutes)
+# VIDEO (try the problem yourself for 20-30 minutes first, then watch)
 #   Koko Eating Bananas - Binary Search - Leetcode 875 - Python (NeetCode)
 #   https://www.youtube.com/watch?v=U2SozAs9RzA
-#   Same idea as LeetCode 875 Koko Eating Bananas. The video uses a different story and
-#   different names, so watch for the method, not the details.
+#   This problem uses the same method as LeetCode 875 Koko Eating Bananas. The video
+#   uses a different story and different names, so watch for the method, not the
+#   details.
 def slowest_speed(piles, hours):
     pass
