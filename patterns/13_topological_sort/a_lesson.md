@@ -1,6 +1,6 @@
 # Pattern 13: Order things that depend on each other
 
-**Watch first:** [Topological Sort | Kahn's Algorithm | Graph Theory](https://www.youtube.com/watch?v=cIBFEhD77b4) (WilliamFiset). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Topological Sort | Kahn's Algorithm | Graph Theory](https://www.youtube.com/watch?v=cIBFEhD77b4) (WilliamFiset). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -12,7 +12,7 @@ python3 practice.py 13 --reset      # blank c_practice.py, to rewrite from memor
 ## What it does
 A topological sort puts things in an order where everything comes after the things it depends on. It works on any set of jobs with "this must happen before that" rules, like the build steps in a project, courses with prerequisites, the steps of a recipe, or software that has to be installed in a certain order. **Topological sort** is the name interviewers will know it by.
 
-It counts how many jobs each one is still waiting for, does every job that's waiting for nothing, and then lowers the count of the jobs that were waiting on it. Repeating that until nothing is left gives you a valid order, and if you get stuck with jobs still waiting, you know some of them depend on each other in a loop, so no order is possible.
+It counts how many jobs each one is still waiting for, does every job that's waiting for nothing, and then lowers the count of every job that was waiting on those. Repeating that until nothing is left gives you a valid order, and if you get stuck with jobs still waiting, you know some of them depend on each other in a loop, so no order is possible.
 
 ## A quick example
 For example, getting dressed: you put on socks before shoes, and trousers before shoes.
@@ -36,7 +36,7 @@ Use it when a question gives you rules about what must happen before what, and a
 ## Worked example: What order should we build the app in?
 
 ### The problem
-The pizza app is split into a few parts, and some of them can't be built until others are done. The menu needs the database, for example, so the database has to be built first.
+Say your pizza shop has an app, split into a few parts, and some of them can't be built until others are done. The menu needs the database, for example, so the database has to be built first.
 
 Work out an order to build everything in. When more than one part is ready at the same time, build them in alphabetical order, so the answer is always the same. If two parts each need the other, there's no way to build them, so raise an error.
 
@@ -61,7 +61,7 @@ The answer should be `["db", "menu", "payments", "app"]`.
 | menu | db | 1 |
 | db | nothing | 0 |
 
-**Next, flip it round. For each part, list which parts are waiting for it:**
+**Next, turn that first table round. For each part, list which parts are waiting for it:**
 
 | Part | Parts waiting for it |
 |---|---|
@@ -101,7 +101,7 @@ def build_order(deps):
 
     # 2. everything waiting for 0 is ready
     ready = [part for part, count in waiting_on.items() if count == 0]
-    heapq.heapify(ready)                          # alphabetically first comes out first
+    heapq.heapify(ready)                          # a heap: heappop always gives the alphabetically first part
 
     # 3. build, then unlock what was waiting
     order = []
@@ -141,7 +141,7 @@ def build_order(deps):
 `ready` is empty, so the loop ends. `order` has 4 parts and `waiting_on` has 4 parts, so there's no loop. Return the order.
 
 ### What to say in the interview
-"This is a topological sort. I count how many dependencies each part has and keep a list of what each part unlocks. I start with everything that has zero dependencies, and each time I build one, I lower the count of the parts waiting on it and add any that hit zero. To keep ties alphabetical, I use a heap. If I finish with fewer parts than I started with, there's a cycle, so I raise an error. It runs in about (parts + dependencies) time."
+"This is a topological sort. I count how many dependencies each part has and keep a list of what each part unlocks. I start with everything that has zero dependencies, and each time I build one, I lower the count of the parts waiting on it and add any that hit zero. To keep ties alphabetical, I use a heap. If I finish with fewer parts than I started with, there's a cycle (a loop), so I raise an error. It runs in about (parts + dependencies) time."
 
 ---
 
@@ -182,10 +182,10 @@ possible = len(order) == len(all_things)
 | `{t: 0 for t in things}` | build a dict with every item set to 0 | `{"a": 0, "b": 0}` |
 
 ## Now practise
-`c_practice.py` has three problems:
-1. **What order should we build the app in?**, the example above. Type it in yourself.
-2. **The order to do the kitchen prep.** Same method, but the rules are given as (first, then) pairs.
-3. **Can a new driver finish all the training?** Return True or False instead of the order.
+`c_practice.py` in this folder has three problems:
+1. **What order should we build the app in?**, the worked example in this lesson. Type it in yourself.
+2. **The order to do the kitchen prep.** A kitchen has prep jobs where some must wait for others. Same method, but the rules are given as (first, then) pairs.
+3. **Can a new driver finish all the training?** New drivers take training modules, and some modules need others done first. Return True or False instead of the order.
 
 Test your answers from the `pattern_course` folder:
 ```bash
@@ -195,4 +195,4 @@ python3 practice.py 13 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 13 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use this pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

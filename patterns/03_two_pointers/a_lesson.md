@@ -1,6 +1,6 @@
 # Pattern 03: Two pointers
 
-**Watch first:** [Two Sum II - Leetcode 167 - Python](https://www.youtube.com/watch?v=cQ1Oz4ckceM) (NeetCode, 8 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Two Sum II - Leetcode 167 - Python](https://www.youtube.com/watch?v=cQ1Oz4ckceM) (NeetCode, 8 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -15,7 +15,7 @@ Two pointers finds pairs or compares items in a list by keeping track of two pos
 Usually one position starts at the beginning and the other at the end, and you move them towards each other one step at a time until they meet, so you only go through the list once. A "pointer" here just means a variable holding a position in the list, like `left = 0`.
 
 ## A quick example
-As an example, to check whether the code `"abcba"` reads the same backwards, you compare the first and last letters, then move both one step inwards:
+As an example, to check whether an order code, `"abcba"`, reads the same backwards, you compare the first and last letters, then move both one step inwards:
 
 | Left letter | Right letter | Same? |
 |---|---|---|
@@ -34,9 +34,9 @@ Use two pointers when the question is about pairs in a sorted list, about compar
 ## Worked example: Two pizzas that use up a budget exactly
 
 ### The problem
-A customer has a gift card worth exactly £20 and wants to spend all of it on two different pizzas. The menu prices are listed from cheapest to most expensive.
+A customer at your pizza shop has a gift card worth exactly £20 and wants to spend all of it on two different pizzas. The menu prices are listed from cheapest to most expensive.
 
-Checking every pizza against every other pizza would work, but the full menu is long and the app has to answer instantly. Because the prices are already in order, there's a way to do it in one pass.
+Checking every pizza against every other pizza would work, but the full menu is long and your shop's app has to answer instantly. Because the prices are already in order, there's a way to do it in one pass.
 
 **Your task is to find two different pizzas whose prices add up to exactly the gift card amount.**
 
@@ -48,11 +48,11 @@ budget = 20
 The answer should be `(9, 11)`. If no two prices add up to the budget, return `None`.
 
 ### How you'd do it with a pen
-Start with two prices: the cheapest (4, the first in the list) and the most expensive (15, the last in the list). Add them up:
+Start with two prices: the cheapest (4, the first in the list, on the left) and the most expensive (15, the last in the list, on the right). Add them up:
 - **Too small?** Swap the cheap price for the next one along (4 → 6). That's the only way to make the total bigger, because every later price in the list is bigger.
 - **Too big?** Swap the expensive price for the one before it (15 → 11). That's the only way to make the total smaller.
 - **Exactly right?** Done.
-- **Both are now the same price in the list?** There's no pair.
+- **The left and right prices have moved until they're the same spot in the list?** There's no pair.
 
 | Left price | Right price | Total | Compared with 20 | What you do |
 |---|---|---|---|---|
@@ -140,7 +140,7 @@ Each step moves at least one pointer, so the work grows in step with the length 
 
 ## Now practise
 Open `c_practice.py` in this folder:
-- **Problem 1** is the example above. Type it in without looking.
+- **Problem 1** is the gift card worked example in this lesson. Type it in without looking.
 - **Problem 2** (an order code that reads the same backwards) uses two pointers from both ends.
 - **Problem 3** (merging two sorted lists of order times) uses one pointer in each list.
 
@@ -152,4 +152,4 @@ python3 practice.py 3 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 3 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use two pointers, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

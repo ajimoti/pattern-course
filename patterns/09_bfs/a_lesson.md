@@ -1,6 +1,6 @@
 # Pattern 09: BFS (spread out one step at a time)
 
-**Watch first:** [Breadth First Search (BFS): Visualized and Explained](https://www.youtube.com/watch?v=xlVX7dXLS64) (Reducible, 11 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Breadth First Search (BFS): Visualized and Explained](https://www.youtube.com/watch?v=xlVX7dXLS64) (Reducible, 11 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -31,12 +31,12 @@ Reach for BFS when the question asks for the fewest steps between connected thin
 - every step costs the same: one move, one introduction, one phone call
 - words like **fewest steps**, **nearest**, **shortest chain**, or **how long until everyone** is reached
 
-If the steps cost different amounts, for example one road takes 4 minutes and another takes 1, BFS gives the wrong answer and you need Dijkstra instead (Pattern 12).
+If the steps cost different amounts, for example one road takes 4 minutes and another takes 1, BFS gives the wrong answer and you need Dijkstra's algorithm instead, which Pattern 12 covers.
 
 ---
 
 ## Where this comes from: the mango seller
-This is the example from *Grokking Algorithms*. You want to find a mango seller among your friends, then your friends' friends, and so on. You want the **closest** one, so you check all your friends before any of their friends.
+This example comes from the book *Grokking Algorithms*. You want to find a mango seller among your friends, then your friends' friends, and so on. You want the **closest** one, so you check all your friends before any of their friends.
 
 ### The data
 Who knows whom is written down in a dict. Each person points to a list of the people they know:
@@ -60,7 +60,7 @@ sellers = {"thom"}      # the only mango seller
 from collections import deque
 
 def find_seller(graph, start):
-    search_queue = deque()
+    search_queue = deque()                # a queue: people join at the back, leave from the front
     search_queue += graph[start]          # start with your own friends
     searched = set()                      # people already checked
 
@@ -102,7 +102,7 @@ For BFS, always **add to the back** (`append` or `+=`) and **take from the front
 A normal list would work with `pop(0)`, but that's slow, because Python has to shift every other item along. `popleft()` on a deque is instant.
 
 ### Why `searched`
-Peggy is a friend of both alice and bob, so she gets added twice. Without `searched`, you'd check her twice. On a map, where squares are each other's neighbours, you'd go back and forth forever. A set is used instead of a list because checking `in` on a set is instant.
+Peggy is a friend of both alice and bob, so she gets added twice. Without `searched`, you'd check her twice. On a map made of squares, two squares next to each other each list the other, so you'd go back and forth between them forever. A set is used instead of a list because checking `in` on a set is instant.
 
 ---
 
@@ -195,7 +195,7 @@ Start at the shop with 0 minutes. Take from the front, add to the back.
 | Step | Take from the front | What happens | Queue after |
 |---|---|---|---|
 | start | | put the shop in | (0,0) at 0 |
-| 1 | (0,0) at 0 | not a customer, add its neighbours at 1 min | (1,0) at 1, (0,1) at 1 |
+| 1 | (0,0) at 0 | not a customer, add its neighbours (the squares it lists in `graph`) at 1 min | (1,0) at 1, (0,1) at 1 |
 | 2 | (1,0) at 1 | not a customer, add (0,0) and (2,0) at 2 min | (0,1) at 1, (0,0) at 2, (2,0) at 2 |
 | 3 | (0,1) at 1 | not a customer, add (0,0) at 2 min | (0,0) at 2, (2,0) at 2, (0,0) at 2 |
 | 4 | (0,0) at 2 | already searched, skip | (2,0) at 2, (0,0) at 2 |
@@ -252,10 +252,10 @@ def nearest_customer(grid):
         square, minutes = search_queue.popleft()
         if square not in searched:
             row, col = square
-            if grid[row][col] == "C":            # like "person in sellers"
+            if grid[row][col] == "C":            # like "person in sellers" in the mango code
                 return minutes
             else:
-                for next_square in graph[square]:              # like graph[person]
+                for next_square in graph[square]:              # like graph[person] in the mango code
                     search_queue.append((next_square, minutes + 1))
                 searched.add(square)
 
@@ -276,7 +276,7 @@ def nearest_customer(grid):
 `0 <= r < rows` checks the row is real: with 3 rows, `r` must be 0, 1 or 2.
 
 ### Watch it run
-The pen table above is exactly what this code does. Each "Take from the front" is one `popleft()`, each "add" is one `append()`, and each "skip" is the `if square not in searched` check.
+The table in "How you'd do it with a pen" is exactly what this code does. Each "Take from the front" is one `popleft()`, each "add" is one `append()`, and each "skip" is the `if square not in searched` check.
 
 ### What to say in the interview
 "I'll turn the grid into a graph where each square lists the squares you can move to. Then I'll do a BFS from the shop with a queue, carrying the minutes with each square. Because BFS checks everything 1 minute away before anything 2 minutes away, the first customer I take off the queue is the nearest. I keep a set of searched squares so I never check one twice. If the queue runs out, no customer is reachable, so I return -1. Every square is checked at most once, so the time grows in step with the size of the map."
@@ -310,7 +310,7 @@ Swap in your own "is this what I'm looking for?" check, and your own way of list
 
 ## Common mistakes
 1. **Using `pop()` instead of `popleft()`.** That takes from the back, so you check the newest place first. It stops being BFS and the answer isn't the shortest any more.
-2. **Forgetting `searched`.** On a map, (1,0) lists (0,0) and (0,0) lists (1,0), so without it you'd bounce between them forever.
+2. **Forgetting `searched`.** On this lesson's delivery map, (1,0) lists (0,0) and (0,0) lists (1,0), so without it you'd bounce between them forever.
 3. **Not checking the edges of the map.** `grid[-1][0]` doesn't crash in Python, it quietly reads the **last** row. Always check `0 <= r < rows` and `0 <= c < cols` yourself.
 4. **Forgetting the "never found" case.** If the queue runs out, return -1 (or whatever the question asks for) after the loop.
 5. **Using BFS when steps cost different amounts.** BFS only gives the shortest answer when every step costs the same.
@@ -328,7 +328,7 @@ Swap in your own "is this what I'm looking for?" check, and your own way of list
 
 ## Now practise
 Open `c_practice.py`:
-- **Problem 1** is the map above. Type it in yourself without looking.
+- **Problem 1** is this lesson's worked example, the nearest customer on the map. Type it in yourself without looking.
 - **Problem 2** (easier): how many referral steps between two customers.
 - **Problem 3** (a little harder): how many minutes until news reaches every shop.
 
@@ -340,4 +340,4 @@ python3 practice.py 9 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 9 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use BFS, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

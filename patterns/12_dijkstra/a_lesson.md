@@ -1,6 +1,6 @@
 # Pattern 12: Fastest route (Dijkstra)
 
-**Watch first:** [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU) (Spanning Tree, 9 min), then [Dijkstras Shortest Path Algorithm Explained – With Example](https://www.youtube.com/watch?v=bZkzH5x0SKU) (FelixTechTips, 8 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU) (Spanning Tree, 9 min), then [Dijkstras Shortest Path Algorithm Explained – With Example](https://www.youtube.com/watch?v=bZkzH5x0SKU) (FelixTechTips, 8 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -19,7 +19,7 @@ This pattern joins two things you've already done:
 
 | You learned | In pattern | What it did |
 |---|---|---|
-| BFS | 09 | Spread out from the start one step at a time, using a queue. Every move cost 1 minute. |
+| BFS (breadth-first search) | 09 | Spread out from the start one step at a time, using a queue. Every move cost 1 minute. |
 | Heap | 08 | Always hand you the smallest number in a list. |
 
 **Dijkstra is BFS for connections that cost different amounts.** When one road takes 1 minute and another takes 8, going "one step at a time" no longer finds the fastest route, so instead you always carry on from **the place you can reach soonest**. The heap hands you that place, which is why the queue from BFS becomes a heap here.
@@ -53,7 +53,7 @@ Use it when you need the quickest, cheapest or shortest way between places and e
 ## Worked example: The fastest way to a customer
 
 ### The problem
-A customer has just placed an order, and your driver needs to get their pizza there as quickly as possible.
+Say you run a pizza shop. A customer has just placed an order, and your driver needs to get their pizza there as quickly as possible.
 
 There are several ways from the shop to the customer, and some roads take longer to drive than others. The route with the fewest roads isn't always the fastest one.
 
@@ -161,7 +161,7 @@ To visit: (4, A), (8, C), (9, C)
 
 ---
 
-**Take (4, A).** A is already done, because we found the quicker time of 3 earlier. **Skip it.**
+**Take (4, A).** A is already done, because we already reached A in 3 minutes through B. **Skip it.**
 
 To visit: (8, C), (9, C)
 
@@ -330,7 +330,7 @@ while to_visit:
 1. **Putting `(place, time)` in the heap instead of `(time, place)`.** The heap sorts by the first item, so the time must come first.
 2. **Forgetting the `done` check.** Without it, old slower entries get handled again. The answer usually still comes out right, but it does extra work and can confuse the route.
 3. **Only adding each road one way** when the roads go both ways. Add `(a → b)` and `(b → a)`.
-4. **Stopping when you first *see* the customer instead of when you *take it out* of the heap.** In the example, C is first seen at 9 minutes, but the fastest is 8. Only the time you take it out with is final.
+4. **Stopping when you first *see* the customer instead of when you *take it out* of the heap.** In the worked example, C is first seen at 9 minutes, but the fastest is 8. Only the time you take it out with is final.
 5. **Using Dijkstra when every road costs the same.** BFS (pattern 09) is simpler and does the same job then.
 
 ## Python you'll need
@@ -342,13 +342,13 @@ while to_visit:
 | `roads_from.get(place, [])` | the list for `place`, or an empty list if it has none | |
 | `route[-1]` | the last item in a list | `["C", "A"][-1]` is `"A"` |
 | `route.reverse()` | flip the list in place | `["C", "A", "B"]` becomes `["B", "A", "C"]` |
-| `d.setdefault(k, []).append(x)` | shortcut: create an empty list for `k` if needed, then add `x` | used in the solutions |
+| `d.setdefault(k, []).append(x)` | shortcut: create an empty list for `k` if needed, then add `x` | used in the model answers in `d_solutions.py` |
 
 ## Now practise
-`c_practice.py` has three problems:
-1. **The fastest way to a customer**, the example above. Type it in yourself: do Part 1 first, then add Part 2.
-2. **Fastest time from the shop to every place.** Easy once 1 works.
-3. **When has every shop got the promo message?** The links only go one way.
+`c_practice.py` in this folder has three problems:
+1. **The fastest way to a customer**, the worked example in this lesson. Type it in yourself: do Part 1 first, then add Part 2.
+2. **Fastest time from the shop to every place.** Easy once problem 1 works.
+3. **When has every shop got the promo message?** Head office sends a message to a few shops, and they pass it on along links that only go one way.
 
 Test your answers from the `pattern_course` folder:
 ```bash
@@ -358,4 +358,4 @@ python3 practice.py 12 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 12 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use this pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

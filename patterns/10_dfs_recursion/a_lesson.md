@@ -1,6 +1,6 @@
 # Pattern 10: DFS and recursion (go deep first)
 
-**Watch first:** [Learn RECURSION in 5 minutes!](https://www.youtube.com/watch?v=ivl5-snqul8) (Bro Code, 6 min), then [Depth First Search Visually Explained – DFS (Graphs)](https://www.youtube.com/watch?v=84jNzUOY78c) (ByteQuest, 0:00–3:40 only). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Learn RECURSION in 5 minutes!](https://www.youtube.com/watch?v=ivl5-snqul8) (Bro Code, 6 min), then [Depth First Search Visually Explained – DFS (Graphs)](https://www.youtube.com/watch?v=84jNzUOY78c) (ByteQuest, 0:00–3:40 only). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -12,10 +12,10 @@ python3 practice.py 10 --reset      # blank c_practice.py, to rewrite from memor
 ## What it does
 Recursion is when a function solves a problem by calling itself on a smaller piece of the same problem, then uses the answers that come back to build its own. It suits anything that contains smaller copies of itself, like folders inside folders, comments with replies to replies, or a combo deal that includes other deals.
 
-DFS, short for **depth-first search**, uses the same idea to explore things that are connected, like squares on a map or roads between places. It follows one path as far as it can go, then backs up and tries the next one, so it ends up visiting everything that can be reached from where it started. It's usually written with recursion, because "explore from here" is the same job at every step.
+DFS, short for **depth-first search**, is a way to explore things that are connected, like squares on a map or roads between places. It follows one path as far as it can go, then backs up and tries the next one, so it ends up visiting everything that can be reached from where it started. It's usually written with recursion, because "explore from here" is the same job at every step.
 
 ## A quick example
-As an example, say a folder holds 2 files plus a subfolder, and the subfolder holds 3 files. To count every file, the function counts the folder's own files and then calls itself on the subfolder, so the top folder's call has to wait for the subfolder's answer before it can finish:
+As an example, say a folder holds 2 files plus a subfolder, and the subfolder holds 3 files. To count every file, a function called `count` counts the folder's own files and then calls itself on the subfolder, so the top folder's call has to wait for the subfolder's answer before it can finish:
 
 | Call | Its own files | Files from folders inside it | Total it hands back |
 |---|---|---|---|
@@ -73,14 +73,14 @@ Every recursive function has two parts:
 
 Without the stopping point, the function calls itself forever and Python stops it with a `RecursionError`.
 
-**One more thing to know:** when a function calls itself, the first call **waits** until the inner call finishes and hands back its answer, then carries on. The worked example shows this in a table.
+**One more thing to know:** when a function calls itself, the first call **waits** until the inner call finishes and hands back its answer, then carries on. The "Watch it run" table in the worked example shows this.
 
 ---
 
 ## Worked example: How many pizzas are in this deal?
 
 ### The problem
-Your shop sells combo deals, and some deals include other deals. The Family deal comes with two pizzas of its own, plus a Kids box and a Party add-on. The Party add-on has a pizza of its own, plus a Mini pack.
+Your pizza shop sells combo deals, and some deals include other deals. The Family deal comes with two pizzas of its own, plus a Kids box and a Party add-on. The Party add-on has a pizza of its own, plus a Mini pack.
 
 The kitchen needs to know how many pizzas to make when someone orders a deal. Work out the total number of pizzas in a deal, including everything inside it, however many levels deep it goes.
 
@@ -180,18 +180,18 @@ def explore(place):
 2. **Calling itself on the same thing, not a smaller one.** `total_pizzas(deal)` inside `total_pizzas(deal)` never gets smaller. It must be `total_pizzas(inner_deal)`.
 3. **Forgetting to use what comes back.** Writing `total_pizzas(inner_deal)` on its own line throws the answer away. You need `total += total_pizzas(inner_deal)`.
 4. **Forgetting `seen` on a map.** Square (0,0) explores (0,1), which explores (0,0) again, forever.
-5. **Very deep recursion.** Python stops at about 1,000 calls deep. That's fine for interview-sized inputs. For huge maps you'd switch to a loop with a list used as a stack.
+5. **Very deep recursion.** Python stops at about 1,000 calls deep. That's fine for interview-sized inputs. For huge maps you'd switch to a loop with a list used as a stack (add to the end, take from the end).
 
 ## Python you'll need
 | Code | What it does | Example |
 |---|---|---|
 | `return` on its own | stop this call and hand back nothing | used in `explore` when a square is blocked |
-| `dict.get(key, [])` | the value, or an empty list if the key is missing | `roads.get("C", [])` gives `[]` |
-| a function inside a function | the inner one can use the outer one's names | `explore` uses `grid` and `seen` from `count_neighbourhoods` |
+| `dict.get(key, [])` | the value, or an empty list if the key is missing | `roads.get("C", [])` gives `[]` when `"C"` isn't a key in the dict `roads` |
+| a function inside a function | the inner one can use the outer one's names | in Problem 3 of `c_practice.py`, `explore` inside `count_neighbourhoods` uses its `grid` and `seen` |
 
 ## Now practise
 Open `c_practice.py`:
-- **Problem 1** is the deal above. Type it in yourself without looking.
+- **Problem 1** is this lesson's worked example, counting the pizzas in a deal. Type it in yourself without looking.
 - **Problem 2** (easier): count every route from the shop to a customer on one-way roads.
 - **Problem 3** (a little harder): count the separate neighbourhoods on a map.
 
@@ -203,4 +203,4 @@ python3 practice.py 10 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 10 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use DFS or recursion, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

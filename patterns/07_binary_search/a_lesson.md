@@ -1,6 +1,6 @@
 # Pattern 07: Binary search
 
-**Watch first:** [Binary Search Animated](https://www.youtube.com/watch?v=eVuPCG5eIr4) (Dreams of Code, 0:00–3:41 only), then [Binary Search Algorithm Explained (Full Code Included)](https://www.youtube.com/watch?v=DnvWAd-RGhk) (Derrick Sherrill, 6 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Binary Search Animated](https://www.youtube.com/watch?v=eVuPCG5eIr4) (Dreams of Code, 0:00–3:41 only), then [Binary Search Algorithm Explained (Full Code Included)](https://www.youtube.com/watch?v=DnvWAd-RGhk) (Derrick Sherrill, 6 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -15,7 +15,7 @@ Binary search finds something in a sorted list much faster than reading the list
 It works on anything that's sorted, like order numbers, dates, prices or words in a dictionary, and it can also find the smallest value that makes something work, as long as you can check any single value easily. Because every check halves what's left, a list of a million items needs only about 20 checks. This is called O(log n), which means the work grows very slowly as the list gets bigger.
 
 ## A quick example
-For example, finding 60 in this sorted list of 15 numbers takes four looks instead of eleven:
+For example, finding 60 in this sorted list of 15 numbers takes four looks, where reading from the start would take eleven:
 
 `[3, 8, 12, 19, 25, 31, 36, 42, 47, 55, 60, 68, 73, 81, 90]`
 
@@ -35,10 +35,10 @@ Use binary search when the data is sorted, or when you're hunting for a number a
 
 ---
 
-## Worked example: Find an order in the sorted order list
+## Worked example: Find an order in a sorted list of orders
 
 ### The problem
-Your shop keeps every order number from today in a list, sorted from smallest to biggest. A customer rings up about their order, and you need to find where it sits in the list so you can pull up its details.
+Your pizza shop keeps every order number from today in a list, sorted from smallest to biggest. A customer rings up about their order, and you need to find where it sits in the list so you can pull up its details.
 
 On a busy day the list can have hundreds of thousands of orders, so reading through it from the start is too slow while the customer waits on the phone.
 
@@ -55,7 +55,7 @@ The answer is `4`, because `order_ids[4]` is `120`. If the number isn't in the l
 ### How you'd do it with a pen
 Keep two markers, `low` and `high`, for the part of the list the order could still be in. At the start, that's the whole list: positions 0 to 6.
 
-Look at the item in the middle:
+Look at the item in the middle, at position `(low + high) // 2` (`//` divides and rounds down to a whole number):
 - **It's the target:** done.
 - **It's smaller than the target:** the target must be to the right, so move `low` past the middle.
 - **It's bigger than the target:** the target must be to the left, so move `high` before the middle.
@@ -123,15 +123,15 @@ while low <= high:
 return -1
 ```
 
-**A second form: "search on the answer".** Sometimes there's no list at all, and the question is "what's the smallest value that works?", like the slowest speed that still finishes on time. As long as you can write a function `works(value)` that answers True or False, and every value above a working one also works, you can binary search the **values** themselves instead of a list. Problem 3 is this kind.
+**A second form: "search on the answer".** Sometimes there's no list at all, and the question is "what's the smallest value that works?", like the slowest speed a machine can work at and still finish a job on time. As long as you can write a function `works(value)` that answers True or False, and every value above a working one also works, you can binary search the **values** themselves instead of a list. Problem 3 in `c_practice.py` is this kind.
 
 ---
 
 ## Common mistakes
 1. **Using it on an unsorted list.** Binary search gives wrong answers if the list isn't sorted.
-2. **`while low < high` instead of `while low <= high`.** In the version above, that skips the last item when `low` and `high` meet.
+2. **`while low < high` instead of `while low <= high`.** In this lesson's code, where `high` starts at the last position, that skips the last item when `low` and `high` meet.
 3. **`low = middle` instead of `low = middle + 1`.** You've already checked `middle`, so leave it out. Otherwise the loop can run forever.
-4. **Forgetting the empty list.** `high` starts at -1, so the loop never runs and you return -1. Good, but check that your version does the same.
+4. **Forgetting the empty list.** With an empty list, `high` starts at -1, so the loop never runs and you return -1. Good, but check that your version does the same.
 
 ---
 
@@ -149,8 +149,8 @@ It's worth writing binary search yourself at least once. In an interview, say "I
 
 ## Now practise
 Open `c_practice.py` in this folder:
-1. **Problem 1** is the worked example above. Type it in without looking.
-2. **Problem 2** (first delivery at or after a time) and **Problem 3** (slowest pizza robot speed) are new.
+1. **Problem 1** is this lesson's worked example, finding an order number. Type it in without looking.
+2. **Problem 2** (first delivery at or after a time) and **Problem 3** (the slowest speed for a pizza-topping robot) are new.
 
 Test your answers:
 ```bash
@@ -160,4 +160,4 @@ python3 practice.py 7 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 7 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use binary search, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

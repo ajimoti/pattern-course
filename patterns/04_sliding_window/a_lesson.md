@@ -1,6 +1,6 @@
 # Pattern 04: Sliding window
 
-**Watch first:** [Sliding window technique](https://www.youtube.com/watch?v=p-ss2JNynmw) (Inside code, 9 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Sliding window technique](https://www.youtube.com/watch?v=p-ss2JNynmw) (Inside code, 9 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -12,10 +12,10 @@ python3 practice.py 4 --reset      # blank c_practice.py, to rewrite from memory
 ## What it does
 A sliding window answers questions about groups of items that sit next to each other in a list, like the best three days in a row, the longest stretch of on-time deliveries, or the longest run of letters with no repeats. Instead of adding up every group from scratch, it works out the first group once and then slides along, adding the new item that comes in and taking away the one that drops out. The "window" is simply the group of items you're looking at right now.
 
-Sometimes the window is always the same size, like "any 3 days in a row", which is what the worked example below uses. Other times it grows and shrinks: it gets longer until it breaks a rule, then gives up items from the front until the rule is met again, like "the longest stretch with at most 1 late delivery". That second kind is explained further down and used in problem 3.
+Sometimes the window is always the same size, like "any 3 days in a row", which is what the worked example below uses. Other times it grows and shrinks: it gets longer until it breaks a rule, then gives up items from the front until the rule is met again, like "the longest stretch with at most 1 late delivery". That second kind is explained in "The second kind" section further down and used in Problem 3 of `c_practice.py`.
 
 ## A quick example
-As an example, here are the first two three-day stretches of a week's takings, `[120, 80, 200, 150, ...]`. The second total comes straight from the first one:
+Say your pizza shop writes down its takings (the money it takes in a day) for each day of a week, starting from day 0: `[120, 80, 200, 150, ...]`. You want the total for every stretch of three days in a row. Here are the first two of those stretches. The second total comes straight from the first one:
 
 | Days | How you get the total |
 |---|---|
@@ -33,9 +33,9 @@ Use a sliding window when the question is about a run of items next to each othe
 ## Worked example: The best three days in a row
 
 ### The problem
-The shop owner is planning a three-day promotion for next year and wants to copy the timing of this year's best stretch. She has the takings for each day this week and wants to know which three days in a row brought in the most money.
+The owner of your pizza shop is planning a three-day promotion for next year and wants to copy the timing of this year's best three days in a row. To try the idea out, she starts with the takings for one week and wants to know which three days in a row brought in the most money.
 
-There are only six days in this example, but the real report covers a whole year, so adding up every three-day stretch from scratch would mean a lot of repeated adding.
+There are only six days in this example, but the real list of takings covers a whole year, so adding up every three-day stretch from scratch would mean a lot of repeated adding.
 
 **Your task is to find the three consecutive days with the highest total takings, and say which day the stretch started on.**
 
@@ -114,9 +114,9 @@ With a year of data and a 7-day stretch, adding every stretch from scratch takes
 ---
 
 ## The second kind: a window that grows and shrinks
-Problem 3 asks for the **longest** stretch of deliveries with **at most k late ones**. Because the length isn't fixed, the window works a little differently, repeating these steps for each delivery:
+Problem 3 in `c_practice.py` asks for the **longest** stretch of deliveries with **at most k late ones**. Because the length isn't fixed, the window works a little differently, repeating these steps for each delivery:
 
-1. Add the next delivery to the end of the window, and if it's late, add 1 to `late`.
+1. Add the next delivery to the end of the window, and if it's late, add 1 to `late` (the number of late deliveries in the window).
 2. While the window has too many late deliveries, remove deliveries from the front, taking 1 off `late` whenever a removed one was late.
 3. The window now follows the rule, so check whether it's the longest so far.
 
@@ -175,7 +175,7 @@ for right in range(len(items)):
 ```
 
 ## Common mistakes
-1. **Off by one on the window's start.** After adding `new_day`, the stretch starts at `new_day - k + 1`, not `new_day - k`. Write the trace table out for the first step to check.
+1. **Off by one on the window's start.** After adding `new_day`, the stretch starts at `new_day - k + 1`, not `new_day - k`. Write out the first row of the "Watch it run" table to check.
 2. **Recalculating with `sum()` inside the loop.** `sum(revenue[start:start + k])` in the loop works, but it's the slow version.
 3. **Using `if` instead of `while` when shrinking.** One removal might not be enough. Keep removing until the rule is met.
 4. **Window length.** The length from `left` to `right` is `right - left + 1`. From position 2 to position 4 is 3 items: 2, 3 and 4.
@@ -191,9 +191,9 @@ for right in range(len(items)):
 
 ## Now practise
 Open `c_practice.py` in this folder:
-- **Problem 1** is the worked example. Type it in without looking.
+- **Problem 1** is "The best three days in a row" worked example in this lesson. Type it in without looking.
 - **Problem 2** (how many three-day stretches hit a target) is a fixed-size window.
-- **Problem 3** (the longest stretch with at most k late deliveries) is the window that grows and shrinks, explained just above.
+- **Problem 3** (the longest stretch with at most k late deliveries) is the window that grows and shrinks, explained in "The second kind" section of this lesson.
 
 Test your answers from the `pattern_course` folder:
 ```bash
@@ -203,4 +203,4 @@ python3 practice.py 4 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 4 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use a sliding window, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

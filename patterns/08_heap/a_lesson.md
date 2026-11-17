@@ -1,6 +1,6 @@
 # Pattern 08: Heap (always get the smallest next)
 
-**Watch first:** [The easiest way to learn about Heaps and Priority Queue](https://www.youtube.com/watch?v=QSLbp6NO2-s) (AlgoMonster, 0:00–3:45 only), then [Data Structures in Python – Heapq Module](https://www.youtube.com/watch?v=4hkJBcW5Ruk) (Syed Mohiuddin, 5 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [The easiest way to learn about Heaps and Priority Queue](https://www.youtube.com/watch?v=QSLbp6NO2-s) (AlgoMonster, 0:00–3:45 only), then [Data Structures in Python – Heapq Module](https://www.youtube.com/watch?v=4hkJBcW5Ruk) (Syed Mohiuddin, 5 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -39,7 +39,7 @@ Use a heap when you need the smallest (or soonest, cheapest, closest) item again
 ```python
 import heapq
 
-heapq.heappush(h, x)    # add x
+heapq.heappush(h, x)    # add x to the heap h
 h[0]                    # look at the smallest (without removing it)
 heapq.heappop(h)        # remove the smallest and give it back
 ```
@@ -118,7 +118,7 @@ def dispatch(orders, drivers, trip):
 This works, but `min()` and `.index()` both look at every driver for every order, so with 1,000 drivers that's around 1,000 steps per order.
 
 ### The code, second version: with a heap
-With a heap, you don't need to know **which** driver it is. Take out the soonest time and put back that driver's new time:
+With a heap, you don't need to know **which** driver is back soonest. Take out the soonest time and put back that driver's new time:
 ```python
 import heapq
 
@@ -165,7 +165,7 @@ Returns `{101: 0, 102: 2, 103: 6, 104: 10}`.
 ## The pattern, in general
 ```python
 import heapq
-h = starting_items            # use heapq.heapify(h) if they aren't all equal
+h = starting_items            # if the items aren't all equal, heapq.heapify(h) turns the list into a heap
 for item in work:
     smallest = heapq.heappop(h)          # 1. take out the soonest / smallest
     ...                                  # 2. use it
@@ -193,7 +193,7 @@ for item in work:
 
 ## Now practise
 Open `c_practice.py` in this folder:
-1. **Problem 1** is the worked example above. Write the heap version.
+1. **Problem 1** is this lesson's worked example, giving orders to drivers. Write the heap version.
 2. **Problem 2** (the closest customers) and **Problem 3** (merging sorted order lists) are new.
 
 Test your answers:
@@ -204,4 +204,4 @@ python3 practice.py 8 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 8 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use a heap, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

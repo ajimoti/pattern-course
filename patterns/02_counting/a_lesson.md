@@ -1,6 +1,6 @@
 # Pattern 02: Counting with a dict
 
-**Watch first:** [Valid Anagram - Leetcode 242 - Python](https://www.youtube.com/watch?v=9UtInBqnCgA) (NeetCode, 0:00–9:10 only). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Valid Anagram - Leetcode 242 - Python](https://www.youtube.com/watch?v=9UtInBqnCgA) (NeetCode, 0:00–9:10 only). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -12,10 +12,10 @@ python3 practice.py 2 --reset      # blank c_practice.py, to rewrite from memory
 ## What it does
 Counting with a dict answers questions about how often things appear in a list. It works on any list where things repeat, like words in a sentence, items in shopping baskets, votes in a poll, or orders in a day, because you go through the list once and keep a running tally for each thing in a dict.
 
-Once the tally is done, you answer the question from the counts instead of going back to the list, so "which is the most common" or "which appeared only once" becomes a quick look at the dict. The same idea also lets you group things that are the same, by storing a list of matching items under each key instead of a number.
+Once the tally is done, you answer the question from the counts instead of going back to the list, so "which is the most common" or "which appeared only once" becomes a quick look at the dict. A counting dict also lets you group things that are the same, by storing a list of matching items under each key instead of a number.
 
 ## A quick example
-As an example, here's a tally of the orders in one hour as you go through them one by one:
+Say a pizza shop gets 4 orders in one hour: pepperoni, hawaiian, hawaiian, margherita. You go through them one at a time and add 1 to that pizza's count in a dict:
 
 | Order | Tally after this order |
 |---|---|
@@ -39,7 +39,7 @@ Use a counting dict whenever the question is about how often things appear, or a
 ### The problem
 Your pizza shop's app has a "Popular right now" section that shows customers which pizzas have been ordered the most in the last hour.
 
-As customers place orders, the system records the type of pizza and the minute each order was placed.
+As customers place orders, the app records the type of pizza and the minute each order was placed.
 
 You want this section to reflect recent orders rather than all-time sales, so only orders placed within the last 60 minutes should count.
 
@@ -144,7 +144,7 @@ for item in items:
 # then use counts to answer the question:
 #   most common  -> sort by count
 #   only once    -> keep items where counts[item] == 1
-#   group things -> store a LIST per key instead of a number (see problem 3)
+#   group things -> store a LIST per key instead of a number (Problem 3 in c_practice.py)
 ```
 This takes one pass through the list plus whatever you then do with the counts, which is much faster than going back through the whole list to count each item separately.
 
@@ -167,8 +167,8 @@ This takes one pass through the list plus whatever you then do with the counts, 
 
 ## Now practise
 Open `c_practice.py` in this folder:
-- **Problem 1** is the example above. Type it in without looking.
-- **Problem 2** (the first customer who only ordered once) and **Problem 3** (grouping orders with the same toppings) use the same counting dict.
+- **Problem 1** is the "What's popular right now?" worked example in this lesson. Type it in without looking.
+- **Problem 2** (the first customer who only ordered once) and **Problem 3** (grouping orders with the same toppings) also use a counting dict.
 
 Test your answers from the `pattern_course` folder:
 ```bash
@@ -178,4 +178,4 @@ python3 practice.py 2 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 2 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use a counting dict, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

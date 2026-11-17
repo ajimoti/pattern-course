@@ -1,6 +1,6 @@
 # Pattern 11: Try every option
 
-**Watch first:** [Backtracking was HARD until I learned it this way](https://www.youtube.com/watch?v=Ak-fxEwAR14) (AlgoMonster, 6 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Backtracking was HARD until I learned it this way](https://www.youtube.com/watch?v=Ak-fxEwAR14) (AlgoMonster, 6 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -10,12 +10,12 @@ python3 practice.py 11 --reset      # blank c_practice.py, to rewrite from memor
 ```
 
 ## What it does
-Trying every option means listing every possible answer, checking each one, and keeping the best, instead of looking for a clever shortcut. It works for any question where the answer is an order or a group picked from a small set of things, like the order to visit a few places, which toppings to pick, or which orders to put together so they add up to an exact amount.
+Trying every option means listing every possible answer, checking each one, and keeping the best, instead of looking for a clever shortcut. It works for any question where the answer is an order or a group picked from a small set of things, like the order to visit a few places, which toppings to pick, or which customer orders to put together so they add up to an exact amount.
 
-People often call this **brute force**. It's reliable because it can't miss the best answer, but the number of options grows very quickly as the list gets longer, so it's only practical when there are just a handful of items.
+People often call this **brute force**. It's reliable because it can't miss the best answer, but the number of options grows very quickly as you add more items, so it's only practical when there are just a handful of items.
 
 ## A quick example
-As an example, say a customer can pick any 2 toppings from ham (£1.20), mushroom (£0.80) and olive (£0.60), and you want the cheapest pair. There are only three possible pairs, so you can simply list them all and keep the cheapest:
+Say a pizza shop lets a customer pick any 2 toppings from ham (£1.20), mushroom (£0.80) and olive (£0.60), and you want the cheapest pair. There are only three possible pairs, so you can simply list them all and keep the cheapest:
 
 | Pair | Total | Cheapest so far |
 |---|---|---|
@@ -31,7 +31,7 @@ Reach for it when the question wants the best order or the best group, and the i
 - **find a group that adds up to exactly** some amount
 - a small input, sometimes with the question even saying brute force is fine
 
-The catch is how fast the number of options grows, which makes it fine for a handful of items and far too slow for hundreds, so always mention this in the interview:
+The catch is how fast the number of options grows, which makes it fine for a handful of items and far too slow for hundreds, so always mention this in an interview:
 
 | Items | Orders to try (permutations) | Groups to try (any size) |
 |---|---|---|
@@ -45,9 +45,9 @@ The catch is how fast the number of options grows, which makes it fine for a han
 ## Worked example: The shortest delivery route
 
 ### The problem
-A driver starts at the pizza shop, delivers to three customers, then drives back to the shop. They can visit the customers in any order. Which order means the least driving?
+A driver starts at a pizza shop, delivers to three customers, then drives back to the shop. They can visit the customers in any order. Which order means the least driving?
 
-Every place is given as a pair of numbers, like `1,1`. You don't need to picture it on a map, because Python works out the distances for you.
+Every place is given as a pair of numbers, like `1,1`. You don't need to picture them on a map, because Python works out the distances for you.
 
 The input comes in as text, like this:
 ```
@@ -78,7 +78,7 @@ def read_points(text):
 `read_points("0,0 1,1 2,0 2,2")` gives `[(0, 0), (1, 1), (2, 0), (2, 2)]`.
 
 ### Step 2: how far is it between two places?
-Python has a built-in function for this: **`math.dist(place1, place2)`**. It gives the straight-line distance between two addresses.
+Python's `math` module (add `import math` at the top of your file) has a function for this: **`math.dist(place1, place2)`**. It gives the straight-line distance between two addresses.
 
 ```python
 math.dist((0, 0), (1, 1))    # 1.41
@@ -181,7 +181,7 @@ def best_route(points):
     return best, shortest
 ```
 
-To run it from the command line, as the original task asked:
+To run it from the command line, with the input text typed after the script name:
 ```python
 import sys
 
@@ -205,10 +205,10 @@ Total distance: 6.83
 | `order` | one order of the customers | `((1, 1), (2, 2), (2, 0))` |
 | `trip` | that order with the shop at both ends | `[(0, 0), (1, 1), (2, 2), (2, 0), (0, 0)]` |
 | `length` | that trip's total distance | `6.83` |
-| `shortest`, `best` | the shortest length found so far, and its trip | `6.83`, the trip above |
+| `shortest`, `best` | the shortest length found so far, and its trip | `6.83`, `[(0, 0), (1, 1), (2, 2), (2, 0), (0, 0)]` |
 
 ### Watch it run
-The pen table above is exactly what the loop does: each row is one pass through `for order in permutations(customers)`, and the last column is `shortest` after that pass.
+The table under "How you'd do it with a pen" is exactly what the loop in `best_route` does: each row is one pass through `for order in permutations(customers)`, and the last column is `shortest` after that pass.
 
 ### What to say in the interview
 "With only a few deliveries, I'll try every order of the customers with `permutations`, put the shop at the start and end, measure each trip, and keep the shortest. That's exact, but the number of orders grows very fast: 8 customers is 40,000 orders, 12 is nearly 500 million. For a lot of stops, I'd switch to always driving to the nearest customer not yet visited. That's fast, but it doesn't always find the very best route."
@@ -269,10 +269,10 @@ Interviewers sometimes ask you to do this without `itertools`, so it's worth kno
 | `sys.argv[1]` | the text typed after the script name | `"0,0 1,1 2,0 2,2"` |
 
 ## Now practise
-Open `c_practice.py`:
-- **Problem 1** is the route above. Type it in yourself without looking.
+Open `c_practice.py` in this folder:
+- **Problem 1** is the shortest delivery route from the worked example. Type it in yourself without looking.
 - **Problem 2** (easier): every way to choose toppings. Do it with `combinations`, then again without it.
-- **Problem 3** (a little harder): find orders that exactly fill the delivery van.
+- **Problem 3** (a little harder): find customer orders that exactly fill a delivery van.
 
 Test your answers from the `pattern_course` folder:
 ```bash
@@ -282,4 +282,4 @@ python3 practice.py 11 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 11 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use this pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

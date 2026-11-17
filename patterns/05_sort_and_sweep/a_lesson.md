@@ -1,6 +1,6 @@
 # Pattern 05: Sort, then walk through once
 
-**Watch first:** [Merge Interval Algorithm In 4 Minutes](https://www.youtube.com/watch?v=hG9QDwiE28w&t=52s) (Kantan Coding, 5 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Merge Interval Algorithm In 4 Minutes](https://www.youtube.com/watch?v=hG9QDwiE28w&t=52s) (Kantan Coding, 5 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -10,7 +10,7 @@ python3 practice.py 5 --reset      # blank c_practice.py, to rewrite from memory
 ```
 
 ## What it does
-Sort and sweep handles questions about things that take up a stretch of time or a range, like bookings, work shifts, meetings or train journeys. You put everything in order first, then walk through the list once, keeping a running count or a note of the current item as you go.
+Sort and sweep ("sweep" just means walking through the sorted list once, from start to end) handles questions about things that take up a stretch of time or a range, like bookings, work shifts, meetings or train journeys. You put everything in order first, then walk through the list once, keeping a running count or a note of the current item as you go.
 
 Sorting is what makes this work, because once everything is in time order, each item only needs to be compared with what came just before it, instead of with every other item in the list.
 
@@ -20,8 +20,8 @@ For example, a café has three table bookings: 9:00–10:00, 9:30–11:00 and 10
 | Booking | Compared with the one before | Clash? |
 |---|---|---|
 | 9:00–10:00 | it's the first one, nothing to compare | no |
-| 9:30–11:00 | starts at 9:30, before the last one ends at 10:00 | yes |
-| 10:30–12:00 | starts at 10:30, before the last one ends at 11:00 | yes |
+| 9:30–11:00 | starts at 9:30, before 9:00–10:00 ends at 10:00 | yes |
+| 10:30–12:00 | starts at 10:30, before 9:30–11:00 ends at 11:00 | yes |
 
 ## When to use it
 Reach for this pattern when a question gives you a list of start and end times and asks how they overlap, for example:
@@ -32,7 +32,7 @@ Reach for this pattern when a question gives you a list of start and end times a
 
 ---
 
-## Worked example: How many ovens does the shop need?
+## Worked example: How many ovens does your pizza shop need?
 
 ### The problem
 Your pizza shop is getting busier, and you need to figure out how many ovens are required to handle all the orders.
@@ -106,6 +106,7 @@ def min_ovens(bakes):
 | `timeline` | every (minute, +1 or −1) | `[(0, 1), (5, 1), (10, -1), ...]` |
 | `in_oven` | pizzas baking right now | `2` |
 | `most_at_once` | the highest `in_oven` has been | `3` |
+| `change` | +1 when a pizza goes in, −1 when one comes out | `1` |
 | `_` | the minute; we don't need it in the loop, so it gets a throwaway name | `10` |
 
 ### Watch it run
@@ -157,7 +158,7 @@ def sort_and_sweep(items):
 | Code | What it does | Example |
 |---|---|---|
 | `sorted(list)` | a new list in order; pairs are compared by the first value, then the second | `sorted([(10, 1), (10, -1)])` gives `[(10, -1), (10, 1)]` |
-| `sorted(list, key=lambda x: x[0])` | sort pairs by the first value only | |
+| `sorted(list, key=lambda x: x[0])` | sort pairs by the first value only (`lambda x: x[0]` is a tiny function that gives back the first value of a pair) | |
 | `max(a, b)` | the bigger of two values | `max(2, 3)` gives `3` |
 | `list[-1]` | the last item in a list | `[1, 2, 3][-1]` gives `3` |
 
@@ -165,7 +166,7 @@ def sort_and_sweep(items):
 
 ## Now practise
 Open `c_practice.py` in this folder:
-1. **Problem 1** is the worked example above. Type it in without looking.
+1. **Problem 1** is the ovens worked example in this lesson. Type it in without looking.
 2. **Problem 2** (merge driver shifts) and **Problem 3** (can one driver do every delivery?) are new.
 
 Test your answers:
@@ -176,4 +177,4 @@ python3 practice.py 5 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 5 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use sort and sweep, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

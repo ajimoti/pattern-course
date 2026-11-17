@@ -1,6 +1,6 @@
 # Pattern 14: Dynamic programming (build answers from smaller answers)
 
-**Watch first:** [What Is Dynamic Programming and How To Use It](https://www.youtube.com/watch?v=vYquumk4nWw) (CS Dojo, 11 min; you can skip 6:37–9:20), then [Mastering Dynamic Programming - How to solve any interview problem](https://www.youtube.com/watch?v=Hdr64lKQ3e4&t=472s) (Tech With Nikola, 12 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [What Is Dynamic Programming and How To Use It](https://www.youtube.com/watch?v=vYquumk4nWw) (CS Dojo, 11 min; you can skip 6:37–9:20), then [Mastering Dynamic Programming - How to solve any interview problem](https://www.youtube.com/watch?v=Hdr64lKQ3e4&t=472s) (Tech With Nikola, 12 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -15,7 +15,7 @@ Dynamic programming answers a big question by building up to it from smaller ver
 It works on questions that ask for the fewest, the most, or the number of ways to reach something, like making a total from coins or boxes, choosing the best set of houses or jobs, or counting the ways to climb a staircase. The name "dynamic programming" (often shortened to **DP**) doesn't describe the idea well, but in practice it just means **filling in a table of answers, smallest first**.
 
 ## A quick example
-For example, to find the fewest boxes for 7 slices when boxes hold 1, 4 or 6, you work up from 1 slice, using answers you've already written to get each new one:
+Say a pizza shop sells slices in boxes that hold 1, 4 or 6, and every box must go out full. To find the fewest boxes for 7 slices, you work up from 1 slice, using answers you've already written to get each new one:
 
 | Slices | Fewest boxes | How |
 |---|---|---|
@@ -38,7 +38,7 @@ Use it when the question asks for the fewest, the most, or how many ways, and th
 ## Worked example: The fewest boxes for an order of slices
 
 ### The problem
-Your shop sells pizza by the slice, and slices go out in boxes that hold 1, 4 or 6 slices. Every box has to go out full, so no half-empty boxes.
+Your pizza shop sells by the slice, and slices go out in boxes that hold 1, 4 or 6 slices. Every box has to go out full, so no half-empty boxes.
 
 Boxes cost money, so for each order you want to use as few boxes as possible. Sometimes the obvious choice isn't the best one. For 8 slices, grabbing the biggest box first gives 6 + 1 + 1 (three boxes), but 4 + 4 is only two.
 
@@ -92,7 +92,7 @@ For each amount, try each box size that fits: that's 1 box plus the stored answe
 **best[8] = 2.** Every number in a row comes from rows above it that are already filled in.
 
 ### When it's impossible
-With box sizes `[4, 6]` and 7 slices, rows 1, 2, 3, 5 and 7 have no way to make them. We mark those as **infinity** (`float("inf")`), meaning "can't be done", and because every number is smaller than infinity, any real answer will replace it. If `best[7]` is still infinity at the end, return -1.
+With box sizes `[4, 6]` and 7 slices, the amounts 1, 2, 3, 5 and 7 can't be made. We mark those as **infinity** (`float("inf")`), meaning "can't be done", and because every number is smaller than infinity, any real answer will replace it. If `best[7]` is still infinity at the end, return -1.
 
 ### The code
 ```python
@@ -162,10 +162,10 @@ return table[n]
 
 ## Common mistakes
 1. **Going greedy.** "Biggest first" or "best-looking first" fails on cases like 8 with [1, 4, 6]. Test that case.
-2. **Forgetting the size-0 entry.** `best[0] = 0` (and `ways[0] = 1` in problem 3) is what everything else is built on.
+2. **Forgetting the size-0 entry.** `best[0] = 0` (and `ways[0] = 1` in problem 3 of `c_practice.py`) is what everything else is built on.
 3. **Not handling "impossible".** Start with infinity and check for it at the end. Starting with 0 would give wrong answers.
 4. **Off-by-one on the list size.** You need entries 0 to `slices`, which is `slices + 1` entries. That's why it's `[0] + [inf] * slices`.
-5. **Counting the same mix twice** in "how many ways" questions. Put the box sizes in the **outer** loop (see problem 3).
+5. **Counting the same mix twice** in "how many ways" questions. Put the box sizes in the **outer** loop (see problem 3 in `c_practice.py`).
 
 ## Python you'll need
 | Code | What it does | Example |
@@ -176,10 +176,10 @@ return table[n]
 | `max(a, b)` / `min(a, b)` | the bigger / smaller of two numbers | `max(7, 11)` is `11` |
 
 ## Now practise
-`c_practice.py` has three problems:
-1. **The fewest boxes for an order of slices**, the example above. Type it in yourself.
-2. **The most tips on one street.** At each house, decide: skip it, or stop and add this tip to the best total from two houses back. Fill the table house by house.
-3. **How many ways to box an order?** Count the mixes instead of finding the fewest.
+`c_practice.py` in this folder has three problems:
+1. **The fewest boxes for an order of slices**, the worked example in this lesson. Type it in yourself.
+2. **The most tips on one street.** A driver delivering down one street can't stop at two houses next door to each other, and wants the most tips. At each house, decide: skip it, or stop and add this tip to the best total from two houses back. Fill a table house by house.
+3. **How many ways to box an order?** Count the different mixes of boxes for an order instead of finding the fewest.
 
 Test your answers from the `pattern_course` folder:
 ```bash
@@ -189,4 +189,4 @@ python3 practice.py 14 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 14 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use this pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

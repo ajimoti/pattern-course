@@ -1,6 +1,6 @@
 # Pattern 01: Dict lookup
 
-**Watch first:** [Python Tutorial for Beginners 5: Dictionaries](https://www.youtube.com/watch?v=daefaLgNkw0) (Corey Schafer, 10 min), then [Lists vs Sets (for lookup efficiency)](https://www.youtube.com/watch?v=xzDEEzH8XWk) (BugBytes, 7 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Python Tutorial for Beginners 5: Dictionaries](https://www.youtube.com/watch?v=daefaLgNkw0) (Corey Schafer, 10 min), then [Lists vs Sets (for lookup efficiency)](https://www.youtube.com/watch?v=xzDEEzH8XWk) (BugBytes, 7 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -39,13 +39,13 @@ Reach for a dict whenever your code would otherwise search one list over and ove
 ### The problem
 Your pizza shop promises to deliver every order within 30 minutes. At the end of each night, you need to find out which orders failed to meet that promise.
 
-To do this, you have two lists: one containing every order placed that day, and another containing the drivers' delivery logs, including how long each delivery took.
+To do this, you have two lists: one containing every order placed that day, and a delivery log from your drivers, showing how long each delivery took.
 
 Not every order gets delivered. For example, order 3 was cancelled, so it doesn't appear in the delivery log.
 
 A colleague has already written some code to identify orders that took longer than promised. The code works correctly, but there's a problem: for every order, it searches through the entire delivery log to find a match.
 
-With just five orders, this isn't a big deal. But on a busy night with 1,000 orders, the code could end up making 1,000,000 comparisons.
+With only a few orders, this isn't a big deal. But on a busy night with 1,000 orders, the code could end up making 1,000,000 comparisons.
 
 **Your task is to optimise the existing code so it produces the same result without repeatedly searching through the delivery log.**
 
@@ -173,14 +173,14 @@ This is fast because a list has to be checked item by item to find something, wh
 | `key in d` | is this key in the dict? | `3 in minutes` gives `False` |
 | `d[key]` | get the value (crashes if the key is missing) | `minutes[2]` gives `40` |
 | `d.get(key)` | get the value, or `None` if the key is missing | `minutes.get(3)` gives `None` |
-| `s = set()` | an empty set: like a dict with keys but no values | |
+| `s = set()` | an empty set: like a dict with keys but no values | `paid = set()` |
 | `s.add(x)` | put `x` in the set | `paid.add(103)` |
 | `x in s` | is `x` in the set? (instant, like a dict) | `102 in paid` gives `False` |
 
 ## Now practise
 Open `c_practice.py` in this folder:
-- **Problem 1** is the example above. Type it in without looking.
-- **Problem 2** (orders nobody has paid for) and **Problem 3** (two orders that use up a voucher) use the same idea.
+- **Problem 1** is the "Which orders arrived late?" worked example in this lesson. Type it in without looking.
+- **Problem 2** (orders nobody has paid for) and **Problem 3** (two orders that use up a voucher) also use a dict or set lookup.
 
 Test your answers from the `pattern_course` folder:
 ```bash
@@ -190,4 +190,4 @@ python3 practice.py 1 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 1 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use a dict lookup, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.

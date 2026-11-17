@@ -1,6 +1,6 @@
 # Pattern 06: Stack
 
-**Watch first:** [Python Stacks - Python Tutorial for Absolute Beginners](https://www.youtube.com/watch?v=NKmasqr_Xkw) (Programming with Mosh, 5 min). Every problem's video is listed in `b_videos.md`.
+**Watch first:** [Python Stacks - Python Tutorial for Absolute Beginners](https://www.youtube.com/watch?v=NKmasqr_Xkw) (Programming with Mosh, 5 min). Each practice problem's video is listed in `b_videos.md` in this folder.
 
 **Commands for this pattern** (run them in the `pattern_course` folder):
 ```bash
@@ -44,7 +44,7 @@ Use a stack when the thing you need to deal with next is always the most recent 
 ## Worked example: Are the brackets in an order note balanced?
 
 ### The problem
-Customers can add a note to their order, and the kitchen's printer uses brackets to format it: `( )`, `[ ]` and `{ }`. If a note has a bracket that's never closed, or closed with the wrong type, the printer jams and the ticket comes out as nonsense.
+Say you run a pizza shop. Customers can add a note to their order, and the kitchen's printer uses brackets to format it: `( )`, `[ ]` and `{ }`. If a note has a bracket that's never closed, or closed with the wrong type, the printer jams and the ticket comes out as nonsense.
 
 Before a note is sent to the kitchen, you want to check that every bracket is closed, by the right type, in the right order. Any other characters in the note don't matter.
 
@@ -118,7 +118,7 @@ def is_balanced(note):
 | `)` | `["(", "["]` | needs `(`, but `stack[-1]` is `[` | **return False** |
 
 ### What to say in the interview
-"I go through the note once and keep a stack of opening brackets that haven't been closed. A closing bracket has to match the one on top of the stack, the most recent one. If it doesn't match, or the stack is empty, it's unbalanced. At the end the stack must be empty. That's O(n): the work grows in step with the length of the note."
+"I go through the note once and keep a stack of opening brackets that haven't been closed. A closing bracket has to match the one on top of the stack, which is the last one added. If it doesn't match, or the stack is empty, it's unbalanced. At the end the stack must be empty. That's O(n): the work grows in step with the length of the note."
 
 ---
 
@@ -141,14 +141,14 @@ return ...                         # often: is the stack empty?
 ## Common mistakes
 1. **Calling `stack.pop()` or `stack[-1]` on an empty list.** That crashes with an `IndexError`. Check `if not stack` first.
 2. **Forgetting the final check.** `"(("` never fails during the loop, but the stack isn't empty at the end.
-3. **Using `stack.pop(0)`.** That takes from the front, which makes it a queue, not a stack.
+3. **Using `stack.pop(0)`.** That takes from the front, which makes it a queue (first in, first out), not a stack.
 
 ---
 
 ## Now practise
 Open `c_practice.py` in this folder:
-1. **Problem 1** is the worked example above. Type it in without looking.
-2. **Problem 2** (undo in the order editor) and **Problem 3** (days until a busier day) are new.
+1. **Problem 1** is this lesson's worked example, the bracket checker. Type it in without looking.
+2. **Problem 2** (undo in an order editor) and **Problem 3** (days until a busier day) are new.
 
 Test your answers:
 ```bash
@@ -158,4 +158,4 @@ python3 practice.py 6 --solutions  # see the model answers pass
 Tomorrow, run `python3 practice.py 6 --reset` to blank your answers and write them again from memory.
 
 ## More practice
-Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use the same pattern, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
+Once all 3 problems pass, work through `e_more_practice.md` in this folder: 5 to 7 free LeetCode problems that use a stack, easiest first. When you want even more, `e_practice_links.md` has whole LeetCode and NeetCode categories for this pattern, plus 6 to 8 more problems.
